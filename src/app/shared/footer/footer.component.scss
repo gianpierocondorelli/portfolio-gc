@@ -3,6 +3,7 @@
 
 .footer {
   display: flex;
+  flex-direction: column;
   position: fixed;
   align-items: center;
   justify-content: center;
@@ -12,6 +13,8 @@
   background: $lapis-lazuli;
   box-shadow: $box-shadow;
   color: $white !important;
+  text-transform: uppercase;
+  letter-spacing: $font-size / 3;
 
   a {
     color: $white !important;
@@ -27,4 +30,24 @@
     }
   }
 
+  .social-logos {
+    display: flex;
+    flex-direction: row;
+
+    .social-logo {
+      &:before {
+        content: '  '
+      }
+
+      &:after {
+        content: '  |';
+      }
+
+      &:last-child {
+        &:after {
+          content: '' !important;
+        }
+      }
+    }
+  }
 }
