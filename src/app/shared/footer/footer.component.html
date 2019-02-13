@@ -1,3 +1,13 @@
 <div class="footer">
-  Portfolio produced by ---
+  <div class="text">
+    {{ 'FOOTER.TEXT' | translate:{ 'value' : year } }}
+  </div>
+  <div class="social-logos">
+    <div class="social-logo">
+      <fa-icon [icon]="['fab','linkedin']"></fa-icon>
+    </div>
+    <div class="social-logo">
+      <fa-icon [icon]="['fab','instagram']"></fa-icon>
+    </div>
+  </div>
 </div>
