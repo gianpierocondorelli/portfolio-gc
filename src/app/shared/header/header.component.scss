@@ -1,0 +1,33 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+.header {
+  display: flex;
+  position: fixed;
+  height: 12vh;
+  width: 100vw;
+  background: $lapis-lazuli;
+  box-shadow: $box-shadow;
+  padding: 0 2vw;
+  align-items: center;
+  color: $white !important;
+
+  .logo {
+    font-family: $font-family-logo;
+    font-size: $font-size *3;
+  }
+
+  a {
+    color: $white !important;
+
+    &:visited {
+      color: $white;
+    }
+
+    &:hover {
+      color: $gray-400;
+      animation: linear 0.2s;
+      text-decoration: underline;
+    }
+  }
+}
