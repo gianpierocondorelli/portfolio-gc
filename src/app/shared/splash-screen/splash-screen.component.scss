@@ -9,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: $lapis-lazuli !important;
+  text-shadow: $text-shadow $lapis-lazuli;
 
   .container-logo {
     justify-content: center;

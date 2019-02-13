@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, Input } from '@angular/core';
 
 import { BaseComponent } from '../base-component';
 
@@ -8,6 +8,8 @@ import { BaseComponent } from '../base-component';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
+
+  @Input() notDisplayMenu = false;
 
   constructor(injector: Injector) {
     super(injector);

@@ -1,4 +1,11 @@
 {
+  "COMMON": {
+    "MENU": {
+      "INFO": "Info",
+      "LIFE": "Life",
+      "SOCIAL": "Social"
+    }
+  },
   "FOOTER": {
     "TEXT": "{{ value }} | Gianpiero Condorelli"
   },

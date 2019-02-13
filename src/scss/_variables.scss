@@ -8,7 +8,8 @@ $font-size: 2vh;
 $borderRadius: 2vmin;
 $letter-spacing: 0.3vw;
 $disabledOpacity: 0.35;
-$box-shadow: 0.1vmin 0.1vmin 0.1vmin 0.1vmin $gray-400;
+$box-shadow: 0.1vmin 0.1vmin 0.1vmin 0.1vmin;
+$text-shadow: 0 0 0.5vmin;
 /// Header
 $headerBorderWidth: 1vmin;
 $headerBorderColor: $light-gray;

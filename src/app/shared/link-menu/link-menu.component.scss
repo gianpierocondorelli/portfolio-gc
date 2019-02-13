@@ -1,0 +1,67 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+.icon-menu {
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  width: 10vmax;
+  padding: 1.5vmax;
+
+  &:last-child {
+    margin: auto;
+  }
+
+  &:hover {
+    .icon {
+      opacity: 0;
+    }
+
+    .text {
+      opacity: 1;
+    }
+  }
+
+  .icon {
+    font-size: $font-size * 2;
+    transition: 0.25s;
+    display: block;
+    opacity: 1;
+
+    &.hover {
+      display: none;
+    }
+  }
+
+  .text {
+    text-transform: uppercase;
+    letter-spacing: $font-size / 3;
+    display: none;
+    opacity: 0;
+    transition: 2s;
+
+    &.hover {
+      display: block;
+    }
+  }
+
+  &.green {
+    color: $green;
+    text-shadow: $text-shadow $green;
+  }
+
+  &.blue {
+    color: $lapis-lazuli;
+    text-shadow: $text-shadow $lapis-lazuli;
+  }
+
+  &.red {
+    color: $dark-red;
+    text-shadow: $text-shadow $dark-red;
+  }
+
+  &.yellow {
+    color: $mandarin;
+    text-shadow: $text-shadow $mandarin;
+  }
+}
