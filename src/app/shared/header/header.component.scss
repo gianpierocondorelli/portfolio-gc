@@ -22,6 +22,8 @@
 
   a {
     color: $white !important;
+    text-transform: uppercase;
+    letter-spacing: $font-size / 3;
 
     &:visited {
       color: $white;

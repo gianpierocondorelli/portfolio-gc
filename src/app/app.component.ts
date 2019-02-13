@@ -19,9 +19,14 @@ export class AppComponent extends BaseComponent implements OnInit {
   constructor(injector: Injector) {
     super(injector);
     library.add(fas);
+    // this language will be used as a fallback when a translation isn't found in the current language
+    this.translate.setDefaultLang('en');
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    this.translate.use('en');
   }
 
   ngOnInit() {
+
     // handling splash screen
     this.showSplash = !window.localStorage.getItem('showSplash');
     window.localStorage.setItem('showSplash', 'false');
