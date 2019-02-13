@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
+
+import { BaseComponent } from '../base-component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor(injector: Injector) {
+    super(injector);
+  }
 
   ngOnInit() {
   }
 
+  goToHome() {
+    this.router.navigate(['/']);
+  }
 }
