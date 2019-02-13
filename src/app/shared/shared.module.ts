@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { HeaderComponent } from './header/header.component';
@@ -13,12 +14,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [HeaderComponent, FooterComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule.forChild()
   ],
   exports: [
     PortfolioWrapperComponent,
     SplashScreenComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ]
 })
 export class SharedModule { }
