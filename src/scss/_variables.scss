@@ -1,0 +1,56 @@
+@import 'colors';
+$font-family: pt-sans,
+sans-serif;
+$font-family-logo: adobe-handwriting-ernie,
+sans-serif;
+$font-weight: 400;
+$font-size: 2vmin;
+$borderRadius: 2vmin;
+$letter-spacing: 0.3vw;
+$disabledOpacity: 0.35;
+$box-shadow: 0.1vmin 0.1vmin 0.1vmin 0.1vmin $gray-400;
+/// Header
+$headerBorderWidth: 1vmin;
+$headerBorderColor: $light-gray;
+$headerBgColor: $light-gray;
+$headerTextColor: $darkest-gray;
+$headerFontWeight: normal;
+$headerIconTextColor: $teal-blue;
+/// Content
+$contentBorderWidth: 1vmin;
+$contentBorderColor: $light-gray;
+$contentBgColor: $white;
+$contentTextColor: $dark-gray;
+/// Default State
+$stateDefaultBorderWidth: 1vmin;
+$stateDefaultBorderColor: $light-gray;
+$stateDefaultBgColor: $white;
+$stateDefaultTextColor: $dark-gray;
+/// Active State
+$stateActiveBorderColor:$light-gray;
+$stateActiveBgColor: $light-gray;
+$stateActiveTextColor: $dark-gray;
+/// Highlight State
+$stateHighlightBorderColor: $darkest-cerulean;
+$stateHighlightBgColor: $teal-blue;
+$stateHighlightTextColor: $dark-gray;
+/// Focus State
+$stateFocusBorderColor: $light-gray;
+$stateFocusBgColor: $darkest-cerulean;
+$stateFocusTextColor: $dark-gray;
+/// Error State
+$stateErrorTextColor: $dark-gray;
+/// Hover State
+$stateHoverBorderColor: $light-gray;
+$stateHoverBgColor: $teal-blue;
+$stateHoverTextColor: $dark-gray;
+/// Forms
+$inputBgColor: $white;
+$inputTextColor: $dark-gray;
+$inputGroupTextColor: $dark-gray;
+// Breakpoints
+$tablet-landscape: 1199.98px;
+$tablet-portrait: 991.98px;
+$ipad-pro-portrait: 1367.98px;
+$desktop: 767.98px;
+$smartphone: 575.98px;

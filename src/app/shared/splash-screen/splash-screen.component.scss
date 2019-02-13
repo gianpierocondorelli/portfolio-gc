@@ -1,0 +1,35 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+
+.splash-screen-container {
+  transition: 2s;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container-logo {
+    justify-content: center;
+
+    .logo {
+      font-family: $font-family-logo;
+      font-size: $font-size *3;
+      text-align: center;
+      margin-bottom: 1vh;
+    }
+
+    .under-logo {
+      font-family: $font-family;
+      font-size: $font-size;
+      letter-spacing: $letter-spacing;
+    }
+
+  }
+
+
+  &.disappear {
+    opacity: 0;
+  }
+}
