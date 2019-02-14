@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 import { BackgroundService } from "./services/background.service";
+import { HttpClient } from "@angular/common/http";
 
 export class BaseComponent {
 
@@ -20,11 +21,13 @@ export class BaseComponent {
   protected router: Router;
   protected translate: TranslateService;
   protected bkgSrv: BackgroundService;
+  protected http: HttpClient;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
     this.translate = injector.get(TranslateService);
     this.bkgSrv = injector.get(BackgroundService);
+    this.http = injector.get(HttpClient);
   }
 
   clearTimeout(timeout: any) {

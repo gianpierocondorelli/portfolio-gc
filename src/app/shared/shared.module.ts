@@ -11,21 +11,27 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LinkMenuComponent } from './link-menu/link-menu.component';
 import { FitBoundsService } from '@agm/core/services/fit-bounds';
+import { MapD3Component } from './map-d3/map-d3.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent],
+  declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent, MapD3Component],
   imports: [
     CommonModule,
     FontAwesomeModule,
     TranslateModule.forChild()
   ],
   exports: [
+    // components
     PortfolioWrapperComponent,
     SplashScreenComponent,
+    MapD3Component,
+    LinkMenuComponent,
+    // modules
     FontAwesomeModule,
     TranslateModule,
-    LinkMenuComponent,
     AgmCoreModule,
+    HttpClientModule
   ],
   providers: [
     FitBoundsService
