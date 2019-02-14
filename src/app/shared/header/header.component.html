@@ -3,14 +3,9 @@
     {{ 'SPLASH_SCREEN.INITIALS' | translate }}
   </div>
   <div class="menu-elements ml-auto" [class.not-display]="notDisplayMenu" [class.d-none]="disableMenu">
-    <app-link-menu [icon]="['fas', 'leaf']" colorClass="green" pathLink="/life">
-      {{ 'COMMON.MENU.LIFE' | translate }}
-    </app-link-menu>
-    <app-link-menu [icon]="['fab', 'instagram']" colorClass="red" pathLink="/social">
-      {{ 'COMMON.MENU.SOCIAL' | translate }}
-    </app-link-menu>
-    <app-link-menu [icon]="['fas', 'info']" colorClass="yellow" pathLink="/info">
-      {{ 'COMMON.MENU.INFO' | translate }}
+    <app-link-menu *ngFor="let section of sections" [icon]="section.icon" colorClass="blue" [pathLink]="section.path"
+      [selected]="checkIfPathActive(section.path)">
+      {{ section.label | translate }}
     </app-link-menu>
   </div>
 </div>

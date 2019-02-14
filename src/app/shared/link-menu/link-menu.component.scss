@@ -22,15 +22,33 @@
     }
   }
 
+  &.hover {
+    .icon {
+      display: none;
+    }
+
+    .text {
+      display: block;
+    }
+  }
+
+  &.selected {
+    .icon {
+      display: none;
+      opacity: 0;
+    }
+
+    .text {
+      display: block;
+      opacity: 1;
+    }
+  }
+
   .icon {
     font-size: $font-size * 2;
     transition: 0.25s;
     display: block;
     opacity: 1;
-
-    &.hover {
-      display: none;
-    }
   }
 
   .text {
@@ -39,29 +57,23 @@
     display: none;
     opacity: 0;
     transition: 2s;
-
-    &.hover {
-      display: block;
-    }
   }
+
 
   &.green {
     color: $green;
-    text-shadow: $text-shadow $green;
   }
 
   &.blue {
     color: $lapis-lazuli;
-    text-shadow: $text-shadow $lapis-lazuli;
+
   }
 
   &.red {
     color: $dark-red;
-    text-shadow: $text-shadow $dark-red;
   }
 
   &.yellow {
     color: $mandarin;
-    text-shadow: $text-shadow $mandarin;
   }
 }

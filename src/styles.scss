@@ -7,3 +7,40 @@ body {
   font-weight: $font-weight;
   font-size: $font-size;
 }
+
+.button {
+  border: none;
+  cursor: pointer;
+  width: auto;
+  height: 6vh;
+  padding: 0 3vw;
+  font-size: $font-size * 1.5;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+  text-decoration: none;
+  background-color: $transparent;
+  transition: 0.5s;
+
+  color: $lapis-lazuli;
+
+
+  &:hover {
+    background-color: $lapis-lazuli;
+    font-weight: 800;
+    color: $gray-100;
+    text-shadow: none;
+
+    &.green {
+      background-color: $green;
+    }
+
+    &.red {
+      background-color: $dark-red;
+    }
+
+    &.yellow {
+      background-color: $mandarin;
+    }
+  }
+
+}

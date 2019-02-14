@@ -1,4 +1,4 @@
-import { Injector } from "@angular/core";
+import { Injector, ChangeDetectorRef } from "@angular/core";
 import { Router } from "@angular/router";
 
 import { Subscription } from "rxjs";
@@ -7,8 +7,14 @@ import { BackgroundService } from "./services/background.service";
 
 export class BaseComponent {
 
+  bkgImage: string;
+  bkgColor: string;
+
   protected subscription: Subscription;
-  showLoader: boolean;
+  protected showLoader: boolean;
+  protected interval: any;
+
+  protected colors = ['green', 'yellow', 'red'];
 
   // Injector classes
   protected router: Router;
@@ -25,8 +31,8 @@ export class BaseComponent {
     clearTimeout(timeout);
   }
 
-  clearInterval(interval: any) {
-    clearInterval(interval);
+  clearInterval() {
+    clearInterval(this.interval);
   }
 
   unsubscribe() {

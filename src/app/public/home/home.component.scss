@@ -1,2 +1,37 @@
 @import '../../../scss/colors';
 @import '../../../scss/variables';
+
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 87vh;
+  width: auto;
+
+  .sections-container {
+    margin: auto 0;
+    color: $lapis-lazuli;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing;
+
+    .section {
+      transition: 0.5s;
+      opacity: 1;
+
+      &.invisible {
+        opacity: 0;
+      }
+
+      &.right {
+        text-align: right;
+        margin-left: auto;
+      }
+    }
+
+  }
+
+  .icons-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
