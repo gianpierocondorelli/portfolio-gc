@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AgmCoreModule } from '@agm/core';
+import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -37,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       apiKey: 'AIzaSyBoKsthgcypDn8nSvpp-rID75RqD_9ABF0'
     })
   ],
-  providers: [],
+  providers: [D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
