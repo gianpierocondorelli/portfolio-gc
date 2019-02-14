@@ -19,6 +19,9 @@
 	"FOOTER": {
 		"TEXT": "{{ value }} | Gianpiero Condorelli"
 	},
+	"FUN": {
+		"INTRODUCTION": ""
+	},
 	"SPLASH_SCREEN": {
 		"INITIALS": "GC",
 		"NAME": "GIANPIERO CONDORELLI"

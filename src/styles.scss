@@ -5,7 +5,9 @@
 body {
   font-family: $font-family;
   font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
   font-size: $font-size;
+  color: $lapis-lazuli;
 }
 
 .button {
@@ -43,4 +45,15 @@ body {
     }
   }
 
+}
+
+agm-map {
+  height: 50vh;
+  letter-spacing: normal;
+}
+
+router-outlet~* {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }

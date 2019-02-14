@@ -8,15 +8,14 @@
   height: auto !important;
   height: 12vh;
   width: 100vw;
-  background: $opac !important;
-  padding: 0 2vw;
+  background: $white !important;
+  padding: 0 5vw;
   align-items: center;
 
   .logo {
     font-family: $font-family-logo;
     font-size: $font-size * 3;
     color: $lapis-lazuli !important;
-    text-shadow: $text-shadow $lapis-lazuli;
     cursor: pointer;
   }
 

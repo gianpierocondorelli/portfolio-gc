@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AgmCoreModule } from '@agm/core';
 
 import { HeaderComponent } from './header/header.component';
 import { PortfolioWrapperComponent } from './portfolio-wrapper/portfolio-wrapper.component';
@@ -22,7 +23,8 @@ import { LinkMenuComponent } from './link-menu/link-menu.component';
     SplashScreenComponent,
     FontAwesomeModule,
     TranslateModule,
-    LinkMenuComponent
+    LinkMenuComponent,
+    AgmCoreModule
   ],
   providers: [
   ]

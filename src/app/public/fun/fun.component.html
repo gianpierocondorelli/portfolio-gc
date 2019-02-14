@@ -1,3 +1,10 @@
-<p>
-  fun works!
-</p>
+<div class="container fun">
+  <h3 class="introduction">
+    {{ 'FUN.INTRODUCTION' | translate }}
+  </h3>
+  <agm-map [latitude]="47.3666700" [longitude]="8.5500000" [zoom]="4" [zoomControl]="false" [streetViewControl]="false"
+    translate="en">
+    <agm-marker *ngFor="let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude"
+      [agmFitBounds]="true"></agm-marker>
+  </agm-map>
+</div>

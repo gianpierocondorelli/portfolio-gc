@@ -1,5 +1,7 @@
 <app-splash-screen *ngIf="showSplash" (endSplash)="showSplash = !$event"></app-splash-screen>
 
 <app-portfolio-wrapper *ngIf="!showSplash">
-  <router-outlet></router-outlet>
+  <main [@fadeAnimation]="getRouterOutletState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+  </main>
 </app-portfolio-wrapper>

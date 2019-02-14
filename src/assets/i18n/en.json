@@ -19,6 +19,9 @@
   "FOOTER": {
     "TEXT": "{{ value }} | Gianpiero Condorelli"
   },
+  "FUN": {
+    "INTRODUCTION": "My life is based about my travels, here there're countries I visited during my spare time. Across the future they'll increase..."
+  },
   "SPLASH_SCREEN": {
     "INITIALS": "GC",
     "NAME": "GIANPIERO CONDORELLI"
