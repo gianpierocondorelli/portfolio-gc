@@ -1,7 +1,8 @@
-<div class="icon-menu {{ colorClass }}" (click)="openLink()" (mouseover)="setHoverIcon(true)" (mouseout)="setHoverIcon(false)">
-  <fa-icon [icon]="icon" class="icon {{ classIcon }}">
+<div class="icon-menu {{ colorClass }} {{ classHover }} {{ selected ? 'selected' : '' }}" (click)="openLink()"
+  (mouseover)="setHoverIcon(true)" (mouseout)="setHoverIcon(false)">
+  <fa-icon [icon]="icon" class="icon">
   </fa-icon>
-  <span class="text {{ classText }}">
+  <span class="text">
     <ng-content></ng-content>
   </span>
 </div>

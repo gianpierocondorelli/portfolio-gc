@@ -1,7 +1,8 @@
 import { Component, OnInit, Injector, Input, OnDestroy } from '@angular/core';
+import { NavigationEnd } from '@angular/router';
 
+import { SECTIONS } from '../constants';
 import { BaseComponent } from '../base-component';
-import { NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,16 +13,19 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
 
   notDisplayMenu = false;
   disableMenu = false;
+  currentPath: string;
+  sections = SECTIONS;
 
   constructor(injector: Injector) {
     super(injector);
   }
 
   ngOnInit() {
-    this.router.events.subscribe(
+    this.subscription = this.router.events.subscribe(
       event => {
-        if (event instanceof NavigationStart) {
-          this.notDisplayMenu = event.url === '/';
+        if (event instanceof NavigationEnd) {
+          this.currentPath = event.url;
+          this.notDisplayMenu = this.currentPath === '/';
           setTimeout(() => {
             this.disableMenu = this.notDisplayMenu;
           }, 250);
@@ -31,9 +35,14 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnDestroy(): void {
+    this.unsubscribe();
   }
 
   goToHome() {
     this.router.navigate(['/']);
+  }
+
+  checkIfPathActive(path: string) {
+    return this.currentPath && this.currentPath.length > 0 && this.currentPath.includes(path);
   }
 }

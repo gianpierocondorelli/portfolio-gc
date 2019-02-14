@@ -1,9 +1,19 @@
 {
   "COMMON": {
+    "BUTTONS": {
+      "GO_TO": "Go To"
+    },
     "MENU": {
+      "FUN": "Fun",
       "INFO": "Info",
       "LIFE": "Life",
-      "SOCIAL": "Social"
+      "SOCIAL": "Social",
+      "WORK": "Work"
+    },
+    "SUBTITLE": {
+      "FUN": "My life in the spare time, my passions...",
+      "SOCIAL": "An extract of my social accounts...",
+      "WORK": "My life at work, my past study..."
     }
   },
   "FOOTER": {

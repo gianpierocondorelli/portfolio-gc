@@ -12,9 +12,9 @@ export class LinkMenuComponent extends BaseComponent implements OnInit {
   @Input() icon: string[] = [];
   @Input() colorClass: string;
   @Input() pathLink: string;
+  @Input() selected = false;
 
-  classIcon: string;
-  classText: string;
+  classHover: string;
 
 
   constructor(injector: Injector) {
@@ -24,21 +24,21 @@ export class LinkMenuComponent extends BaseComponent implements OnInit {
   ngOnInit() {
   }
 
+
   openLink() {
-    this.router.navigate([this.pathLink]);
+    this.classHover = '';
+    this.router.navigate([`/${this.pathLink}`]);
   }
 
   setHoverIcon(hoverState: boolean) {
     const timeout = 250;
-    if (hoverState === true) {
+    if (hoverState === true && !this.selected) {
       setTimeout(() => {
-        this.classText = 'hover';
-        this.classIcon = 'hover';
+        this.classHover = 'hover';
       }, timeout);
     } else {
       setTimeout(() => {
-        this.classText = '';
-        this.classIcon = '';
+        this.classHover = '';
       }, timeout);
     }
   }

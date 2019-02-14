@@ -1,16 +1,26 @@
 {
-  "COMMON": {
-    "MENU": {
-      "INFO": "Info",
-      "LIFE": "Vita",
-      "SOCIAL": "Social"
-    }
-  },
-  "FOOTER": {
-    "TEXT": "{{ value }} | Gianpiero Condorelli"
-  },
-  "SPLASH_SCREEN": {
-    "INITIALS": "GC",
-    "NAME": "GIANPIERO CONDORELLI"
-  }
+	"COMMON": {
+		"BUTTONS": {
+			"GO_TO": ""
+		},
+		"MENU": {
+			"FUN": "Fun",
+			"INFO": "Info",
+			"LIFE": "Vita",
+			"SOCIAL": "Social",
+			"WORK": "Work"
+		},
+		"SUBTITLE": {
+			"FUN": "",
+			"SOCIAL": "",
+			"WORK": ""
+		}
+	},
+	"FOOTER": {
+		"TEXT": "{{ value }} | Gianpiero Condorelli"
+	},
+	"SPLASH_SCREEN": {
+		"INITIALS": "GC",
+		"NAME": "GIANPIERO CONDORELLI"
+	}
 }

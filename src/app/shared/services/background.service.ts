@@ -6,15 +6,24 @@ import { Subject, Observable } from 'rxjs';
 })
 export class BackgroundService {
 
-  private backgroundSubject = new Subject<string>();
+  private backgroundImgSubject = new Subject<string>();
+  private backgroundColorSubject = new Subject<string>();
 
   constructor() { }
 
-  public sendNewBackground(backgroundUrl: string) {
-    this.backgroundSubject.next(backgroundUrl);
+  public sendNewImgBackground(backgroundUrl: string) {
+    this.backgroundImgSubject.next(backgroundUrl);
   }
 
-  public getNewBackground(): Observable<string> {
-    return this.backgroundSubject.asObservable();
+  public getNewImgBackground(): Observable<string> {
+    return this.backgroundImgSubject.asObservable();
+  }
+
+  public sendNewColorBackground(backgroundClass: string) {
+    this.backgroundColorSubject.next(backgroundClass);
+  }
+
+  public getNewColorBackground(): Observable<string> {
+    return this.backgroundColorSubject.asObservable();
   }
 }

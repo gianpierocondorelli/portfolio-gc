@@ -18,6 +18,17 @@
   transition: 1s;
   width: 100vw;
   height: 100vh;
-  background: $gray-300 no-repeat center center;
-  filter: blur($font-size);
+  background: $gray-100 no-repeat center center;
+
+  &.green {
+    background-color: $green;
+  }
+
+  &.red {
+    background-color: $dark-red;
+  }
+
+  &.yellow {
+    background-color: $mandarin;
+  }
 }

@@ -10,8 +10,6 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LinkMenuComponent } from './link-menu/link-menu.component';
 
-import { BackgroundService } from './services/background.service';
-
 @NgModule({
   declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent],
   imports: [
@@ -23,10 +21,10 @@ import { BackgroundService } from './services/background.service';
     PortfolioWrapperComponent,
     SplashScreenComponent,
     FontAwesomeModule,
-    TranslateModule
+    TranslateModule,
+    LinkMenuComponent
   ],
   providers: [
-    BackgroundService
   ]
 })
 export class SharedModule { }

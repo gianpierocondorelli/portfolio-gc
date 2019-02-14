@@ -9,22 +9,26 @@ import { BaseComponent } from '../base-component';
 })
 export class PortfolioWrapperComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  bkgImage: string;
-
   constructor(injector: Injector) {
     super(injector);
   }
 
   ngOnInit() {
-    this.subscription = this.bkgSrv.getNewBackground().subscribe(
+    this.subscription = this.bkgSrv.getNewImgBackground().subscribe(
       res => {
         this.bkgImage = res;
       }
     );
+    this.subscription.add(this.bkgSrv.getNewColorBackground().subscribe(
+      res => {
+        this.bkgColor = res;
+      }
+    ));
   }
 
   ngOnDestroy() {
     this.unsubscribe();
+    this.clearInterval();
   }
 
   imageSetter() {
