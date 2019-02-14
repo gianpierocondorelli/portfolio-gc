@@ -1,16 +1,18 @@
 import { Component, OnInit, Injector } from '@angular/core';
+import { NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterOutlet } from '@angular/router';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { BaseComponent } from './shared/base-component';
-import { NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { fadeAnimation } from './shared/animations/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [fadeAnimation]
 })
 
 export class AppComponent extends BaseComponent implements OnInit {
@@ -27,7 +29,6 @@ export class AppComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-
     // handling splash screen
     this.showSplash = !window.localStorage.getItem('showSplash');
     window.localStorage.setItem('showSplash', 'false');
@@ -46,5 +47,9 @@ export class AppComponent extends BaseComponent implements OnInit {
         }
       }
     );
+  }
+
+  getRouterOutletState(outlet: RouterOutlet) {
+    return outlet.isActivated ? outlet.activatedRoute : '';
   }
 }

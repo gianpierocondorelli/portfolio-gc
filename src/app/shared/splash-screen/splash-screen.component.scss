@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   color: $lapis-lazuli !important;
-  text-shadow: $text-shadow $lapis-lazuli;
 
   .container-logo {
     justify-content: center;
@@ -25,7 +24,6 @@
     .under-logo {
       font-family: $font-family;
       font-size: $font-size;
-      letter-spacing: $letter-spacing;
     }
 
   }
