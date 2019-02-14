@@ -5,7 +5,7 @@
   <agm-map [latitude]="47.3666700" [longitude]="8.5500000" [zoom]="4" [zoomControl]="false" [streetViewControl]="false"
     translate="en" [clickableIcons]="false">
     <agm-marker *ngFor=" let marker of markers" [latitude]="marker.latitude" [longitude]="marker.longitude"
-      [agmFitBounds]="true" iconUrl="assets/images/marker_map.svg" iconWidth="20" iconHeight="20">
+      [agmFitBounds]="true" iconUrl="assets/images/marker_map.png" iconWidth="20" iconHeight="20">
     </agm-marker>
   </agm-map>
 </div>
