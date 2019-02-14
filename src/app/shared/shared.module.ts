@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, FitBoundsAccessor } from '@agm/core';
 
 import { HeaderComponent } from './header/header.component';
 import { PortfolioWrapperComponent } from './portfolio-wrapper/portfolio-wrapper.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LinkMenuComponent } from './link-menu/link-menu.component';
+import { FitBoundsService } from '@agm/core/services/fit-bounds';
 
 @NgModule({
   declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent],
@@ -24,9 +25,10 @@ import { LinkMenuComponent } from './link-menu/link-menu.component';
     FontAwesomeModule,
     TranslateModule,
     LinkMenuComponent,
-    AgmCoreModule
+    AgmCoreModule,
   ],
   providers: [
+    FitBoundsService
   ]
 })
 export class SharedModule { }
