@@ -2,7 +2,7 @@
   <div class="logo" (click)="goToHome()">
     {{ 'SPLASH_SCREEN.INITIALS' | translate }}
   </div>
-  <div class="menu-elements ml-auto" [class.not-display]="notDisplayMenu">
+  <div class="menu-elements ml-auto" [class.not-display]="notDisplayMenu" [class.d-none]="disableMenu">
     <app-link-menu [icon]="['fas', 'leaf']" colorClass="green" pathLink="/life">
       {{ 'COMMON.MENU.LIFE' | translate }}
     </app-link-menu>
