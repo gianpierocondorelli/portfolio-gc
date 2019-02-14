@@ -23,6 +23,8 @@
   .menu-elements {
     display: flex;
     align-items: center;
+    transition: 0.2s;
+    opacity: 1;
 
     &.not-display {
       opacity: 0;

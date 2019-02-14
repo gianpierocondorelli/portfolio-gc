@@ -1,8 +1,23 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
 .portfolio-container {
   position: relative;
+  background: $transparent no-repeat center center;
+  z-index: 10;
 
   .padding-total {
     padding-top: 13vh;
   }
 
+}
+
+.background {
+  position: fixed;
+  z-index: 1;
+  transition: 1s;
+  width: 100vw;
+  height: 100vh;
+  background: $gray-300 no-repeat center center;
+  filter: blur($font-size);
 }
