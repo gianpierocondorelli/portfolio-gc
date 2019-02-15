@@ -30,8 +30,8 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     // handling splash screen
-    this.showSplash = !window.localStorage.getItem('showSplash');
-    window.localStorage.setItem('showSplash', 'false');
+    this.showSplash = !window.sessionStorage.getItem('showSplash');
+    window.sessionStorage.setItem('showSplash', 'false');
 
     // handling loading modules in a cool way
     this.subscription = this.router.events.subscribe(
