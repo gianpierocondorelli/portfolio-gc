@@ -13,9 +13,11 @@ import { LinkMenuComponent } from './link-menu/link-menu.component';
 import { FitBoundsService } from '@agm/core/services/fit-bounds';
 import { MapD3Component } from './map-d3/map-d3.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CloudWordsComponent } from './cloud-words/cloud-words.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent, MapD3Component],
+  declarations: [HeaderComponent, PortfolioWrapperComponent, SplashScreenComponent, NotFoundComponent, LinkMenuComponent, MapD3Component, CloudWordsComponent, LoaderComponent],
   imports: [
     CommonModule,
     FontAwesomeModule,

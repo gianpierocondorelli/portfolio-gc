@@ -57,3 +57,11 @@ router-outlet~* {
   height: 100%;
   width: 100%;
 }
+
+.loading{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
