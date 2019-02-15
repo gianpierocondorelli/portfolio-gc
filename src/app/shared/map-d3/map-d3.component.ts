@@ -62,12 +62,12 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .data(data.features)
           .enter()
           .append('path')
-          .attr('fill', '#b8b8b8')
+          .attr('fill', '#e9ecef')
           .attr('d', this.d3.geoPath()
             .projection(projection)
           )
-          .style('stroke', 'black')
-          .style('opacity', .3)
+          .style('stroke', '#6c757d')
+          .style('opacity', .3);
 
         // Add circles:
         svg
@@ -78,10 +78,11 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .attr('cx', (d: any) => projection([d.longitude, d.latitude])[0])
           .attr('cy', (d: any) => projection([d.longitude, d.latitude])[1])
           .attr('r', 14)
-          .style('fill', '69b3a2')
-          .attr('stroke', '#69b3a2')
-          .attr('stroke-width', 3)
-          .attr('fill-opacity', .4)
+          .style('fill', '#6dd3ce')
+          .attr('stroke', '#083d77')
+          .attr('stroke-width', 1)
+          .attr('stroke-opacity', 0.2)
+          .attr('fill-opacity', .2);
       }
     );
   }
