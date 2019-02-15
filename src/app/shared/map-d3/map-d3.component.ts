@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Input, HostListener } from '@angular/core';
+import { Component, OnInit, Injector, Input, HostListener, OnDestroy } from '@angular/core';
 import { D3, D3Service } from 'd3-ng2-service';
 import { BaseComponent } from '../base-component';
 
@@ -7,7 +7,7 @@ import { BaseComponent } from '../base-component';
   templateUrl: './map-d3.component.html',
   styleUrls: ['./map-d3.component.scss']
 })
-export class MapD3Component extends BaseComponent implements OnInit {
+export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
 
   @Input() height = 40;
   @Input() markers = [];
@@ -24,6 +24,10 @@ export class MapD3Component extends BaseComponent implements OnInit {
 
   ngOnInit() {
     this.buildMap();
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe();
   }
 
   private buildMap() {
@@ -43,7 +47,7 @@ export class MapD3Component extends BaseComponent implements OnInit {
     const projection = this.d3.geoMercator()
       .center([this.longitude, this.latitude])                // GPS of location to zoom on
       .scale(this.scale)                       // This is like the zoom
-      .translate([width / 2, height / 2])
+      .translate([width / 2, height / 2]);
 
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
       (data: any) => {
