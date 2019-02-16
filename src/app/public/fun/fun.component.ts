@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, HostListener } from '@angular/core';
 import { BaseComponent } from 'src/app/shared/base-component';
 
 @Component({
@@ -9,6 +9,7 @@ import { BaseComponent } from 'src/app/shared/base-component';
 export class FunComponent extends BaseComponent implements OnInit {
 
   lang = 'en';
+  disableMaps = false;
 
   markers = [{
     city: 'Rome',
@@ -61,4 +62,10 @@ export class FunComponent extends BaseComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event: Event) {
+    console.log('event', event);
+    this.disableMaps = window.scrollY > 150;
+  }
 }

@@ -3,4 +3,10 @@
   height: 100vh;
   position: fixed;
   z-index: -100;
+  transition: 0.5s;
+  opacity: 1;
+
+  &.invisible {
+    opacity: 0;
+  }
 }

@@ -16,6 +16,7 @@ import { LinkMenuComponent } from './link-menu/link-menu.component';
 import { MapD3Component } from './map-d3/map-d3.component';
 import { CloudWordsComponent } from './cloud-words/cloud-words.component';
 import { GoTopComponent } from './go-top/go-top.component';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { GoTopComponent } from './go-top/go-top.component';
     LinkMenuComponent,
     MapD3Component,
     CloudWordsComponent,
-    GoTopComponent
+    GoTopComponent,
+    ImageSliderComponent
   ],
   imports: [
     CommonModule,

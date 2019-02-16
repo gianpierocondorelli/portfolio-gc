@@ -14,6 +14,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   @Input() latitude = 47;
   @Input() longitude = 2;
   @Input() scale = 750;
+  @Input() visible = true;
 
   private d3: D3;
 
