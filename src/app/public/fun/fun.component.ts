@@ -11,6 +11,13 @@ export class FunComponent extends BaseComponent implements OnInit {
   lang = 'en';
   disableMaps = false;
 
+  marker = [{
+    city: 'Rome',
+    country: 'Italy',
+    latitude: 41.9109,
+    longitude: 12.4818
+  }];
+
   markers = [{
     city: 'Rome',
     country: 'Italy',

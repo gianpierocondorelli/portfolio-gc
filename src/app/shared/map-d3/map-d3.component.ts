@@ -15,8 +15,10 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   @Input() longitude = 2;
   @Input() scale = 750;
   @Input() visible = true;
+  @Input() country: string;
 
   private d3: D3;
+  numberId: string;
 
   constructor(injector: Injector, d3srv: D3Service) {
     super(injector);
@@ -24,7 +26,10 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.buildMap();
+    this.numberId = 'id' + (Math.random() * 100).toFixed(0);
+    setTimeout(() => {
+      this.buildMap();
+    }, 100);
   }
 
   ngOnDestroy() {
@@ -32,11 +37,11 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   private buildMap() {
-    const map = this.d3.select('#map');
+    const map = this.d3.select(`.map[id="${this.numberId}"]`);
     const div = map.node() as Element;
     map.selectAll('*').remove();
 
-    const svg = this.d3.select('#map').append('svg'),
+    const svg = this.d3.select(`.map[id="${this.numberId}"]`).append('svg'),
       width = div.getBoundingClientRect().width,
       height = div.getBoundingClientRect().height;
 
@@ -53,9 +58,10 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
       (data: any) => {
         // Filter data
-        // data.features = data.features.filter((d: any) => this.markers.includes(
-        //   (m: any) => d.properties.name === m.country)
-        // );
+        data.features = this.country && this.country.length > 0 &&
+          data.features.filter((d: any) => d.properties.name === this.country).length > 0 ?
+          data.features.filter((d: any) => d.properties.name === this.country)
+          : data.features;
 
         // Draw the map
         svg.append('g')
