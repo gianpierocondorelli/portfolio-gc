@@ -5,6 +5,7 @@ import { Subscription } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 import { BackgroundService } from "./services/background.service";
 import { HttpClient } from "@angular/common/http";
+import { ScrollToService } from "ng2-scroll-to-el";
 
 export class BaseComponent {
 
@@ -22,12 +23,14 @@ export class BaseComponent {
   protected translate: TranslateService;
   protected bkgSrv: BackgroundService;
   protected http: HttpClient;
+  protected scrollSrv: ScrollToService;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
     this.translate = injector.get(TranslateService);
     this.bkgSrv = injector.get(BackgroundService);
     this.http = injector.get(HttpClient);
+    this.scrollSrv = injector.get(ScrollToService);
   }
 
   clearTimeout(timeout: any) {
@@ -43,4 +46,10 @@ export class BaseComponent {
       this.subscription.unsubscribe();
     }
   }
+
+
+  protected go2Top() {
+    this.scrollSrv.scrollTo('#top');
+  }
+
 }

@@ -47,6 +47,8 @@ export class AppComponent extends BaseComponent implements OnInit {
         }
       }
     );
+
+    this.go2Top();
   }
 
   getRouterOutletState(outlet: RouterOutlet) {
