@@ -12,6 +12,10 @@ export class FunComponent extends BaseComponent implements OnInit {
   private activateVisibility = false;
 
   countries = [{
+    center: {
+      latitude: 47.3666700,
+      longitude: 0
+    },
     markers: [{
       city: 'Rome',
       country: 'Italy',
@@ -58,6 +62,11 @@ export class FunComponent extends BaseComponent implements OnInit {
   },
   {
     name: 'Italy',
+    center: {
+      latitude: 41.9109,
+      longitude: 12.4818
+    },
+    scale: 1024,
     markers: [{
       city: 'Rome',
       country: 'Italy',
@@ -67,6 +76,11 @@ export class FunComponent extends BaseComponent implements OnInit {
   },
   {
     name: 'France',
+    center: {
+      latitude: 48.85341,
+      longitude: 2.3488
+    },
+    scale: 1024,
     markers: [{
       city: 'Paris',
       country: 'France',

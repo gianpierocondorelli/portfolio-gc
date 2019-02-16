@@ -1,26 +1,9 @@
-<!-- <app-map-d3 uniqueId="world" [height]="50" [markers]="markers" [latitude]="47.3666700" [longitude]="0" [visible]="!disableMaps"></app-map-d3>
-<app-map-d3 uniqueId="italy" [height]="50" [markers]="marker" [latitude]="47.3666700" [longitude]="0" [visible]="disableMaps"
-  country="Italy"></app-map-d3>
-<app-map-d3 uniqueId="france" [height]="50" [markers]="marker" [latitude]="47.3666700" [longitude]="0" [visible]="disableMaps"
-  country="France"></app-map-d3> -->
-
-<app-map-d3 *ngFor="let country of countries, let i = index" [uniqueId]="i" [height]="50" [markers]="country.markers"
-  [latitude]="47.3666700" [longitude]="0" [visible]="getVisibility(i)" [country]="country.name"></app-map-d3>
+<app-map-d3 *ngFor="let country of countries, let i = index" [uniqueId]="i" [markers]="country.markers" [latitude]="country.center.latitude"
+  [longitude]="country.center.longitude" [visible]="getVisibility(i)" [country]="country.name" [scale]="country.scale"></app-map-d3>
 <div class="container fun">
-  <!-- <div class="introduction">
-    <h3>
-      {{ 'FUN.INTRODUCTION' | translate }}
-    </h3>
-  </div> -->
   <div *ngFor="let country of countries, let i = index" class="{{ i === 0 ? 'introduction' : 'other-container' }}">
-    <h3>
+    <h3 *ngIf="i===0">
       {{ 'FUN.INTRODUCTION' | translate }}
     </h3>
   </div>
-  <!-- <div id="italy-container" class="other-container">
-    test
-  </div>
-  <div id="france-container" class="other-container">
-    test2
-  </div> -->
 </div>
