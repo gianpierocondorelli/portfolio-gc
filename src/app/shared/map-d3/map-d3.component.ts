@@ -58,8 +58,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
       (data: any) => {
         // Filter data
-        data.features = this.country && this.country.length > 0 &&
-          data.features.filter((d: any) => d.properties.name === this.country).length > 0 ?
+        data.features = this.country && this.country.length > 0 ?
           data.features.filter((d: any) => d.properties.name === this.country)
           : data.features;
 
