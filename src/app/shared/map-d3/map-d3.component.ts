@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Input, HostListener, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, Input, HostListener, OnDestroy, AfterContentInit } from '@angular/core';
 import { D3, D3Service } from 'd3-ng2-service';
 import { BaseComponent } from '../base-component';
 
@@ -16,6 +16,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   @Input() scale = 750;
   @Input() visible = true;
   @Input() country: string;
+  @Input() uniqueId = 'map';
 
   private d3: D3;
   numberId: string;
@@ -26,10 +27,9 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.numberId = 'id' + (Math.random() * 100).toFixed(0);
     setTimeout(() => {
       this.buildMap();
-    }, 100);
+    }, 50);
   }
 
   ngOnDestroy() {
@@ -37,11 +37,11 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   private buildMap() {
-    const map = this.d3.select(`.map[id="${this.numberId}"]`);
+    const map = this.d3.select(`.map[id="map${this.uniqueId}"]`);
     const div = map.node() as Element;
     map.selectAll('*').remove();
 
-    const svg = this.d3.select(`.map[id="${this.numberId}"]`).append('svg'),
+    const svg = this.d3.select(`.map[id="map${this.uniqueId}"]`).append('svg'),
       width = div.getBoundingClientRect().width,
       height = div.getBoundingClientRect().height;
 
