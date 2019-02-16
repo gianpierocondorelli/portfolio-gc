@@ -29,7 +29,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout(() => {
       this.buildMap();
-    }, 50);
+    }, 100);
   }
 
   ngOnDestroy() {
@@ -52,7 +52,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
     // Map and projection
     const projection = this.d3.geoMercator()
       .center([this.longitude, this.latitude])                // GPS of location to zoom on
-      .scale(this.scale)                       // This is like the zoom
+      .scale(this.scale || 750)                       // This is like the zoom
       .translate([width / 2, height / 2]);
 
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
