@@ -10,6 +10,7 @@ export class FunComponent extends BaseComponent implements OnInit {
 
   lang = 'en';
   private activateVisibility = false;
+  private cities = [[]];
 
   countries = [{
     center: {
@@ -96,6 +97,7 @@ export class FunComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.extractCities();
     setTimeout(() => {
       this.activateVisibility = true;
     }, 100);
@@ -116,6 +118,14 @@ export class FunComponent extends BaseComponent implements OnInit {
       }
     }
     return false;
+  }
+
+  extractCities() {
+    this.countries.forEach(
+      (c, i) => {
+        this.cities[i] = c.markers.reduce((d, e) => (d = [e.city, ...d]), []) as string[];
+      }
+    );
   }
 
 }
