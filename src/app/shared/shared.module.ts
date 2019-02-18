@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgmCoreModule } from '@agm/core';
 import { FitBoundsService } from '@agm/core/services/fit-bounds';
 import { ScrollToModule } from 'ng2-scroll-to-el';
+import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 import { HeaderComponent } from './header/header.component';
 import { PortfolioWrapperComponent } from './portfolio-wrapper/portfolio-wrapper.component';
@@ -17,6 +18,7 @@ import { MapD3Component } from './map-d3/map-d3.component';
 import { CloudWordsComponent } from './cloud-words/cloud-words.component';
 import { GoTopComponent } from './go-top/go-top.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { ImageComponent } from './image/image.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
     MapD3Component,
     CloudWordsComponent,
     GoTopComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    ImageComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
+    DeferLoadModule,
     TranslateModule.forChild()
   ],
   exports: [
@@ -47,7 +51,8 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
     TranslateModule,
     AgmCoreModule,
     HttpClientModule,
-    ScrollToModule
+    ScrollToModule,
+    DeferLoadModule
   ],
   providers: [
     FitBoundsService
