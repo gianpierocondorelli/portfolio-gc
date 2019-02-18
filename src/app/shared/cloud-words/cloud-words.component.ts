@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, HostListener } from '@angular/core';
+import { Component, OnInit, Injector, HostListener, Input } from '@angular/core';
 
 import { BaseComponent } from '../base-component';
 import { EnhancedD3, EnhancedD3Service } from '../services/enhanced-d3.service';
@@ -10,7 +10,11 @@ import { EnhancedD3, EnhancedD3Service } from '../services/enhanced-d3.service';
 })
 export class CloudWordsComponent extends BaseComponent implements OnInit {
 
+  @Input() uniqueId: string;
+  @Input() words: string[] = [];
+
   private d3: EnhancedD3;
+
 
   constructor(injector: Injector, enhancedD3: EnhancedD3Service) {
     super(injector);
@@ -18,39 +22,19 @@ export class CloudWordsComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.buildCloud();
+    setTimeout(() => {
+      this.buildCloud();
+    }, 100);
   }
 
   buildCloud() {
-    const myWords = [
-      'Hello',
-      'Everybody',
-      'How',
-      'Are',
-      'You',
-      'Today',
-      'It',
-      'Is',
-      'A',
-      'Lovely',
-      'Day',
-      'I',
-      'Love',
-      'Coding',
-      'In',
-      'My',
-      'Van',
-      'Mate'
-    ];
-
-
-    const map = this.d3.select('#cloud');
+    const map = this.d3.select(`#cloud-${this.uniqueId}`);
     const div = map.node() as Element;
     map.selectAll('*').remove();
 
-    const svg = this.d3.select('#cloud').append('svg'),
-      width = div.getBoundingClientRect().width,
-      height = div.getBoundingClientRect().height;
+    const svg = map.append('svg'),
+      width = div.clientWidth,
+      height = div.clientHeight;
 
     svg.attr('width', `${width}`)
       .attr('height', `${height}`);
@@ -70,6 +54,9 @@ export class CloudWordsComponent extends BaseComponent implements OnInit {
         .data(words)
         .enter().append('text')
         .style('font-size', function (d) { return d.size + 'vh'; })
+        .style('font-family', 'pt-sans, sans-serif')
+        .style('fill', '#2274a5')
+        .style('stroke', '#2274a5')
         .attr('text-anchor', 'middle')
         .attr('transform', function (d) {
           return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
@@ -79,7 +66,7 @@ export class CloudWordsComponent extends BaseComponent implements OnInit {
 
     layout = this.d3.cloud()
       .size([width, height])
-      .words(myWords.map((d) => ({ text: d })))
+      .words(this.words.map((d) => ({ text: d })))
       .padding(15)
       .fontSize(5)
       .on('end', draw);
