@@ -33,9 +33,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    }),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBoKsthgcypDn8nSvpp-rID75RqD_9ABF0'
     })
   ],
   providers: [D3Service],

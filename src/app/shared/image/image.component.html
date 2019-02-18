@@ -1,0 +1,6 @@
+<div (deferLoad)="show = true">
+  <ng-container *ngIf="show">
+    <img [src]="src" (load)="load = true" class="img-fluid" />
+    <img src="assets/images/rings.svg" *ngIf="!load" class="justify-content-center align-self-center" />
+  </ng-container>
+</div>

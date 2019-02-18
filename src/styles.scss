@@ -10,6 +10,35 @@ body {
   color: $lapis-lazuli;
 }
 
+.modal {
+  .modal-content {
+    border: none !important;
+    background-color: $transparent !important;
+    border-radius: 0 !important;
+  }
+
+  .close {
+    cursor: pointer !important;
+    color: $white;
+    z-index: 2000;
+  }
+
+  .left,
+  .right {
+    border: none;
+    cursor: pointer;
+    width: auto;
+    background-color: $transparent;
+    cursor: pointer;
+    color: $white;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 .button {
   border: none;
   cursor: pointer;
@@ -58,7 +87,7 @@ router-outlet~* {
   width: 100%;
 }
 
-.loading{
+.loading {
   width: 100vw;
   height: 100vh;
   display: flex;

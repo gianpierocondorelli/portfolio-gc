@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector, HostListener } from '@angular/core';
 import { BaseComponent } from 'src/app/shared/base-component';
+import { MapBig } from 'src/app/shared/support-class';
 
 @Component({
   selector: 'app-fun',
@@ -10,9 +11,10 @@ export class FunComponent extends BaseComponent implements OnInit {
 
   lang = 'en';
   private activateVisibility = false;
-  private cities = [[]];
+  cities = [[]];
+  images = [[]];
 
-  countries = [{
+  countries: MapBig[] = [{
     center: {
       latitude: 47.3666700,
       longitude: 0
@@ -72,7 +74,8 @@ export class FunComponent extends BaseComponent implements OnInit {
       city: 'Rome',
       country: 'Italy',
       latitude: 41.9109,
-      longitude: 12.4818
+      longitude: 12.4818,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
     }]
   },
   {
@@ -86,7 +89,8 @@ export class FunComponent extends BaseComponent implements OnInit {
       city: 'Paris',
       country: 'France',
       latitude: 48.85341,
-      longitude: 2.3488
+      longitude: 2.3488,
+      images: ['assets/images/test.jpg']
     }]
   }
   ];
@@ -97,6 +101,7 @@ export class FunComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.go2Top();
     this.extractCities();
     setTimeout(() => {
       this.activateVisibility = true;
@@ -123,7 +128,8 @@ export class FunComponent extends BaseComponent implements OnInit {
   extractCities() {
     this.countries.forEach(
       (c, i) => {
-        this.cities[i] = c.markers.reduce((d, e) => (d = [e.city, ...d]), []) as string[];
+        this.cities[i] = c.markers.reduce((d, e) => (d.push(e.city), d), []) as string[];
+        this.images[i] = c.markers.reduce((d, e) => (d.push(...e.images), d), []) as string[];
       }
     );
   }
