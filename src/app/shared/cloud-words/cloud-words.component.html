@@ -1,20 +1,20 @@
 <div id="cloud-{{uniqueId}}" class="cloud-words"></div>
 <div class="modal fade" id="modal-{{uniqueId}}" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content align-content-center">
       <div class="row w-100">
         <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
           <fa-icon icon="times"></fa-icon>
         </button>
       </div>
       <div class="row w-100">
-        <div class="col-md-1 col-sm-2 d-flex justify-content-center align-items-center left" (click)="changeImage(-1)">
+        <div class="col d-flex justify-content-center align-items-center left" (click)="changeImage(-1)">
           <fa-icon icon="chevron-left"></fa-icon>
         </div>
-        <div class="col-md-10 col-sm-8">
+        <div class="col-9">
           <app-image [src]="imageToShow"></app-image>
         </div>
-        <div class="col-md-1 col-sm-2 d-flex justify-content-center align-items-center right" (click)="changeImage(1)">
+        <div class="col-1 d-flex justify-content-center align-items-center right" (click)="changeImage(1)">
           <fa-icon icon="chevron-right"></fa-icon>
         </div>
       </div>
