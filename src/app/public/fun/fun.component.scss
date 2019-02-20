@@ -16,9 +16,10 @@
   }
 
   .other-container {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    text-align: right;
+    height: 83vh;
+
+    app-cloud-words {
+      width: 100%;
+    }
   }
 }

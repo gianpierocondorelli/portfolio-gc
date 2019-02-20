@@ -1,7 +1,9 @@
-import { Component, OnInit, Injector, HostListener } from '@angular/core';
-import { BaseComponent } from 'src/app/shared/base-component';
-import { MapBig } from 'src/app/shared/support-class';
+import { Component, OnInit, Injector } from '@angular/core';
 
+import { BaseComponent } from 'src/app/shared/base-component';
+import { MapBig, City } from 'src/app/shared/support-class';
+
+declare var $: any;
 @Component({
   selector: 'app-fun',
   templateUrl: './fun.component.html',
@@ -13,6 +15,8 @@ export class FunComponent extends BaseComponent implements OnInit {
   private activateVisibility = false;
   cities = [[]];
   images = [[]];
+  imagesSelectedCity: string[];
+  imageToShow: string;
 
   countries: MapBig[] = [{
     center: {
@@ -71,12 +75,55 @@ export class FunComponent extends BaseComponent implements OnInit {
     },
     scale: 1024,
     markers: [{
-      city: 'Rome',
+      city: 'Roma',
       country: 'Italy',
       latitude: 41.9109,
       longitude: 12.4818,
       images: ['assets/images/test.jpg', 'assets/images/test.jpg']
-    }]
+    },
+    {
+      city: 'Milano',
+      country: 'Italy',
+      latitude: 45.466797,
+      longitude: 9.190498,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    },
+    {
+      city: 'Torino',
+      country: 'Italy',
+      latitude: 45.067755,
+      longitude: 7.682489,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    },
+    {
+      city: 'Catania',
+      country: 'Italy',
+      latitude: 37.502236,
+      longitude: 15.08738,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    },
+    {
+      city: 'Verona',
+      country: 'Italy',
+      latitude: 45.438496,
+      longitude: 10.992412,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    },
+    {
+      city: 'Venezia',
+      country: 'Italy',
+      latitude: 45.437191,
+      longitude: 12.33459,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    },
+    {
+      city: 'Firenze',
+      country: 'Italy',
+      latitude: 43.769871,
+      longitude: 11.255576,
+      images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+    }
+    ]
   },
   {
     name: 'France',
@@ -90,6 +137,20 @@ export class FunComponent extends BaseComponent implements OnInit {
       country: 'France',
       latitude: 48.85341,
       longitude: 2.3488,
+      images: ['assets/images/test.jpg']
+    },
+    {
+      city: 'Bordeaux',
+      country: 'France',
+      latitude: 44.841225,
+      longitude: -0.580036,
+      images: ['assets/images/test.jpg']
+    },
+    {
+      city: 'Bordeaux',
+      country: 'France',
+      latitude: 44.841225,
+      longitude: -0.580036,
       images: ['assets/images/test.jpg']
     }]
   }
@@ -111,9 +172,9 @@ export class FunComponent extends BaseComponent implements OnInit {
   getVisibility(index: number) {
     if (this.activateVisibility) {
       const introductionHeight = document.getElementsByClassName('introduction')[0].clientHeight;
-      const subtractInit = (introductionHeight / 4);
+      const subtractInit = (introductionHeight / 2);
       const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
-      const subtractOther = (otherContainerHeight / 4);
+      const subtractOther = (otherContainerHeight / 2);
       const currentScroll = window.scrollY;
       if (currentScroll <= introductionHeight - subtractInit) {
         return index === 0;
@@ -129,9 +190,31 @@ export class FunComponent extends BaseComponent implements OnInit {
     this.countries.forEach(
       (c, i) => {
         this.cities[i] = c.markers.reduce((d, e) => (d.push(e.city), d), []) as string[];
+        console.log('cities', this.cities[i]);
         this.images[i] = c.markers.reduce((d, e) => (d.push(...e.images), d), []) as string[];
       }
     );
   }
 
+  getTransform(index: number) {
+    return `rotate(${Math.random() * index * 100})`;
+  }
+
+
+  showModalImage(city: City) {
+    console.log('city', city);
+    this.imagesSelectedCity = city.images;
+    this.imageToShow = this.imagesSelectedCity[0];
+    $(`#modal-images`).appendTo('body').modal('show');
+  }
+
+  changeImage(move: number) {
+    const currentPos = this.imagesSelectedCity.indexOf(this.imageToShow);
+    const nextPos = currentPos + move;
+    if (move < 0) {
+      this.imageToShow = nextPos < 0 ? this.imagesSelectedCity[this.imagesSelectedCity.length - 1] : this.imagesSelectedCity[nextPos];
+    } else {
+      this.imageToShow = nextPos >= this.imagesSelectedCity.length ? this.imagesSelectedCity[0] : this.imagesSelectedCity[nextPos];
+    }
+  }
 }

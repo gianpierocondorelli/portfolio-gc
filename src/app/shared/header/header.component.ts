@@ -11,8 +11,8 @@ import { BaseComponent } from '../base-component';
 })
 export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  notDisplayMenu = false;
-  disableMenu = false;
+  notDisplayMenu = true;
+  disableMenu = true;
   currentPath: string;
   sections = SECTIONS;
 
@@ -21,6 +21,10 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    this.notDisplayMenu = this.router.url === '/';
+    setTimeout(() => {
+      this.disableMenu = this.notDisplayMenu;
+    }, 250);
     this.subscription = this.router.events.subscribe(
       event => {
         if (event instanceof NavigationEnd) {
