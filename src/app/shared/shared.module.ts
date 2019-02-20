@@ -15,9 +15,7 @@ import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LinkMenuComponent } from './link-menu/link-menu.component';
 import { MapD3Component } from './map-d3/map-d3.component';
-import { CloudWordsComponent } from './cloud-words/cloud-words.component';
 import { GoTopComponent } from './go-top/go-top.component';
-import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ImageComponent } from './image/image.component';
 
 @NgModule({
@@ -28,9 +26,7 @@ import { ImageComponent } from './image/image.component';
     NotFoundComponent,
     LinkMenuComponent,
     MapD3Component,
-    CloudWordsComponent,
     GoTopComponent,
-    ImageSliderComponent,
     ImageComponent
   ],
   imports: [
@@ -45,7 +41,7 @@ import { ImageComponent } from './image/image.component';
     SplashScreenComponent,
     MapD3Component,
     LinkMenuComponent,
-    CloudWordsComponent,
+    ImageComponent,
     // modules
     FontAwesomeModule,
     TranslateModule,
