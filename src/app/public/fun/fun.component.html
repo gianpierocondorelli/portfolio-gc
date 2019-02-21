@@ -25,7 +25,7 @@
           <fa-icon icon="times"></fa-icon>
         </button>
       </div>
-      <div class="row w-100">
+      <div class="row w-100" *ngIf="imageToShow">
         <div class="col d-flex justify-content-center align-items-center left" (click)="changeImage(-1)">
           <fa-icon icon="chevron-left"></fa-icon>
         </div>
