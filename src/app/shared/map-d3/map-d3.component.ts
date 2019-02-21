@@ -97,6 +97,6 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   onResize(event) {
     setTimeout(() => {
       this.buildMap();
-    }, 100);
+    }, 250);
   }
 }
