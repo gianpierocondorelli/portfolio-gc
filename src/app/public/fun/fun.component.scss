@@ -21,5 +21,13 @@
     app-cloud-words {
       width: 100%;
     }
+
+    .city-to-click {
+      cursor: pointer;
+
+      &:hover {
+        font-size: $font-size*2.25;
+      }
+    }
   }
 }

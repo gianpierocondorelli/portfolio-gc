@@ -21,6 +21,7 @@ body {
     cursor: pointer !important;
     color: $white;
     z-index: 2000;
+    font-size: $font-size*2 !important;
   }
 
   .left,
@@ -32,6 +33,7 @@ body {
     cursor: pointer;
     color: $white;
     opacity: 0.6;
+    font-size: $font-size*1.5 !important;
 
     &:hover {
       opacity: 1;

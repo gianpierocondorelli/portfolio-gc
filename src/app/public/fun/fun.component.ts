@@ -31,7 +31,7 @@ export class FunComponent extends BaseComponent implements OnInit {
     },
     {
       city: 'Amsterdam',
-      country: 'Nederlands',
+      country: 'Netherlands',
       latitude: 52.37403,
       longitude: 4.88969
     },
@@ -147,10 +147,85 @@ export class FunComponent extends BaseComponent implements OnInit {
       images: ['assets/images/test.jpg']
     },
     {
-      city: 'Bordeaux',
-      country: 'France',
-      latitude: 44.841225,
-      longitude: -0.580036,
+      city: 'Monaco',
+      country: 'Monaco',
+      latitude: 43.731142,
+      longitude: 7.419758,
+      images: ['assets/images/test.jpg']
+    }]
+  },
+  {
+    name: 'Spain',
+    center: {
+      latitude: 41.38879,
+      longitude: 2.15899
+    },
+    scale: 1024,
+    markers: [{
+      city: 'Barcelona',
+      country: 'Spain',
+      latitude: 41.38879,
+      longitude: 2.15899,
+      images: ['assets/images/test.jpg']
+    }]
+  },
+  {
+    name: 'England',
+    center: {
+      latitude: 51.50853,
+      longitude: -0.12574
+    },
+    scale: 1024,
+    markers: [{
+      city: 'London',
+      country: 'United Kingdom',
+      latitude: 51.50853,
+      longitude: -0.12574,
+      images: ['assets/images/test.jpg']
+    }]
+  },
+  {
+    name: 'Netherlands',
+    center: {
+      latitude: 52.37403,
+      longitude: 4.88969
+    },
+    scale: 1024,
+    markers: [{
+      city: 'Amsterdam',
+      country: 'Netherlands',
+      latitude: 52.37403,
+      longitude: 4.88969,
+      images: ['assets/images/test.jpg']
+    }]
+  },
+  {
+    name: 'Switzerland',
+    center: {
+      latitude: 47.3666700,
+      longitude: 8.5500000
+    },
+    scale: 1024,
+    markers: [{
+      city: 'Zurich',
+      country: 'Switzerland',
+      latitude: 47.3666700,
+      longitude: 8.5500000,
+      images: ['assets/images/test.jpg']
+    }]
+  },
+  {
+    name: 'Germany',
+    center: {
+      latitude: 48.1374300,
+      longitude: 11.5754900
+    },
+    scale: 1024,
+    markers: [{
+      city: 'Munchen',
+      country: 'Germany',
+      latitude: 48.1374300,
+      longitude: 11.5754900,
       images: ['assets/images/test.jpg']
     }]
   }
@@ -202,10 +277,11 @@ export class FunComponent extends BaseComponent implements OnInit {
 
 
   showModalImage(city: City) {
-    console.log('city', city);
     this.imagesSelectedCity = city.images;
-    this.imageToShow = this.imagesSelectedCity[0];
-    $(`#modal-images`).appendTo('body').modal('show');
+    if (this.imagesSelectedCity) {
+      this.imageToShow = this.imagesSelectedCity[0];
+      $(`#modal-images`).appendTo('body').modal('show');
+    }
   }
 
   changeImage(move: number) {
