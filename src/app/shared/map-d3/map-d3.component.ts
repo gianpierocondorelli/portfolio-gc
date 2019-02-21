@@ -42,8 +42,8 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
     map.selectAll('*').remove();
 
     const svg = this.d3.select(`.map[id="map${this.uniqueId}"]`).append('svg'),
-      width = div.getBoundingClientRect().width,
-      height = div.getBoundingClientRect().height;
+      width = div.clientWidth,
+      height = div.clientHeight;
 
     svg.attr('width', `${width}`)
       .attr('height', `${height}`)
@@ -95,6 +95,8 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.buildMap();
+    setTimeout(() => {
+      this.buildMap();
+    }, 100);
   }
 }
