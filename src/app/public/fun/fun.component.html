@@ -7,12 +7,16 @@
     </h3>
     <div class="row" *ngIf="i>0">
       <div class="col-sm-12 col-md-6">
+        <span>
+          {{ 'FUN.COUNTRY.TEXT' | translate: {value: country.name} }}
+        </span>
+      </div>
+      <div class="col-sm-12 col-md-6">
         <span *ngFor="let city of country.markers" [class.city-to-click]="city.images && city.images.length > 0"
           (click)="showModalImage(city)">
           {{ city.city }}
         </span>
       </div>
-      <div class="col-sm-12 col-md-6"></div>
     </div>
   </div>
 </div>

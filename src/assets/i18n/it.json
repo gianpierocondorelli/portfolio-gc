@@ -10,6 +10,7 @@
 			"SOCIAL": "Social",
 			"WORK": "Work"
 		},
+		"PLACEHOLDER_TEXT": "",
 		"SUBTITLE": {
 			"FUN": "",
 			"SOCIAL": "",
@@ -20,10 +21,21 @@
 		"TEXT": "{{ value }} | Gianpiero Condorelli"
 	},
 	"FUN": {
+		"COUNTRY": {
+			"TEXT": ""
+		},
 		"INTRODUCTION": ""
 	},
 	"SPLASH_SCREEN": {
 		"INITIALS": "GC",
 		"NAME": "GIANPIERO CONDORELLI"
+	},
+	"WORK": {
+		"CODE_WRITTEN": {
+			"LINE_COUNT": "",
+			"TITLE": "",
+			"TOOLS_USED": ""
+		},
+		"INTRODUCTION": ""
 	}
 }

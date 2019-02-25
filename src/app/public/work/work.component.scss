@@ -1,0 +1,27 @@
+@import '../../../scss/colors';
+@import '../../../scss/variables';
+
+.work {
+  font-size: $font-size*2;
+
+  .section {
+    height: 87vh;
+
+    &.one {
+      display: flex;
+      text-align: center;
+      align-items: center;
+    }
+
+    &.two {
+      background: url('/assets/images/back-section-two.jpg') no-repeat center center;
+      background-size: auto;
+      color: $white;
+
+      .icon-tool {
+        margin: 2vh 2vw;
+        font-size: $font-size * 4;
+      }
+    }
+  }
+}
