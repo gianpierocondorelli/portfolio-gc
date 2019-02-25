@@ -17,6 +17,7 @@ import { LinkMenuComponent } from './link-menu/link-menu.component';
 import { MapD3Component } from './map-d3/map-d3.component';
 import { GoTopComponent } from './go-top/go-top.component';
 import { ImageComponent } from './image/image.component';
+import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ImageComponent } from './image/image.component';
     LinkMenuComponent,
     MapD3Component,
     GoTopComponent,
-    ImageComponent
+    ImageComponent,
+    IncreasingCounterComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { ImageComponent } from './image/image.component';
     MapD3Component,
     LinkMenuComponent,
     ImageComponent,
+    IncreasingCounterComponent,
     // modules
     FontAwesomeModule,
     TranslateModule,

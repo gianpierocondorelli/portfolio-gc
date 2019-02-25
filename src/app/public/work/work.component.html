@@ -1,1 +1,54 @@
-<div class="container work"></div>
+<div class="work">
+  <div class="container section one">
+    <h2>{{ 'WORK.INTRODUCTION' | translate }} </h2>
+  </div>
+  <div class="section two container-fluid">
+    <div class="row">
+      <div class="col-12 my-3 w-100">
+        <div class="container d-flex">
+          <span class="mx-auto">
+            {{ 'WORK.CODE_WRITTEN.TITLE' | translate }}
+          </span>
+        </div>
+      </div>
+      <div class="col-12 mb-3">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-sm-12 col-md-6">
+              <div class="row">
+                <div class="col-12 d-flex">
+                  <div class="mx-auto">
+                    {{ 'WORK.CODE_WRITTEN.LINE_COUNT' | translate }}
+                  </div>
+                </div>
+                <div class="col-12 d-flex">
+                  <div class="mx-auto">
+                    <app-increasing-counter limitValue="5000"></app-increasing-counter>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="row">
+                <div class="col-12 d-flex">
+                  <div class="mx-auto">
+                    {{ 'WORK.CODE_WRITTEN.TOOLS_USED' | translate }}
+                  </div>
+                </div>
+                <div class="d-flex col-12">
+                  <div class="m-auto">
+                    <fa-icon [icon]="['fab','node-js']" class="icon-tool"></fa-icon>
+                    <fa-icon [icon]="['fab','angular']" class="icon-tool"></fa-icon>
+                    <fa-icon [icon]="['fab','html5']" class="icon-tool"></fa-icon>
+                    <fa-icon [icon]="['fab','sass']" class="icon-tool"></fa-icon>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

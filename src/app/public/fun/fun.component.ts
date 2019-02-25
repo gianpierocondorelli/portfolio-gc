@@ -123,6 +123,13 @@ export class FunComponent extends BaseComponent implements OnInit {
         latitude: 43.769871,
         longitude: 11.255576,
         images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+      },
+      {
+        city: 'Siena',
+        country: 'Italy',
+        latitude: 43.318554,
+        longitude: 11.331653,
+        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
       }
       ]
     },
