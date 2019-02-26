@@ -1,21 +1,33 @@
 <app-map-d3 *ngFor="let country of countries, let i = index" [uniqueId]="i" [markers]="country.markers" [latitude]="country.center.latitude"
-  [longitude]="country.center.longitude" [visible]="getVisibility(i)" [country]="country.name" [scale]="country.scale"></app-map-d3>
-<div class="container fun">
+  [longitude]="country.center.longitude" [visible]="getVisibility(i)" [scale]="country.scale"></app-map-d3>
+<div class="fun">
   <div *ngFor="let country of countries, let i = index" class="{{ i === 0 ? 'introduction' : 'other-container' }}">
-    <h3 *ngIf="i===0">
-      {{ 'FUN.INTRODUCTION' | translate }}
-    </h3>
-    <div class="row" *ngIf="i>0">
-      <div class="col-sm-12 col-md-6">
-        <span>
-          {{ 'FUN.COUNTRY.TEXT' | translate: {value: country.name} }}
-        </span>
+    <div class="w-100">
+      <div class="transp-bkg" *ngIf="i===0">
+        <div class="container">
+          <div class="row">
+            <h3>
+              {{ 'FUN.INTRODUCTION' | translate }}
+            </h3>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-12 col-md-6">
-        <span *ngFor="let city of country.markers" [class.city-to-click]="city.images && city.images.length > 0"
-          (click)="showModalImage(city)">
-          {{ city.city }}
-        </span>
+      <div class="transp-bkg" *ngIf="i>0">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 text-md-right border-blue">
+              <span>
+                {{ 'FUN.COUNTRY.TEXT' | translate: {value: country.name} }}
+              </span>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <span *ngFor="let city of country.markers" [class.city-to-click]="city.images && city.images.length > 0"
+                (click)="showModalImage(city)">
+                {{ city.city }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

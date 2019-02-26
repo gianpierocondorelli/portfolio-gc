@@ -39,6 +39,10 @@ body {
       opacity: 1;
     }
   }
+
+  img {
+    transition: 1s;
+  }
 }
 
 .button {
@@ -95,4 +99,44 @@ router-outlet~* {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gray-bkg {
+  background-color: $gray-100;
+}
+
+.border-blue {
+  @media screen and (max-width: $desktop) {
+    border-bottom: $lapis-lazuli 0.1vh solid;
+  }
+
+  @media screen and (min-width: $desktop) {
+    border-right: $lapis-lazuli 0.1vw solid;
+  }
+}
+
+.blue-bkg {
+  background-color: $lapis-lazuli;
+
+}
+
+.white-bkg {
+  background-color: $white;
+}
+
+.transp-bkg {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    background-color: $white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .7;
+    z-index: -1;
+  }
 }
