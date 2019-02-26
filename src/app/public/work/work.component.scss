@@ -6,6 +6,10 @@
 
   .section {
     height: 87vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
     &.one {
       display: flex;
@@ -14,8 +18,7 @@
     }
 
     &.two {
-      background: url('/assets/images/back-section-two.jpg') no-repeat center center;
-      background-size: auto;
+      background-image: url('/assets/images/back-section-two.jpg');
       color: $white;
 
       .icon-tool {

@@ -1,10 +1,11 @@
-<div class="container home">
+<div class="home">
   <div class="sections-container">
-    <div class="section right" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
+    <div class="section right transp-bkg" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
       [class.d-none]="!display[i]">
-      <!-- <h1 class="title">{{ section.label | translate }}</h1> -->
-      <h2 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h2>
-      <button class="button" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
+      <div class="container">
+        <h2 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h2>
+        <button class="button" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
+      </div>
     </div>
   </div>
   <div class="icons-bottom">

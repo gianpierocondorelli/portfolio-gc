@@ -48,7 +48,7 @@ export class BaseComponent {
   }
 
 
-  protected go2Top() {
+  go2Top() {
     this.scrollSrv.scrollTo('#top');
   }
 
