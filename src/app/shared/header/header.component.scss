@@ -4,9 +4,9 @@
 .header {
   display: flex;
   position: fixed;
-  min-height: 12vh;
+  min-height: 13vh;
   height: auto !important;
-  height: 12vh;
+  height: 13vh;
   width: 100vw;
   background: $white !important;
   padding: 0 5vw;
@@ -14,9 +14,11 @@
   z-index: 20;
 
   .logo {
-    font-family: $font-family-logo;
-    font-size: $font-size * 3;
-    color: $lapis-lazuli !important;
+    img {
+      height: $font-size * 5;
+      width: auto;
+    }
+
     cursor: pointer;
   }
 
