@@ -15,8 +15,11 @@
     justify-content: center;
 
     .logo {
-      font-family: $font-family-logo;
-      font-size: $font-size *3;
+      img {
+        height: $font-size * 5;
+        width: auto;
+      }
+
       text-align: center;
       margin-bottom: 1vh;
     }

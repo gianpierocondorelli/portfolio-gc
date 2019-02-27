@@ -1,6 +1,6 @@
 <div class="header">
   <div class="logo" (click)="goToHome()">
-    {{ 'SPLASH_SCREEN.INITIALS' | translate }}
+    <img src="assets/images/logo.png">
   </div>
   <div class="menu-elements ml-auto" [class.not-display]="notDisplayMenu" [class.d-none]="disableMenu">
     <app-link-menu *ngFor="let section of sections" [icon]="section.icon" colorClass="blue" [pathLink]="section.path"
