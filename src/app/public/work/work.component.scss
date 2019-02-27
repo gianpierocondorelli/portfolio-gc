@@ -38,11 +38,7 @@
     &.two {
       position: relative !important;
       background-image: url('/assets/images/work/section-two.jpg');
-      opacity: 0;
 
-      &.display {
-        opacity: 1;
-      }
 
       .icon-tool {
         margin: 2vh 2vw;
@@ -51,6 +47,12 @@
     }
 
     .content {
+      opacity: 0;
+
+      &.display {
+        opacity: 1;
+      }
+
       z-index: 10;
       color: $white;
     }
