@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injector } from '@angular/core';
+import { Component, OnInit, Input, Injector, OnDestroy } from '@angular/core';
 
 import { BaseComponent } from '../base-component';
 import { IncreasingCounterService } from './increasing-counter.service';
@@ -8,7 +8,7 @@ import { IncreasingCounterService } from './increasing-counter.service';
   templateUrl: './increasing-counter.component.html',
   styleUrls: ['./increasing-counter.component.scss']
 })
-export class IncreasingCounterComponent extends BaseComponent implements OnInit {
+export class IncreasingCounterComponent extends BaseComponent implements OnInit, OnDestroy {
 
   value = 0;
   @Input() limitValue = 1000;
@@ -24,9 +24,9 @@ export class IncreasingCounterComponent extends BaseComponent implements OnInit 
 
   ngOnInit() {
     if (this.activateOnDemand) {
-      this.incCounterSrv.getStateIncreasingCounter().subscribe(
+      this.subscription = this.incCounterSrv.getStateIncreasingCounter().subscribe(
         res => {
-          if (res && this.firstActivation) {
+          if (res && !this.firstActivation) {
             this.startCounter();
             this.firstActivation = true;
           }
@@ -36,6 +36,10 @@ export class IncreasingCounterComponent extends BaseComponent implements OnInit 
       this.startCounter();
       this.firstActivation = true;
     }
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe();
   }
 
   private startCounter() {
