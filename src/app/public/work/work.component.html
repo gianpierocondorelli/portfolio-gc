@@ -1,12 +1,11 @@
 <div class="work">
   <div class="section one">
-    <div class="container content">
+    <div class="container content fadeIn">
       <h2>{{ 'WORK.INTRODUCTION' | translate }} </h2>
     </div>
   </div>
-  <div class="section two container-fluid">
+  <div class="section two container-fluid {{ sectionTwo ? 'fadeIn display' : ''}}">
     <div class="content">
-
       <div class="row">
         <div class="col-12 my-3 w-100">
           <div class="container d-flex">
@@ -30,7 +29,7 @@
                   </div>
                   <div class="col-12 d-flex">
                     <div class="mx-auto">
-                      <app-increasing-counter limitValue="5000"></app-increasing-counter>
+                      <app-increasing-counter limitValue="5000" activateOnDemand="true"></app-increasing-counter>
                     </div>
                   </div>
                   <div class="col-12 d-flex">

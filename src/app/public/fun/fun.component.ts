@@ -15,6 +15,7 @@ export class FunComponent extends BaseComponent implements OnInit {
   private activateVisibility = false;
   cities = [[]];
   images = [[]];
+  firstDisplay = [];
   imagesSelectedCity: string[];
   imageToShow: string;
 

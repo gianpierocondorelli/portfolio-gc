@@ -1,5 +1,6 @@
 @import '../../../scss/colors';
 @import '../../../scss/variables';
+@import '../../../scss/animation';
 
 .work {
   font-size: $font-size*2;
@@ -37,6 +38,11 @@
     &.two {
       position: relative !important;
       background-image: url('/assets/images/work/section-two.jpg');
+      opacity: 0;
+
+      &.display {
+        opacity: 1;
+      }
 
       .icon-tool {
         margin: 2vh 2vw;

@@ -1,6 +1,7 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, HostListener } from '@angular/core';
 
 import { BaseComponent } from 'src/app/shared/base-component';
+import { IncreasingCounterService } from 'src/app/shared/increasing-counter/increasing-counter.service';
 
 @Component({
   selector: 'app-work',
@@ -9,7 +10,11 @@ import { BaseComponent } from 'src/app/shared/base-component';
 })
 export class WorkComponent extends BaseComponent implements OnInit {
 
-  constructor(injector: Injector) {
+  sectionTwo = false;
+
+  constructor(
+    private incCountSrv: IncreasingCounterService,
+    injector: Injector) {
     super(injector);
   }
 
@@ -18,5 +23,11 @@ export class WorkComponent extends BaseComponent implements OnInit {
   }
 
 
+  @HostListener('window:scroll', ['$event'])
+  onResize(event) {
+    const element = document.getElementsByClassName('one')[0];
+    this.sectionTwo = (window.scrollY > (element.clientHeight / 3)) || this.sectionTwo;
+    this.incCountSrv.setStateIncreasingCounter(this.sectionTwo);
+  }
 
 }
