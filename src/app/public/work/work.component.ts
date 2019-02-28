@@ -10,7 +10,8 @@ import { IncreasingCounterService } from 'src/app/shared/increasing-counter/incr
 })
 export class WorkComponent extends BaseComponent implements OnInit {
 
-  sectionTwo = false;
+
+  sectionFirstActivation = [false, false, false];
 
   constructor(
     private incCountSrv: IncreasingCounterService,
@@ -19,14 +20,18 @@ export class WorkComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.sectionFirstActivation[0] = true;
   }
 
 
   @HostListener('window:scroll', ['$event'])
-  onResize(event) {
-    const element = document.getElementsByClassName('one')[0];
-    this.sectionTwo = (window.scrollY > (element.clientHeight / 3)) || this.sectionTwo;
-    this.incCountSrv.setStateIncreasingCounter(this.sectionTwo);
+  onScroll(event) {
+    const sections = document.getElementsByClassName('section');
+    const elOne = sections[0];
+    const elTwo = sections[1];
+    this.sectionFirstActivation[1] = (window.scrollY > (elOne.clientHeight / 3)) || this.sectionFirstActivation[1];
+    this.sectionFirstActivation[2] = (window.scrollY > (elOne.clientHeight / 1.5)) || this.sectionFirstActivation[2];
+    this.incCountSrv.setStateIncreasingCounter(this.sectionFirstActivation[1]);
   }
 
 }
