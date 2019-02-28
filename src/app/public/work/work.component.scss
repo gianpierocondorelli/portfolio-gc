@@ -38,12 +38,16 @@
     &.two {
       position: relative !important;
       background-image: url('/assets/images/work/section-two.jpg');
+    }
 
+    &.three {
+      background-image: url('/assets/images/work/section-three.jpg');
+      position: relative !important;
+    }
 
-      .icon-tool {
-        margin: 2vh 2vw;
-        font-size: $font-size * 4;
-      }
+    .icon-tool {
+      margin: 2vh 2vw;
+      font-size: $font-size * 4;
     }
 
     .content {
