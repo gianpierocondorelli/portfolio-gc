@@ -19,7 +19,6 @@ export class WorkComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.go2Top();
   }
 
 

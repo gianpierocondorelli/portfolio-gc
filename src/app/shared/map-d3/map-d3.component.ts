@@ -55,8 +55,10 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
       .scale(this.scale || 750)                       // This is like the zoom
       .translate([width / 2, height / 2]);
 
+    this.loaderSrv.sendNewLoaderStatus(true);
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
       (data: any) => {
+        this.loaderSrv.sendNewLoaderStatus(false);
         // Filter data
         data.features = this.country && this.country.length > 0 ?
           data.features.filter((d: any) => d.properties.name === this.country)
@@ -89,6 +91,9 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .attr('stroke-width', 1)
           .attr('stroke-opacity', 0.2)
           .attr('fill-opacity', .2);
+      },
+      err => {
+        this.loaderSrv.sendNewLoaderStatus(false);
       }
     );
   }

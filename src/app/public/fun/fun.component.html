@@ -3,7 +3,7 @@
 <div class="fun">
   <div *ngFor="let country of countries, let i = index" class="{{ i === 0 ? 'introduction' : 'other-container' }}">
     <div class="w-100">
-      <div class="transp-bkg" *ngIf="i===0">
+      <div class="transp-bkg" [class.opacity-zero]="!firstDisplay[i]" [class.fadeIn]="firstDisplay[i]" *ngIf="i===0">
         <div class="container">
           <div class="row">
             <h3>
@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <div class="transp-bkg" *ngIf="i>0">
+      <div class="transp-bkg" [class.opacity-zero]="!firstDisplay[i]" [class.fadeIn]="firstDisplay[i]" *ngIf="i>0">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6 text-md-right border-blue">
