@@ -246,7 +246,6 @@ export class FunComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.go2Top();
     this.extractCities();
     setTimeout(() => {
       this.activateVisibility = true;
@@ -258,13 +257,16 @@ export class FunComponent extends BaseComponent implements OnInit {
       const introductionHeight = document.getElementsByClassName('introduction')[0].clientHeight;
       const subtractInit = (introductionHeight);
       const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
-      const subtractOther = (otherContainerHeight / 1.1);
+      const subtractOther = (otherContainerHeight / 1.3);
       const currentScroll = window.scrollY;
       if (currentScroll <= introductionHeight - subtractInit) {
+        this.firstDisplay[0] = true;
         return index === 0;
       } else {
-        return currentScroll > introductionHeight + (otherContainerHeight * (index - 1)) - subtractOther &&
+        const returnIndex = currentScroll > introductionHeight + (otherContainerHeight * (index - 1)) - subtractOther &&
           currentScroll <= introductionHeight + (otherContainerHeight * index) - subtractOther;
+        this.firstDisplay[index] = this.firstDisplay[index] || returnIndex;
+        return returnIndex;
       }
     }
     return false;
@@ -273,6 +275,7 @@ export class FunComponent extends BaseComponent implements OnInit {
   extractCities() {
     this.countries.forEach(
       (c, i) => {
+        this.firstDisplay[i] = false;
         this.cities[i] = c.markers.reduce((d, e) => (d.push(e.city), d), []) as string[];
         this.images[i] = c.markers.reduce((d, e) => (d.push(...e.images), d), []) as string[];
       }

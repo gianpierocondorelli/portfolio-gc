@@ -37,13 +37,14 @@ export class AppComponent extends BaseComponent implements OnInit {
     this.subscription = this.router.events.subscribe(
       event => {
         if (event instanceof NavigationStart) {
-          this.showLoader = true;
+          this.loaderSrv.sendNewLoaderStatus(true);
         } else if (
           event instanceof NavigationEnd ||
           event instanceof NavigationCancel ||
           event instanceof NavigationError
         ) {
-          this.showLoader = false;
+          this.loaderSrv.sendNewLoaderStatus(false);
+          window.scroll(0, 0);
         }
       }
     );

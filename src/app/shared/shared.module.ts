@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +8,7 @@ import { AgmCoreModule } from '@agm/core';
 import { FitBoundsService } from '@agm/core/services/fit-bounds';
 import { ScrollToModule } from 'ng2-scroll-to-el';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
+import { BlockUIModule } from 'ng-block-ui';
 
 import { HeaderComponent } from './header/header.component';
 import { PortfolioWrapperComponent } from './portfolio-wrapper/portfolio-wrapper.component';
@@ -18,6 +19,7 @@ import { MapD3Component } from './map-d3/map-d3.component';
 import { GoTopComponent } from './go-top/go-top.component';
 import { ImageComponent } from './image/image.component';
 import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { IncreasingCounterComponent } from './increasing-counter/increasing-coun
     MapD3Component,
     GoTopComponent,
     ImageComponent,
-    IncreasingCounterComponent
+    IncreasingCounterComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
     DeferLoadModule,
+    BlockUIModule.forRoot(),
     TranslateModule.forChild()
   ],
   exports: [
@@ -51,7 +55,8 @@ import { IncreasingCounterComponent } from './increasing-counter/increasing-coun
     AgmCoreModule,
     HttpClientModule,
     ScrollToModule,
-    DeferLoadModule
+    DeferLoadModule,
+    BlockUIModule
   ],
   providers: [
     FitBoundsService

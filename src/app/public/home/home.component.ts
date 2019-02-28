@@ -22,7 +22,6 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.go2Top();
     this.interval = setInterval(() => {
       this.currentIndex = this.currentIndex < this.sections.length - 1 ? this.currentIndex + 1 : 0;
       setTimeout(() => {

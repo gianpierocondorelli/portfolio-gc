@@ -1,11 +1,12 @@
-import { Injector, ChangeDetectorRef } from "@angular/core";
-import { Router } from "@angular/router";
+import { Injector, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Subscription } from "rxjs";
-import { TranslateService } from "@ngx-translate/core";
-import { BackgroundService } from "./services/background.service";
-import { HttpClient } from "@angular/common/http";
-import { ScrollToService } from "ng2-scroll-to-el";
+import { Subscription } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { BackgroundService } from './services/background.service';
+import { HttpClient } from '@angular/common/http';
+import { ScrollToService } from 'ng2-scroll-to-el';
+import { LoaderService } from './loader/loader.service';
 
 export class BaseComponent {
 
@@ -13,7 +14,6 @@ export class BaseComponent {
   bkgColor: string;
 
   protected subscription: Subscription;
-  protected showLoader: boolean;
   protected interval: any;
 
   protected colors = ['green', 'yellow', 'red'];
@@ -24,6 +24,7 @@ export class BaseComponent {
   protected bkgSrv: BackgroundService;
   protected http: HttpClient;
   protected scrollSrv: ScrollToService;
+  protected loaderSrv: LoaderService;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
@@ -31,6 +32,7 @@ export class BaseComponent {
     this.bkgSrv = injector.get(BackgroundService);
     this.http = injector.get(HttpClient);
     this.scrollSrv = injector.get(ScrollToService);
+    this.loaderSrv = injector.get(LoaderService);
   }
 
   clearTimeout(timeout: any) {

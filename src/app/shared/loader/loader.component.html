@@ -1,0 +1,9 @@
+<ng-template #blockTemplate>
+  <div class="loading">
+    <img src="assets/images/rings.svg" />
+  </div>
+</ng-template>
+
+<block-ui class="fadeIn" [template]="blockTemplate">
+  <ng-content></ng-content>
+</block-ui>
