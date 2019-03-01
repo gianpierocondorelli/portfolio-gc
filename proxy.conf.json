@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "http://www.gianpierocondorelli.tk",
+    "secure": true,
+    "changeOrigin": true
+  }
+}

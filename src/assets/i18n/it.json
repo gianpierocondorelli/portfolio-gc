@@ -26,6 +26,11 @@
 		},
 		"INTRODUCTION": ""
 	},
+	"SOCIAL": {
+		"BUTTONS": {
+			"GO_TO_INSTAGRAM": ""
+		}
+	},
 	"SPLASH_SCREEN": {
 		"INITIALS": "GC",
 		"NAME": "GIANPIERO CONDORELLI"
