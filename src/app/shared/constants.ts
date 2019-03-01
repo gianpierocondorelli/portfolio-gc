@@ -1,7 +1,8 @@
 export const SECTIONS = [{
   label: 'COMMON.MENU.FUN',
   icon: ['fas', 'leaf'],
-  path: 'fun'
+  path: 'fun',
+  background: 'assets/images/test.jpg'
 },
 {
   label: 'COMMON.MENU.WORK',

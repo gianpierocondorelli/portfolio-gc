@@ -17,6 +17,8 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   @Input() visible = true;
   @Input() country: string;
   @Input() uniqueId = 'map';
+  @Input() delay = 100;
+  @Input() overflow = true;
 
   private d3: D3;
   numberId: string;
@@ -29,7 +31,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   ngOnInit() {
     setTimeout(() => {
       this.buildMap();
-    }, 100);
+    }, this.delay);
   }
 
   ngOnDestroy() {
@@ -47,7 +49,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
 
     svg.attr('width', `${width}`)
       .attr('height', `${height}`)
-      .style('overflow', 'visible');
+      .style('overflow', this.overflow ? 'visible' : 'hidden');
 
     // Map and projection
     const projection = this.d3.geoMercator()
@@ -55,10 +57,8 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
       .scale(this.scale || 750)                       // This is like the zoom
       .translate([width / 2, height / 2]);
 
-    this.loaderSrv.sendNewLoaderStatus(true);
     this.subscription = this.http.get('assets/maps/world.json').subscribe(
       (data: any) => {
-        this.loaderSrv.sendNewLoaderStatus(false);
         // Filter data
         data.features = this.country && this.country.length > 0 ?
           data.features.filter((d: any) => d.properties.name === this.country)
@@ -91,17 +91,13 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .attr('stroke-width', 1)
           .attr('stroke-opacity', 0.2)
           .attr('fill-opacity', .2);
-      },
-      err => {
-        this.loaderSrv.sendNewLoaderStatus(false);
-      }
-    );
+      });
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     setTimeout(() => {
       this.buildMap();
-    }, 250);
+    }, this.delay * 1.5);
   }
 }

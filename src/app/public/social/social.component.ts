@@ -3,6 +3,7 @@ import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 import { BaseComponent } from 'src/app/shared/base-component';
 import { InstagramUser } from 'src/app/shared/support-class';
 
+declare var $: any;
 @Component({
   selector: 'app-social',
   templateUrl: './social.component.html',
@@ -12,6 +13,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
 
   userInfo: InstagramUser;
   posts: any[] = [];
+  selectedPost: any;
   error = false;
 
   constructor(
@@ -44,6 +46,20 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
     window.open(`https://www.instagram.com/${this.userInfo.username}`);
   }
 
+  goToPostExternal(post: any) {
+    window.open(`${post.link}`);
+  }
 
+  showModal(post) {
+    this.selectedPost = post;
+    $(`#modal-post`).appendTo('body').modal('show');
+  }
 
+  createMarker(location) {
+    return [{
+      name: location.name,
+      latitude: location.latitude,
+      longitude: location.longitude
+    }];
+  }
 }

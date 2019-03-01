@@ -1,20 +1,66 @@
-<div class="container social">
-  <div class="row m-3">
-    <div class="col-sm-12 col-md-4 d-flex justify-content-center">
-      <img [src]="userInfo.profile_picture" class="img-fluid rounded-circle ">
+<div class="container social" *ngIf="userInfo && posts">
+  <div class="row my-3 d-flex  align-items-center justify-content-center">
+    <div class="col-sm-12 col-md-3 ">
+      <img [src]="userInfo.profile_picture" class="img-fluid rounded-circle">
     </div>
-    <div class="col-sm-12 col-md-8">
-      <h2>{{userInfo?.username}}</h2>
-      <h4>{{userInfo?.full_name}}</h4>
+    <div class="col-sm-12 col-md-9 d-flex flex-column justify-content-center">
+      <h2 class="text-center">{{userInfo?.username}}</h2>
       <button class="button" (click)="goToInstagram()">
         {{ 'COMMON.BUTTONS.GO_TO' | translate }}
         <fa-icon [icon]="['fab','instagram']"></fa-icon>
       </button>
     </div>
   </div>
-  <ngx-masonry [options]="{ transitionDuration: '0.8s', horizontalOrder: true }" [useImagesLoaded]="true">
-    <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item" *ngFor="let post of posts">
-      <img [src]="post.images.standard_resolution.url" class="img-fluid" />
+  <ngx-masonry [options]="{ transitionDuration: '0.8s' }" [useImagesLoaded]="true">
+    <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item post" *ngFor="let post of posts">
+      <img [src]="post.images.standard_resolution.url" class="img-fluid" (click)="showModal(post)" />
     </ngxMasonryItem>
   </ngx-masonry>
+</div>
+
+
+<div class="modal fade" id="modal-post" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content" *ngIf="selectedPost">
+      <app-map-d3 *ngIf="selectedPost.location" uniqueId="modal-post-map" [markers]="createMarker(selectedPost.location)"
+        [latitude]="selectedPost.location.latitude" [longitude]="selectedPost.location.longitude" visible="true" scale="2500"
+        delay="250" [overflow]="false"></app-map-d3>
+      <div class="post-modal-content">
+        <div class="row p-2 w-100">
+          <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+            <fa-icon icon="times"></fa-icon>
+          </button>
+        </div>
+        <div class="row my-2 d-flex align-items-center">
+          <div class="col-sm-12 col-md-4 ">
+            <div class="p-3">
+              <app-image [src]="selectedPost.images.standard_resolution.url"></app-image>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-8">
+            <div class="row d-flex align-items-center p-3">
+              <fa-icon [icon]="['fas', 'heart']" size="2x" class="mr-2"></fa-icon>
+              {{ selectedPost.likes.count | number }}
+              <fa-icon [icon]="['fas', 'comments']" size="2x" class="mx-2"></fa-icon>
+              {{ selectedPost.comments.count | number }}
+            </div>
+            <div class="row d-flex align-items-center p-3" *ngIf="selectedPost.location">
+              <fa-icon [icon]="['fas', 'map-marker-alt']" size="2x" class="mr-2"></fa-icon>
+              {{ selectedPost.location.name }}
+            </div>
+            <div class="row p-3">
+              {{ selectedPost.caption.text }}
+            </div>
+            <div class="row p-3">
+              <button class="button" (click)="goToPostExternal(selectedPost)">
+                {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+                <i class="fas fa-"></i>
+                <fa-icon [icon]="['fas','external-link-square-alt']"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
