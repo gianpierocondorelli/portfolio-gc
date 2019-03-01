@@ -17,3 +17,10 @@ export class MapBig {
   center: Center;
   markers: City[];
 }
+
+export class InstagramUser {
+  id: number;
+  full_name: string;
+  profile_picture: string;
+  username: string;
+}

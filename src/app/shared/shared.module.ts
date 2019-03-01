@@ -9,6 +9,8 @@ import { FitBoundsService } from '@agm/core/services/fit-bounds';
 import { ScrollToModule } from 'ng2-scroll-to-el';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { BlockUIModule } from 'ng-block-ui';
+import { NgxMasonryModule } from 'ngx-masonry';
+
 
 import { HeaderComponent } from './header/header.component';
 import { PortfolioWrapperComponent } from './portfolio-wrapper/portfolio-wrapper.component';
@@ -56,7 +58,8 @@ import { LoaderComponent } from './loader/loader.component';
     HttpClientModule,
     ScrollToModule,
     DeferLoadModule,
-    BlockUIModule
+    BlockUIModule,
+    NgxMasonryModule
   ],
   providers: [
     FitBoundsService

@@ -1,44 +1,49 @@
 {
-  "COMMON": {
-    "BUTTONS": {
-      "GO_TO": "Go To"
-    },
-    "MENU": {
-      "FUN": "Fun",
-      "INFO": "Info",
-      "LIFE": "Life",
-      "SOCIAL": "Social",
-      "WORK": "Work"
-    },
-    "PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "SUBTITLE": {
-      "FUN": "My life in the spare time, my passions...",
-      "SOCIAL": "An extract of my social accounts...",
-      "WORK": "My life at work, my past study..."
-    }
-  },
-  "FOOTER": {
-    "TEXT": "{{ value }} | Gianpiero Condorelli"
-  },
-  "FUN": {
-    "COUNTRY": {
-      "TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
-    },
-    "INTRODUCTION": "My life is based about my travels, here there're countries I visited during my spare time. Across the future they'll increase..."
-  },
-  "SPLASH_SCREEN": {
-    "INITIALS": "GC",
-    "NAME": "GIANPIERO CONDORELLI"
-  },
-  "WORK": {
-    "CODE_WRITTEN": {
-      "LINE_COUNT": "Code lines written",
-      "TITLE": "Info about the site building",
-      "TOOLS_USED": "Some tool used"
-    },
-    "INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
-    "TOOLS": {
-      "TITLE": "Some of the tools on my shelf"
-    }
-  }
+	"COMMON": {
+		"BUTTONS": {
+			"GO_TO": "Go To"
+		},
+		"MENU": {
+			"FUN": "Fun",
+			"INFO": "Info",
+			"LIFE": "Life",
+			"SOCIAL": "Social",
+			"WORK": "Work"
+		},
+		"PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"SUBTITLE": {
+			"FUN": "My life in the spare time, my passions...",
+			"SOCIAL": "An extract of my social accounts...",
+			"WORK": "My life at work, my past study..."
+		}
+	},
+	"FOOTER": {
+		"TEXT": "{{ value }} | Gianpiero Condorelli"
+	},
+	"FUN": {
+		"COUNTRY": {
+			"TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
+		},
+		"INTRODUCTION": "My life is based about my travels, here there're countries I visited during my spare time. Across the future they'll increase..."
+	},
+	"SOCIAL": {
+		"BUTTONS": {
+			"GO_TO_INSTAGRAM": ""
+		}
+	},
+	"SPLASH_SCREEN": {
+		"INITIALS": "GC",
+		"NAME": "GIANPIERO CONDORELLI"
+	},
+	"WORK": {
+		"CODE_WRITTEN": {
+			"LINE_COUNT": "Code lines written",
+			"TITLE": "Info about the site building",
+			"TOOLS_USED": "Some tool used"
+		},
+		"INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
+		"TOOLS": {
+			"TITLE": "Some of the tools on my shelf"
+		}
+	}
 }
