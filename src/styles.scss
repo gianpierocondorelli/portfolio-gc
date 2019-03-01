@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'scss/colors';
 @import 'scss/variables';
+@import 'scss/animation';
+
 
 body {
   font-family: $font-family;
@@ -11,34 +13,48 @@ body {
 }
 
 .modal {
+
+  .map-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: -1
+  }
+
   .modal-content {
-    border: none !important;
-    background-color: $transparent !important;
-    border-radius: 0 !important;
-  }
+    z-index: 10;
 
-  .close {
-    cursor: pointer !important;
-    color: $white;
-    z-index: 2000;
-    font-size: $font-size*2 !important;
-  }
+    &.fun {
+      background-color: $transparent !important;
 
-  .left,
-  .right {
-    border: none;
-    cursor: pointer;
-    width: auto;
-    background-color: $transparent;
-    cursor: pointer;
-    color: $white;
-    opacity: 0.6;
-    font-size: $font-size*1.5 !important;
+      .close {
+        cursor: pointer !important;
+        color: $white;
+        z-index: 2000;
+        font-size: $font-size*2 !important;
+      }
 
-    &:hover {
-      opacity: 1;
+      .left,
+      .right {
+        border: none;
+        cursor: pointer;
+        width: auto;
+        background-color: $transparent;
+        cursor: pointer;
+        color: $white;
+        opacity: 0.6;
+        font-size: $font-size*1.5 !important;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
     }
+
+    border-radius: 0 !important;
+    border: none !important;
   }
+
 
   img {
     transition: 1s;
@@ -57,9 +73,11 @@ body {
   text-decoration: none;
   background-color: $transparent;
   transition: 0.5s;
-
   color: $lapis-lazuli;
 
+  @media screen and (max-width: $smartphone) {
+    width: 100% !important;
+  }
 
   &:hover {
     background-color: $lapis-lazuli;

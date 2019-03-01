@@ -18,7 +18,12 @@
   transition: 1s;
   width: 100vw;
   height: 100vh;
-  background: no-repeat center center;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  margin: auto;
 
   &.green {
     background-color: $green;
