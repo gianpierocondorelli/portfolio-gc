@@ -36,7 +36,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
     const elOne = sections[0];
     if (this.sectionFirstActivation.length <= sections.length) {
       for (let i = 1; i < sections.length; i++) {
-        this.sectionFirstActivation[i] = (window.scrollY > ((elOne.clientHeight * (i - 1)) + elOne.clientHeight / 3))
+        this.sectionFirstActivation[i] = (window.pageYOffset > ((elOne.clientHeight * (i - 1)) + elOne.clientHeight / 3))
           || this.sectionFirstActivation[i];
       }
       this.incCountSrv.setStateIncreasingCounter(this.sectionFirstActivation[1]);
