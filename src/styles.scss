@@ -75,10 +75,6 @@ body {
   transition: 0.5s;
   color: $lapis-lazuli;
 
-  @media screen and (max-width: $smartphone) {
-    width: 100% !important;
-  }
-
   &:hover {
     background-color: $lapis-lazuli;
     font-weight: 800;
