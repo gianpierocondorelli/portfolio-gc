@@ -7,6 +7,10 @@ const routes: Routes = [{
   component: HomeComponent
 },
 {
+  path: 'life',
+  loadChildren: 'src/app/public/life/life.module#LifeModule'
+},
+{
   path: 'travel',
   loadChildren: 'src/app/public/travel/travel.module#TravelModule'
 },
