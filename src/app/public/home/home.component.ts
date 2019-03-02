@@ -22,6 +22,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.angulartics.eventTrack('home', { category: 'enterPage' });
     this.bkgSrv.sendNewImgBackground(this.sections[this.currentIndex].background || '');
     this.interval = setInterval(() => {
       this.currentIndex = this.currentIndex < this.sections.length - 1 ? this.currentIndex + 1 : 0;
@@ -35,6 +36,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.angulartics.eventTrack('home', { category: 'exitPage' });
     this.bkgSrv.sendNewImgBackground('');
     this.unsubscribe();
     this.clearInterval();

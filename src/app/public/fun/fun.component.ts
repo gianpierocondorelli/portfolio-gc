@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 
 import { BaseComponent } from 'src/app/shared/base-component';
 import { MapBig, City } from 'src/app/shared/support-class';
@@ -9,7 +9,7 @@ declare var $: any;
   templateUrl: './fun.component.html',
   styleUrls: ['./fun.component.scss']
 })
-export class FunComponent extends BaseComponent implements OnInit {
+export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
 
   lang = 'en';
   private activateVisibility = false;
@@ -246,10 +246,16 @@ export class FunComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.angulartics.eventTrack('fun', { category: 'enterPage' });
     this.extractCities();
     setTimeout(() => {
       this.activateVisibility = true;
     }, 100);
+  }
+
+  ngOnDestroy() {
+    this.angulartics.eventTrack('fun', { category: 'exitPage' });
+    this.unsubscribe();
   }
 
   getVisibility(index: number) {

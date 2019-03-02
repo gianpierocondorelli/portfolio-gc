@@ -22,6 +22,7 @@ import { GoTopComponent } from './go-top/go-top.component';
 import { ImageComponent } from './image/image.component';
 import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
 import { LoaderComponent } from './loader/loader.component';
+import { Angulartics2Module } from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { LoaderComponent } from './loader/loader.component';
     ScrollToModule,
     DeferLoadModule,
     BlockUIModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    Angulartics2Module
   ],
   providers: [
     FitBoundsService
