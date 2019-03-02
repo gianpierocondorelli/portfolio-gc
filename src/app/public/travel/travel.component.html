@@ -1,13 +1,13 @@
 <app-map-d3 *ngFor="let country of countries, let i = index" [uniqueId]="i" [markers]="country.markers" [latitude]="country.center.latitude"
   [longitude]="country.center.longitude" [visible]="getVisibility(i)" [scale]="country.scale"></app-map-d3>
-<div class="fun">
+<div class="travel">
   <div *ngFor="let country of countries, let i = index" class="{{ i === 0 ? 'introduction' : 'other-container' }}">
     <div class="w-100">
       <div class="transp-bkg" [class.opacity-zero]="!firstDisplay[i]" [class.fadeIn]="firstDisplay[i]" *ngIf="i===0">
         <div class="container">
           <div class="row">
             <h3>
-              {{ 'FUN.INTRODUCTION' | translate }}
+              {{ 'TRAVEL.INTRODUCTION' | translate }}
             </h3>
           </div>
         </div>
@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-6 text-md-right border-blue">
               <span>
-                {{ 'FUN.COUNTRY.TEXT' | translate: {value: country.name} }}
+                {{ 'TRAVEL.COUNTRY.TEXT' | translate: {value: country.name} }}
               </span>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -35,7 +35,7 @@
 
 <div class="modal fade" id="modal-images" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content fun label-defaultalign-content-center">
+    <div class="modal-content travel label-defaultalign-content-center">
       <div class="row w-100">
         <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
           <fa-icon icon="times"></fa-icon>

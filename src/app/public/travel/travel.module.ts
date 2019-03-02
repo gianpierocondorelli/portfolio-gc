@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FunComponent } from './fun.component';
+import { TravelComponent } from './travel.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { FunRoutingModule } from './fun-routing.module';
+import { TravelRoutingModule } from './travel-routing.module';
 
 @NgModule({
-  declarations: [FunComponent],
+  declarations: [TravelComponent],
   imports: [
     CommonModule,
     SharedModule,
-    FunRoutingModule
+    TravelRoutingModule
   ]
 })
-export class FunModule { }
+export class TravelModule { }

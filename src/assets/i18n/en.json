@@ -4,7 +4,7 @@
       "GO_TO": "Go To"
     },
     "MENU": {
-      "FUN": "Fun",
+      "TRAVEL": "Travel",
       "INFO": "Info",
       "LIFE": "Life",
       "SOCIAL": "Social",
@@ -12,19 +12,20 @@
     },
     "PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "SUBTITLE": {
-      "FUN": "My life in the spare time...",
-      "SOCIAL": "An extract of my social accounts...",
-      "WORK": "My life at work..."
+      "TRAVEL": "My travels in the spare time",
+      "SOCIAL": "An extract of my social accounts",
+      "LIFE": "A brief sum of my life",
+      "WORK": "My life at work"
     }
   },
   "FOOTER": {
     "TEXT": "{{ value }} | Gianpiero Condorelli"
   },
-  "FUN": {
+  "TRAVEL": {
     "COUNTRY": {
       "TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
     },
-    "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future..."
+    "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
   },
   "SOCIAL": {
     "BUTTONS": {
@@ -45,8 +46,8 @@
     "CONTACT_ME": "If you're interested in contacting me, click one of the following links",
     "INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
     "TOOLS": {
-      "AND_MORE_OTHER": "and more other not listed here...",
-      "TITLE": "Other tools I use for working..."
+      "AND_MORE_OTHER": "and more other not listed here",
+      "TITLE": "Other tools I use for working"
     }
   }
 }

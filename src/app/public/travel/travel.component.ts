@@ -5,11 +5,11 @@ import { MapBig, City } from 'src/app/shared/support-class';
 
 declare var $: any;
 @Component({
-  selector: 'app-fun',
-  templateUrl: './fun.component.html',
-  styleUrls: ['./fun.component.scss']
+  selector: 'app-travel',
+  templateUrl: './travel.component.html',
+  styleUrls: ['./travel.component.scss']
 })
-export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
+export class TravelComponent extends BaseComponent implements OnInit, OnDestroy {
 
   lang = 'en';
   private activateVisibility = false;
@@ -269,8 +269,8 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.angulartics.pageTrack('/fun');
-    this.angulartics.eventTrack('fun', { category: 'enterPage' });
+    this.angulartics.pageTrack('/travel');
+    this.angulartics.eventTrack('travel', { category: 'enterPage' });
     this.extractCities();
     setTimeout(() => {
       this.activateVisibility = true;
@@ -278,7 +278,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.angulartics.eventTrack('fun', { category: 'exitPage' });
+    this.angulartics.eventTrack('travel', { category: 'exitPage' });
     this.unsubscribe();
   }
 

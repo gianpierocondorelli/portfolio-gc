@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FunComponent } from './fun.component';
+import { TravelComponent } from './travel.component';
 
 const routes: Routes = [{
   path: '',
-  component: FunComponent
+  component: TravelComponent
 }];
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes: Routes = [{
     RouterModule
   ]
 })
-export class FunRoutingModule { }
+export class TravelRoutingModule { }

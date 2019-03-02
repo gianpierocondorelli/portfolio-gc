@@ -1,7 +1,7 @@
 export const SECTIONS = [{
-  label: 'COMMON.MENU.FUN',
-  icon: ['fas', 'leaf'],
-  path: 'fun',
+  label: 'COMMON.MENU.TRAVEL',
+  icon: ['fas', 'plane'],
+  path: 'travel',
   background: 'assets/images/test.jpg'
 },
 {
