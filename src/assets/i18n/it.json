@@ -37,12 +37,15 @@
 	},
 	"WORK": {
 		"CODE_WRITTEN": {
+			"INTRO": "",
 			"LINE_COUNT": "",
 			"TITLE": "",
 			"TOOLS_USED": ""
 		},
+		"CONTACT_ME": "",
 		"INTRODUCTION": "",
 		"TOOLS": {
+			"AND_MORE_OTHER": "",
 			"TITLE": ""
 		}
 	}

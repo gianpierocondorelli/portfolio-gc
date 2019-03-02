@@ -1,7 +1,9 @@
 <div class="container social" *ngIf="userInfo && posts">
-  <div class="row my-3 d-flex  align-items-center justify-content-center">
+  <div class="row my-3 d-flex align-items-center justify-content-center">
     <div class="col-sm-12 col-md-3 ">
-      <img [src]="userInfo.profile_picture" class="img-fluid rounded-circle">
+      <div class="d-flex justify-content-center">
+        <app-image [src]="userInfo.profile_picture" classToAppend="text-center rounded-circle"></app-image>
+      </div>
     </div>
     <div class="col-sm-12 col-md-9 d-flex flex-column justify-content-center">
       <h2 class="text-center">{{userInfo?.username}}</h2>
@@ -12,8 +14,8 @@
     </div>
   </div>
   <ngx-masonry [options]="{ transitionDuration: '0.8s' }" [useImagesLoaded]="true">
-    <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item post" *ngFor="let post of posts">
-      <img [src]="post.images.standard_resolution.url" class="img-fluid" (click)="showModal(post)" />
+    <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item post" *ngFor="let post of posts" (click)="showModal(post)">
+      <img [src]="post.images.standard_resolution.url" class="img-fluid" />
     </ngxMasonryItem>
   </ngx-masonry>
 </div>
@@ -25,7 +27,7 @@
       <app-map-d3 *ngIf="selectedPost.location" uniqueId="modal-post-map" [markers]="createMarker(selectedPost.location)"
         [latitude]="selectedPost.location.latitude" [longitude]="selectedPost.location.longitude" visible="true" scale="2500"
         delay="250" [overflow]="false"></app-map-d3>
-      <div class="post-modal-content">
+      <div class="post-modal-content p-5">
         <div class="row p-2 w-100">
           <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
             <fa-icon icon="times"></fa-icon>
@@ -52,9 +54,8 @@
               {{ selectedPost.caption.text }}
             </div>
             <div class="row p-3">
-              <button class="button" (click)="goToPostExternal(selectedPost)">
+              <button class="button w-100" (click)="goToPostExternal(selectedPost)">
                 {{ 'COMMON.BUTTONS.GO_TO' | translate }}
-                <i class="fas fa-"></i>
                 <fa-icon [icon]="['fas','external-link-square-alt']"></fa-icon>
               </button>
             </div>
