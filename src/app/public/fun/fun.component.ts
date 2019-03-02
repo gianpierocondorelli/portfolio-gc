@@ -246,6 +246,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.angulartics.pageTrack('/fun');
     this.angulartics.eventTrack('fun', { category: 'enterPage' });
     this.extractCities();
     setTimeout(() => {

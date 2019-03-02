@@ -23,6 +23,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    this.angulartics.pageTrack('/social');
     this.angulartics.eventTrack('social', { category: 'enterPage' });
     this.loaderSrv.sendNewLoaderStatus(true);
     this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(

@@ -20,6 +20,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.angulartics.pageTrack('/work');
     this.angulartics.eventTrack('work', { category: 'enterPage' });
     this.sectionFirstActivation[0] = true;
   }
