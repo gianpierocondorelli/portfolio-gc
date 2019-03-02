@@ -4,7 +4,6 @@ import { NavigationStart, NavigationEnd, NavigationCancel, NavigationError, Rout
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 
 import { BaseComponent } from './shared/base-component';
 import { fadeAnimation } from './shared/animations/animations';
