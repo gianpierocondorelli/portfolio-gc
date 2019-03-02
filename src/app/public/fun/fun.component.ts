@@ -265,7 +265,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
       const subtractInit = (introductionHeight);
       const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
       const subtractOther = (otherContainerHeight / 1.3);
-      const currentScroll = window.scrollY;
+      const currentScroll = window.pageYOffset;
       if (currentScroll <= introductionHeight - subtractInit) {
         this.firstDisplay[0] = true;
         return index === 0;
