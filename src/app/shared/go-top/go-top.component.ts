@@ -20,6 +20,6 @@ export class GoTopComponent extends BaseComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: Event) {
-    this.enable = window.scrollY > 150;
+    this.enable = window.pageYOffset > 150;
   }
 }
