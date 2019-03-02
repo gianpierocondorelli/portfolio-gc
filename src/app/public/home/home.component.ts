@@ -15,7 +15,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
 
   currentIndex = 0;
   sections = SECTIONS;
-  display = [true, false, false];
+  display = [true, false, false, false];
 
   constructor(injector: Injector) {
     super(injector);
