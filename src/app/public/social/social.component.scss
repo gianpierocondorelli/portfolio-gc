@@ -14,6 +14,30 @@ app-map-d3 {
 
 .post {
   cursor: pointer;
+
+  &:hover {
+    position: relative;
+
+    &:before {
+      -webkit-animation: fadeout 1.5s;
+      /* Safari, Chrome and Opera > 12.1 */
+      -moz-animation: fadeout 1.5s;
+      /* Firefox < 16 */
+      -ms-animation: fadeout 1.5s;
+      /* Internet Explorer */
+      -o-animation: fadeout 1.5s;
+      /* Opera < 12.1 */
+      animation: fadeout 1.5s;
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $gray-200;
+      opacity: .3;
+    }
+  }
 }
 
 .post-modal-content {

@@ -7,7 +7,8 @@ export const SECTIONS = [{
 {
   label: 'COMMON.MENU.WORK',
   icon: ['fas', 'briefcase'],
-  path: 'work'
+  path: 'work',
+  background: 'assets/images/work/section-two.jpg'
 },
 {
   label: 'COMMON.MENU.SOCIAL',

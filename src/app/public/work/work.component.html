@@ -14,14 +14,21 @@
         <div class="col-12 mb-3">
           <div class="container">
             <div class="row">
-              <div class="d-sm-none d-md-block col-md-6"></div>
               <div class="col-sm-12 col-md-6">
                 <div class="row">
-                  <div class="col-12 d-flex">
-                    <div class="mx-auto text-center text-uppercase">
-                      {{ 'WORK.CODE_WRITTEN.TITLE' | translate }}
-                    </div>
-                  </div>
+                  <span class="text-center">
+                    {{ 'WORK.CODE_WRITTEN.INTRO' | translate }}
+                  </span>
+                </div>
+                <div class="row">
+                  <button class="button w-100 m-5" (click)="goToCode()">
+                    {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+                    <fa-icon [icon]="['fab','bitbucket']"></fa-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6">
+                <div class="row">
                   <div class="col-12 d-flex">
                     <div class="mx-auto">
                       {{ 'WORK.CODE_WRITTEN.LINE_COUNT' | translate }}
@@ -29,7 +36,7 @@
                   </div>
                   <div class="col-12 d-flex">
                     <div class="mx-auto">
-                      <app-increasing-counter limitValue="5000" activateOnDemand="true"></app-increasing-counter>
+                      <app-increasing-counter limitValue="50000" activateOnDemand="true"></app-increasing-counter>
                     </div>
                   </div>
                   <div class="col-12 d-flex">
@@ -55,8 +62,63 @@
   </div>
   <div class="section three">
     <div class="container content {{ sectionFirstActivation[2] ? 'fadeIn display' : ''}}">
-      <div class="row">
-        {{ 'WORK.TOOLS.TITLE' | translate }}
+      <div class="row ">
+        <div class="col-sm-12">
+          <h2 class="text-center my-4">
+            {{ 'WORK.TOOLS.TITLE' | translate }}
+          </h2>
+        </div>
+        <div class="col-sm-12 mt-4">
+          <fa-icon [icon]="['fab','git']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','java']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','python']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','linux']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','windows']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','apple']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','android']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','firefox']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','chrome']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','edge']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','stack-overflow']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fab','npm']" class="icon-tool zoom"></fa-icon>
+          <fa-icon [icon]="['fas','database']" class="icon-tool zoom"></fa-icon>
+        </div>
+        <div class="col-sm-12 mt-4">
+          <h2 class="text-center">
+            {{ 'WORK.TOOLS.AND_MORE_OTHER' | translate }}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section fourth">
+    <div class="container content {{ sectionFirstActivation[3] ? 'fadeIn display' : ''}}">
+      <div class="row ">
+        <div class="col-sm-12">
+          <h2 class="text-center my-5">
+            {{ 'WORK.CONTACT_ME' | translate }}
+          </h2>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-12 col-md-4">
+          <button class="button p-3 w-100" (click)="goToResume()">
+            {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+            <fa-icon [icon]="['fas','file']"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <button class="button p-3 w-100" (click)="goToLinkedIn()">
+            {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+            <fa-icon [icon]="['fab','linkedin']"></fa-icon>
+          </button>
+        </div>
+        <div class="col-sm-12 col-md-4">
+          <button class="button p-3 w-100" (click)="goToMail()">
+            {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+            <fa-icon [icon]="['fas','at']"></fa-icon>
+          </button>
+        </div>
       </div>
     </div>
   </div>

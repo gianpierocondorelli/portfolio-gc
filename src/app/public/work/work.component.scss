@@ -10,9 +10,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 88vh;
+    height: auto !important;
+    height: 88vh;
 
     &.one {
-      height: 87vh;
       background-image: url('/assets/images/work/section-one.jpg');
       position: relative !important;
       display: flex;
@@ -41,13 +43,30 @@
     }
 
     &.three {
-      background-image: url('/assets/images/work/section-three.jpg');
       position: relative !important;
+      background-image: url('/assets/images/work/section-three.jpg');
+
+      .button {
+        color: $white;
+      }
+    }
+
+    &.fourth {
+      position: relative !important;
+      background-image: url('/assets/images/work/section-fourth.jpg');
+    }
+
+    .button {
+      color: $white;
     }
 
     .icon-tool {
       margin: 2vh 2vw;
       font-size: $font-size * 4;
+
+      &.zoom {
+        font-size: $font-size *8;
+      }
     }
 
     .content {

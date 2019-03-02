@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ImageComponent implements OnInit {
 
   @Input() src: string;
+  @Input() classToAppend: string;
   show = false;
   loaded = false;
 

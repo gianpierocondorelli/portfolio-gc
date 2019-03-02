@@ -53,6 +53,9 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   showModal(post) {
     this.selectedPost = post;
     $(`#modal-post`).appendTo('body').modal('show');
+    $('#modal-post').on('hidden.bs.modal', () => {
+      this.selectedPost = null;
+    });
   }
 
   createMarker(location) {

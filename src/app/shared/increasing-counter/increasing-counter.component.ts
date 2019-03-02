@@ -44,7 +44,7 @@ export class IncreasingCounterComponent extends BaseComponent implements OnInit,
 
   private startCounter() {
     this.interval = setInterval(() => {
-      this.value += this.value < this.limitValue ? 1 : 0;
+      this.value += this.value < this.limitValue ? 10 : 0;
       if (this.value === this.limitValue) {
         this.clearInterval();
       }
