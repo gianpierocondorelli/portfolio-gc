@@ -169,3 +169,8 @@ router-outlet~* {
 .opacity-zero {
   opacity: 0;
 }
+
+_:-ms-fullscreen,
+:root .d-flex {
+  flex: 1;
+}
