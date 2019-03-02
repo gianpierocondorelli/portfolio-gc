@@ -23,6 +23,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    this.angulartics.eventTrack('social', { category: 'enterPage' });
     this.loaderSrv.sendNewLoaderStatus(true);
     this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(
       res => {
@@ -39,14 +40,17 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnDestroy() {
+    this.angulartics.eventTrack('social', { category: 'exitPage' });
     this.unsubscribe();
   }
 
   goToInstagram() {
+    this.angulartics.eventTrack('social', { category: 'goToInstagramAccount' });
     window.open(`https://www.instagram.com/${this.userInfo.username}`);
   }
 
   goToPostExternal(post: any) {
+    this.angulartics.eventTrack('social', { category: 'goToInstagramPost' });
     window.open(`${post.link}`);
   }
 

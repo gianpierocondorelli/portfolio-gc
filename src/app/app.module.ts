@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AgmCoreModule } from '@agm/core';
+import { Angulartics2Module } from 'angulartics2';
 import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
@@ -33,7 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    Angulartics2Module.forRoot()
   ],
   providers: [D3Service],
   bootstrap: [AppComponent]

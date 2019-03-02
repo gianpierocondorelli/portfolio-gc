@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, HostListener } from '@angular/core';
+import { Component, OnInit, Injector, HostListener, OnDestroy } from '@angular/core';
 
 import { BaseComponent } from 'src/app/shared/base-component';
 import { IncreasingCounterService } from 'src/app/shared/increasing-counter/increasing-counter.service';
@@ -8,7 +8,7 @@ import { IncreasingCounterService } from 'src/app/shared/increasing-counter/incr
   templateUrl: './work.component.html',
   styleUrls: ['./work.component.scss']
 })
-export class WorkComponent extends BaseComponent implements OnInit {
+export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
 
   sectionFirstActivation = [];
@@ -20,7 +20,12 @@ export class WorkComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.angulartics.eventTrack('work', { category: 'enterPage' });
     this.sectionFirstActivation[0] = true;
+  }
+
+  ngOnDestroy() {
+    this.angulartics.eventTrack('work', { category: 'exitPage' });
   }
 
 
@@ -38,18 +43,22 @@ export class WorkComponent extends BaseComponent implements OnInit {
   }
 
   goToCode() {
-    window.open('bitbucket.org/giacondor/portfolio');
+    this.angulartics.eventTrack('work', { category: 'goToCode' });
+    window.open('http://bitbucket.org/giacondor/portfolio');
   }
 
   goToResume() {
+    this.angulartics.eventTrack('work', { category: 'goToResume' });
     window.open('/docs/resume.pdf');
   }
 
   goToLinkedIn() {
-    window.open('www.linkedin.com/in/gianpiero-condorelli');
+    this.angulartics.eventTrack('work', { category: 'goToLinkedIn' });
+    window.open('http://www.linkedin.com/in/gianpiero-condorelli');
   }
 
   goToMail() {
-    window.open('mailto:gia.condorelli@gmail.com');
+    this.angulartics.eventTrack('work', { category: 'goToMail' });
+    window.open('mailto:gia.condorelli@gmail.com', '_blank');
   }
 }
