@@ -7,8 +7,8 @@ const routes: Routes = [{
   component: HomeComponent
 },
 {
-  path: 'fun',
-  loadChildren: 'src/app/public/fun/fun.module#FunModule'
+  path: 'travel',
+  loadChildren: 'src/app/public/travel/travel.module#TravelModule'
 },
 {
   path: 'social',
