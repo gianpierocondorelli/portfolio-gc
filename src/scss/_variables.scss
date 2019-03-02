@@ -5,25 +5,25 @@ $font-family-logo: adobe-handwriting-ernie,
 sans-serif;
 $font-weight: 400;
 $font-size: 2vh;
-$borderRadius: 2vmin;
+$borderRadius: 2vh;
 $letter-spacing: 0.4vw;
 $disabledOpacity: 0.35;
-$box-shadow: 0.1vmin 0.1vmin 0.1vmin 0.1vmin;
-$text-shadow: 0 0 0.5vmin;
+$box-shadow: 0.1vh 0.1vh 0.1vh 0.1vh;
+$text-shadow: 0 0 0.5vh;
 /// Header
-$headerBorderWidth: 1vmin;
+$headerBorderWidth: 1vh;
 $headerBorderColor: $light-gray;
 $headerBgColor: $light-gray;
 $headerTextColor: $darkest-gray;
 $headerFontWeight: normal;
 $headerIconTextColor: $teal-blue;
 /// Content
-$contentBorderWidth: 1vmin;
+$contentBorderWidth: 1vh;
 $contentBorderColor: $light-gray;
 $contentBgColor: $white;
 $contentTextColor: $dark-gray;
 /// Default State
-$stateDefaultBorderWidth: 1vmin;
+$stateDefaultBorderWidth: 1vh;
 $stateDefaultBorderColor: $light-gray;
 $stateDefaultBgColor: $white;
 $stateDefaultTextColor: $dark-gray;
