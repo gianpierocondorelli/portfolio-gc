@@ -81,56 +81,56 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'Italy',
         latitude: 41.9109,
         longitude: 12.4818,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Milano',
         country: 'Italy',
         latitude: 45.466797,
         longitude: 9.190498,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Torino',
         country: 'Italy',
         latitude: 45.067755,
         longitude: 7.682489,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Catania',
         country: 'Italy',
         latitude: 37.502236,
         longitude: 15.08738,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Verona',
         country: 'Italy',
         latitude: 45.438496,
         longitude: 10.992412,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Venezia',
         country: 'Italy',
         latitude: 45.437191,
         longitude: 12.33459,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Firenze',
         country: 'Italy',
         latitude: 43.769871,
         longitude: 11.255576,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Siena',
         country: 'Italy',
         latitude: 43.318554,
         longitude: 11.331653,
-        images: ['assets/images/test.jpg', 'assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       }
       ]
     },
@@ -146,21 +146,21 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'France',
         latitude: 48.85341,
         longitude: 2.3488,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Bordeaux',
         country: 'France',
         latitude: 44.841225,
         longitude: -0.580036,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       },
       {
         city: 'Monaco',
         country: 'Monaco',
         latitude: 43.731142,
         longitude: 7.419758,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       }]
     },
     {
@@ -175,7 +175,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'Spain',
         latitude: 41.38879,
         longitude: 2.15899,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       }]
     },
     {
@@ -190,7 +190,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'United Kingdom',
         latitude: 51.50853,
         longitude: -0.12574,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       }]
     },
     {
@@ -205,8 +205,16 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'Netherlands',
         latitude: 52.37403,
         longitude: 4.88969,
-        images: ['assets/images/test.jpg']
-      }]
+        images: ['assets/images/placeholder.jpg']
+      },
+      {
+        city: 'Eindhoven',
+        country: 'Netherlands',
+        latitude: 51.4416,
+        longitude: 5.4697,
+        images: ['assets/images/placeholder.jpg']
+      }
+      ]
     },
     {
       name: 'Switzerland',
@@ -220,8 +228,23 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'Switzerland',
         latitude: 47.3666700,
         longitude: 8.5500000,
-        images: ['assets/images/test.jpg']
-      }]
+        images: ['assets/images/placeholder.jpg']
+      },
+      {
+        city: 'Lugano',
+        country: 'Switzerland',
+        latitude: 46.0037,
+        longitude: 8.9511,
+        images: ['assets/images/placeholder.jpg']
+      },
+      {
+        city: 'Sankt Moritz',
+        country: 'Switzerland',
+        latitude: 46.4908,
+        longitude: 9.8355,
+        images: ['assets/images/placeholder.jpg']
+      }
+      ]
     },
     {
       name: 'Germany',
@@ -235,7 +258,7 @@ export class FunComponent extends BaseComponent implements OnInit, OnDestroy {
         country: 'Germany',
         latitude: 48.1374300,
         longitude: 11.5754900,
-        images: ['assets/images/test.jpg']
+        images: ['assets/images/placeholder.jpg']
       }]
     }
   ];
