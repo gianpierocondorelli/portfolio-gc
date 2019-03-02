@@ -28,9 +28,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     this.interval = setInterval(() => {
       this.currentIndex = this.currentIndex < this.sections.length - 1 ? this.currentIndex + 1 : 0;
       setTimeout(() => {
-        this.display[0] = this.currentIndex === 0;
-        this.display[1] = this.currentIndex === 1;
-        this.display[2] = this.currentIndex === 2;
+        this.display = this.display.map((d, i) => d = this.currentIndex === i);
         this.bkgSrv.sendNewImgBackground(this.sections[this.currentIndex].background || '');
       }, 500);
     }, 10000);
@@ -45,5 +43,15 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
 
   goTo(link: string) {
     this.router.navigate([`/${link}`]);
+  }
+
+  changePage(move: number) {
+    const nextPos = this.currentIndex + move;
+    if (move < 0) {
+      this.currentIndex = nextPos < 0 ? this.display.length - 1 : nextPos;
+    } else {
+      this.currentIndex = nextPos >= this.display.length ? 0 : nextPos;
+    }
+    this.display = this.display.map((d, i) => d = this.currentIndex === i);
   }
 }

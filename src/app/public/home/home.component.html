@@ -2,9 +2,27 @@
   <div class="sections-container">
     <div class="section right transp-bkg" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
       [class.d-none]="!display[i]">
-      <div class="container">
-        <h2 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h2>
-        <button class="button mb-2" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-2 d-flex align-items-center justify-content-center">
+            <div class="left text-center">
+              <button class="button" (click)="changePage(-1)">
+                <fa-icon icon="chevron-left"></fa-icon>
+              </button>
+            </div>
+          </div>
+          <div class="col-8">
+            <h2 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h2>
+            <button class="button mb-2" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
+          </div>
+          <div class="col-2 d-flex align-items-center justify-content-center">
+            <div class="right text-center">
+              <button class="button" (click)="changePage(1)">
+                <fa-icon icon="chevron-right"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
