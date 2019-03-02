@@ -53,5 +53,6 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
       this.currentIndex = nextPos >= this.display.length ? 0 : nextPos;
     }
     this.display = this.display.map((d, i) => d = this.currentIndex === i);
+    this.bkgSrv.sendNewImgBackground(this.sections[this.currentIndex].background || '');
   }
 }
