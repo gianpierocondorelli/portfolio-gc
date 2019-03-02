@@ -75,7 +75,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
             .projection(projection)
           )
           .style('stroke', '#6c757d')
-          .style('opacity', .3);
+          .style('opacity', .4);
 
         // Add circles:
         svg

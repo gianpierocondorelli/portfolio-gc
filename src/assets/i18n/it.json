@@ -26,6 +26,20 @@
 		},
 		"INTRODUCTION": ""
 	},
+	"LIFE": {
+		"SECTION_ONE": {
+			"HI": "",
+			"INTRO": ""
+		},
+		"SECTION_THREE": {
+			"DESC": "",
+			"TITLE": ""
+		},
+		"SECTION_TWO": {
+			"DESC": "",
+			"TITLE": ""
+		}
+	},
 	"SOCIAL": {
 		"BUTTONS": {
 			"GO_TO_INSTAGRAM": ""
@@ -34,6 +48,12 @@
 	"SPLASH_SCREEN": {
 		"INITIALS": "GC",
 		"NAME": "GIANPIERO CONDORELLI"
+	},
+	"TRAVEL": {
+		"COUNTRY": {
+			"TEXT": ""
+		},
+		"INTRODUCTION": ""
 	},
 	"WORK": {
 		"CODE_WRITTEN": {

@@ -4,28 +4,36 @@
       "GO_TO": "Go To"
     },
     "MENU": {
-      "TRAVEL": "Travel",
       "INFO": "Info",
       "LIFE": "Life",
       "SOCIAL": "Social",
+      "TRAVEL": "Travel",
       "WORK": "Work"
     },
     "PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "SUBTITLE": {
-      "TRAVEL": "My travels in the spare time",
-      "SOCIAL": "An extract of my social accounts",
       "LIFE": "A brief sum of my life",
+      "SOCIAL": "An extract of my social accounts",
+      "TRAVEL": "My travels in the spare time",
       "WORK": "My life at work"
     }
   },
   "FOOTER": {
     "TEXT": "{{ value }} | Gianpiero Condorelli"
   },
-  "TRAVEL": {
-    "COUNTRY": {
-      "TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
+  "LIFE": {
+    "SECTION_ONE": {
+      "HI": "Hi, I'm Gianpiero",
+      "INTRO": "My roots are at Catania, where I was born at the early 1993. \n\n I lived for nearly 24 years in a near village called Misterbianco with my family, my brothers and my sister"
     },
-    "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
+    "SECTION_THREE": {
+      "DESC": "I live at Milano, where I work in a IT consulting company. During my spare time I go to discover new places, I do bodybuilding and watch TV series (maybe I'm forgetting something...)",
+      "TITLE": "Currently"
+    },
+    "SECTION_TWO": {
+      "DESC": "Following my passions, I enrolled to the University of Catania to get, first, the Computer Engineering Bachelor's Degree then the Master's Degree for a total of 5 years",
+      "TITLE": "My studies"
+    }
   },
   "SOCIAL": {
     "BUTTONS": {
@@ -35,6 +43,12 @@
   "SPLASH_SCREEN": {
     "INITIALS": "GC",
     "NAME": "GIANPIERO CONDORELLI"
+  },
+  "TRAVEL": {
+    "COUNTRY": {
+      "TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
+    },
+    "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
   },
   "WORK": {
     "CODE_WRITTEN": {
