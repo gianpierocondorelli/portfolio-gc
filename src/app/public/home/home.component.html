@@ -28,7 +28,7 @@
   </div>
   <div class="container-fluid">
     <div class="row icons-bottom">
-      <div class="col-sm-3" *ngFor="let section of sections; let i = index">
+      <div class="col-3" *ngFor="let section of sections; let i = index">
         <app-link-menu [icon]="section.icon" colorClass="white" [pathLink]="section.path" [selected]="i === currentIndex">
           {{ section.label | translate }}
         </app-link-menu>
