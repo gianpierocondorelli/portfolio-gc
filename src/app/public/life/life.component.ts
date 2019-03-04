@@ -30,7 +30,6 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.angulartics.pageTrack('/life');
     this.angulartics.eventTrack('life', { category: 'enterPage' });
     setTimeout(() => {
       this.activateVisibility = true;

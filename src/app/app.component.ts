@@ -34,7 +34,6 @@ export class AppComponent extends BaseComponent implements OnInit {
     // handling splash screen
     this.showSplash = !window.sessionStorage.getItem('showSplash');
     window.sessionStorage.setItem('showSplash', 'false');
-
     // handling loading modules in a cool way
     this.subscription = this.router.events.subscribe(
       event => {
@@ -47,6 +46,7 @@ export class AppComponent extends BaseComponent implements OnInit {
         ) {
           this.loaderSrv.sendNewLoaderStatus(false);
           window.scroll(0, 0);
+          this.bkgSrv.sendNewImgBackground('');
         }
       }
     );

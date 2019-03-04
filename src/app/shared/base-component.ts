@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
-import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
 import { ScrollToService } from 'ng2-scroll-to-el';
 
 import { BackgroundService } from './services/background.service';
@@ -28,7 +28,7 @@ export class BaseComponent {
   protected scrollSrv: ScrollToService;
   protected loaderSrv: LoaderService;
   protected cdRef: ChangeDetectorRef;
-  protected angulartics: Angulartics2GoogleTagManager;
+  protected angulartics: Angulartics2GoogleGlobalSiteTag;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
@@ -38,7 +38,7 @@ export class BaseComponent {
     this.scrollSrv = injector.get(ScrollToService);
     this.loaderSrv = injector.get(LoaderService);
     this.cdRef = injector.get(ChangeDetectorRef);
-    this.angulartics = injector.get(Angulartics2GoogleTagManager);
+    this.angulartics = injector.get(Angulartics2GoogleGlobalSiteTag);
   }
 
   clearTimeout(timeout: any) {

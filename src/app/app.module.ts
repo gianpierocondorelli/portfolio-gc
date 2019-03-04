@@ -24,7 +24,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    SharedModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -34,7 +33,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    Angulartics2Module.forRoot()
+    Angulartics2Module.forRoot({
+      pageTracking: {
+        clearIds: true,
+        clearQueryParams: true
+      }
+    }),
+    SharedModule
   ],
   providers: [D3Service],
   bootstrap: [AppComponent]

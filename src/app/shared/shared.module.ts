@@ -10,6 +10,7 @@ import { ScrollToModule } from 'ng2-scroll-to-el';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { BlockUIModule } from 'ng-block-ui';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -22,7 +23,6 @@ import { GoTopComponent } from './go-top/go-top.component';
 import { ImageComponent } from './image/image.component';
 import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
 import { LoaderComponent } from './loader/loader.component';
-import { Angulartics2Module } from 'angulartics2';
 
 @NgModule({
   declarations: [
@@ -60,8 +60,7 @@ import { Angulartics2Module } from 'angulartics2';
     ScrollToModule,
     DeferLoadModule,
     BlockUIModule,
-    NgxMasonryModule,
-    Angulartics2Module
+    NgxMasonryModule
   ],
   providers: [
     FitBoundsService
