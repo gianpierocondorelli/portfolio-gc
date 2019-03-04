@@ -15,7 +15,6 @@
     height: 88vh;
 
     &.one {
-      background-image: url('/assets/images/work/section-one.jpg');
       position: relative !important;
       display: flex;
       text-align: center;
@@ -39,12 +38,10 @@
 
     &.two {
       position: relative !important;
-      background-image: url('/assets/images/work/section-two.jpg');
     }
 
     &.three {
       position: relative !important;
-      background-image: url('/assets/images/work/section-three.jpg');
 
       .button {
         color: $white;
@@ -53,7 +50,6 @@
 
     &.fourth {
       position: relative !important;
-      background-image: url('/assets/images/work/section-fourth.jpg');
     }
 
     .button {

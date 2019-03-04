@@ -3,6 +3,7 @@ import { Component, OnInit, Injector, HostListener, OnDestroy } from '@angular/c
 import { BaseComponent } from 'src/app/shared/base-component';
 import { IncreasingCounterService } from 'src/app/shared/increasing-counter/increasing-counter.service';
 
+
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
@@ -10,8 +11,9 @@ import { IncreasingCounterService } from 'src/app/shared/increasing-counter/incr
 })
 export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
-
+  sectionActivation = [];
   sectionFirstActivation = [];
+  private sectionActive = 0;
 
   constructor(
     private incCountSrv: IncreasingCounterService,
@@ -23,6 +25,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
     this.angulartics.pageTrack('/work');
     this.angulartics.eventTrack('work', { category: 'enterPage' });
     this.sectionFirstActivation[0] = true;
+    this.bkgSrv.sendNewImgBackground(`assets/images/work/section-${this.sectionActive + 1}.jpg`);
   }
 
   ngOnDestroy() {
@@ -34,11 +37,14 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   onScroll(event) {
     const sections = document.getElementsByClassName('section');
     const elOne = sections[0];
+    this.sectionActive = 0;
     if (this.sectionFirstActivation.length <= sections.length) {
       for (let i = 1; i < sections.length; i++) {
-        this.sectionFirstActivation[i] = (window.pageYOffset > ((elOne.clientHeight * (i - 1)) + elOne.clientHeight / 3))
-          || this.sectionFirstActivation[i];
+        this.sectionActivation[i] = (window.pageYOffset > ((elOne.clientHeight * (i - 1)) + elOne.clientHeight / 3));
+        this.sectionActive = this.sectionActivation[i] ? i : this.sectionActive;
+        this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
       }
+      this.bkgSrv.sendNewImgBackground(`assets/images/work/section-${this.sectionActive + 1}.jpg`);
       this.incCountSrv.setStateIncreasingCounter(this.sectionFirstActivation[1]);
     }
   }
