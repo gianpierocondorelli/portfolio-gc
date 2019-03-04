@@ -1,4 +1,4 @@
-import { Injector } from '@angular/core';
+import { Injector, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -27,6 +27,7 @@ export class BaseComponent {
   protected http: HttpClient;
   protected scrollSrv: ScrollToService;
   protected loaderSrv: LoaderService;
+  protected cdRef: ChangeDetectorRef;
   protected angulartics: Angulartics2GoogleTagManager;
 
   constructor(injector: Injector) {
@@ -36,6 +37,7 @@ export class BaseComponent {
     this.http = injector.get(HttpClient);
     this.scrollSrv = injector.get(ScrollToService);
     this.loaderSrv = injector.get(LoaderService);
+    this.cdRef = injector.get(ChangeDetectorRef);
     this.angulartics = injector.get(Angulartics2GoogleTagManager);
   }
 
