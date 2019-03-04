@@ -15,6 +15,8 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   posts: any[] = [];
   selectedPost: any;
   error = false;
+  masonryCount = 0;
+  updateMasonryLayout = false;
 
   constructor(
     injector: Injector
@@ -57,9 +59,11 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
 
   showModal(post) {
     this.selectedPost = post;
+    this.cdRef.detectChanges();
     $(`#modal-post`).appendTo('body').modal('show');
     $('#modal-post').on('hidden.bs.modal', () => {
       this.selectedPost = null;
+      this.cdRef.detectChanges();
     });
   }
 
@@ -70,4 +74,5 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
       longitude: location.longitude
     }];
   }
+
 }

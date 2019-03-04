@@ -13,9 +13,9 @@
       </button>
     </div>
   </div>
-  <ngx-masonry [options]="{ transitionDuration: '0.8s' }" [useImagesLoaded]="true">
+  <ngx-masonry [options]="{ transitionDuration: '0.8s', horizontalOrder: true }" [updateLayout]="updateMasonryLayout">
     <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item post" *ngFor="let post of posts" (click)="showModal(post)">
-      <img [src]="post.images.standard_resolution.url" class="img-fluid" />
+      <img [src]="post.images.standard_resolution.url" class="img-fluid" (load)="updateMasonryLayout = !updateMasonryLayout" />
     </ngxMasonryItem>
   </ngx-masonry>
 </div>

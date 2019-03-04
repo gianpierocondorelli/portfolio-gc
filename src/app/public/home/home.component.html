@@ -1,6 +1,6 @@
 <div class="home">
   <div class="sections-container">
-    <div class="section right transp-bkg" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
+    <div class="section right" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
       [class.d-none]="!display[i]">
       <div class="container-fluid">
         <div class="row">
@@ -26,10 +26,13 @@
       </div>
     </div>
   </div>
-  <div class="icons-bottom">
-    <app-link-menu *ngFor="let section of sections; let i = index" [icon]="section.icon" colorClass="blue" [pathLink]="section.path"
-      [selected]="i === currentIndex">
-      {{ section.label | translate }}
-    </app-link-menu>
+  <div class="container-fluid">
+    <div class="row icons-bottom">
+      <div class="col-sm-3" *ngFor="let section of sections; let i = index">
+        <app-link-menu [icon]="section.icon" colorClass="white" [pathLink]="section.path" [selected]="i === currentIndex">
+          {{ section.label | translate }}
+        </app-link-menu>
+      </div>
+    </div>
   </div>
 </div>
