@@ -269,7 +269,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-    this.angulartics.pageTrack('/travel');
     this.angulartics.eventTrack('travel', { category: 'enterPage' });
     this.extractCities();
     setTimeout(() => {

@@ -22,7 +22,6 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.angulartics.pageTrack('/');
     this.angulartics.eventTrack('home', { category: 'enterPage' });
     this.bkgSrv.sendNewImgBackground(this.sections[this.currentIndex].background || '');
     this.interval = setInterval(() => {
