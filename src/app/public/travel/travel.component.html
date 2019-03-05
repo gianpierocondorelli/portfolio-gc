@@ -1,9 +1,9 @@
 <app-map-d3 *ngFor="let country of countries, let i = index" [uniqueId]="i" [markers]="country.markers" [latitude]="country.center.latitude"
   [longitude]="country.center.longitude" [visible]="getVisibility(i)" [scale]="country.scale"></app-map-d3>
 <div class="travel">
-  <div *ngFor="let country of countries, let i = index" class="{{ i === 0 ? 'introduction' : 'other-container' }}">
+  <div *ngFor="let country of countries, let i = index" class="section {{ i === 0 ? 'introduction' : 'other-container' }}">
     <div class="w-100">
-      <div [class.opacity-zero]="!firstDisplay[i]" [class.fadeIn]="firstDisplay[i]" *ngIf="i===0">
+      <div [class.opacity-zero]="!sectionFirstActivation[i]" [class.fadeIn]="sectionFirstActivation[i]" *ngIf="i===0">
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <div [class.opacity-zero]="!firstDisplay[i]" [class.fadeIn]="firstDisplay[i]" *ngIf="i>0">
+      <div [class.opacity-zero]="!sectionFirstActivation[i]" [class.fadeIn]="sectionFirstActivation[i]" *ngIf="i>0">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-6 text-md-right border-blue">
