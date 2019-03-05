@@ -287,10 +287,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   getVisibility(index: number) {
-    if (this.activateVisibility) {
-      return this.sectionActivation[index];
-    }
-    return false;
+    return this.activateVisibility ? this.sectionActivation[index] : false;
   }
 
   @HostListener('window:scroll', ['$event'])
