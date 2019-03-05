@@ -1,4 +1,5 @@
-import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy, HostListener } from '@angular/core';
+import { D3 } from 'd3-ng2-service';
 
 import { BaseComponent } from 'src/app/shared/base-component';
 import { MapBig, City } from 'src/app/shared/support-class';
@@ -15,9 +16,11 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   private activateVisibility = false;
   cities = [[]];
   images = [[]];
-  firstDisplay = [];
+  sectionActivation = [];
+  sectionFirstActivation = [];
   imagesSelectedCity: string[];
   imageToShow: string;
+  private d3: D3;
 
   countries: MapBig[] = [
     {
@@ -266,6 +269,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
 
   constructor(injector: Injector) {
     super(injector);
+    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -284,32 +288,49 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
 
   getVisibility(index: number) {
     if (this.activateVisibility) {
-      const introductionHeight = document.getElementsByClassName('introduction')[0].clientHeight;
-      const subtractInit = (introductionHeight);
-      const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
-      const subtractOther = (otherContainerHeight / 1.3);
-      const currentScroll = window.pageYOffset;
-      if (currentScroll <= introductionHeight - subtractInit) {
-        this.firstDisplay[0] = true;
-        return index === 0;
-      } else {
-        const returnIndex = currentScroll > introductionHeight + (otherContainerHeight * (index - 1)) - subtractOther &&
-          currentScroll <= introductionHeight + (otherContainerHeight * index) - subtractOther;
-        this.firstDisplay[index] = this.firstDisplay[index] || returnIndex;
-        return returnIndex;
-      }
+      // const introductionHeight = document.getElementsByClassName('introduction')[0].clientHeight;
+      // const subtractInit = (introductionHeight);
+      // const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
+      // const subtractOther = (otherContainerHeight / 1.3);
+      // const currentScroll = window.pageYOffset;
+      // if (currentScroll <= introductionHeight - subtractInit) {
+      //   this.firstDisplay[0] = true;
+      //   return index === 0;
+      // } else {
+      //   const returnIndex = currentScroll > introductionHeight + (otherContainerHeight * (index - 1)) - subtractOther &&
+      //     currentScroll <= introductionHeight + (otherContainerHeight * index) - subtractOther;
+      //   this.firstDisplay[index] = this.firstDisplay[index] || returnIndex;
+      //   return returnIndex;
+      // }
+      return this.sectionActivation[index];
     }
     return false;
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    const sections = this.d3.selectAll('.section').nodes() as Element[];
+    if (this.sectionActivation.length <= sections.length) {
+      for (let i = 0; i < sections.length; i++) {
+        const heightPrev = this.getHeightPrevElement(sections, i);
+        const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
+        this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
+          i === 0 ? window.pageYOffset <= heightNext :
+            window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
+        this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
+      }
+    }
+  }
+
+
   extractCities() {
     this.countries.forEach(
       (c, i) => {
-        this.firstDisplay[i] = false;
         this.cities[i] = c.markers.reduce((d, e) => (d.push(e.city), d), []) as string[];
         this.images[i] = c.markers.reduce((d, e) => (d.push(...e.images), d), []) as string[];
       }
     );
+    this.sectionActivation[0] = this.sectionFirstActivation[0] = true;
   }
 
   getTransform(index: number) {
