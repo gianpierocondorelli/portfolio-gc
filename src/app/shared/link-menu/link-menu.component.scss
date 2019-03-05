@@ -5,12 +5,12 @@
   cursor: pointer;
   text-align: center;
   justify-content: center;
+  min-width: 15vw;
+  width: auto;
   width: 15vw;
-  padding: 2vh;
+  padding: 3vh;
+  margin: 1vh;
 
-  &:last-child {
-    margin: auto;
-  }
 
   &:hover {
     .icon {
@@ -28,7 +28,9 @@
     }
 
     .text {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -39,7 +41,10 @@
     }
 
     .text {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 800;
       opacity: 1;
     }
   }
@@ -47,7 +52,9 @@
   .icon {
     font-size: $font-size * 2;
     transition: 0.25s;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     opacity: 1;
   }
 
