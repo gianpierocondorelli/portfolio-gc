@@ -269,6 +269,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    this.bkgSrv.sendNewImgBackground('');
     this.angulartics.eventTrack('travel', { category: 'enterPage' });
     this.extractCities();
     setTimeout(() => {
