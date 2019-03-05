@@ -288,20 +288,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
 
   getVisibility(index: number) {
     if (this.activateVisibility) {
-      // const introductionHeight = document.getElementsByClassName('introduction')[0].clientHeight;
-      // const subtractInit = (introductionHeight);
-      // const otherContainerHeight = document.getElementsByClassName('other-container')[0].clientHeight;
-      // const subtractOther = (otherContainerHeight / 1.3);
-      // const currentScroll = window.pageYOffset;
-      // if (currentScroll <= introductionHeight - subtractInit) {
-      //   this.firstDisplay[0] = true;
-      //   return index === 0;
-      // } else {
-      //   const returnIndex = currentScroll > introductionHeight + (otherContainerHeight * (index - 1)) - subtractOther &&
-      //     currentScroll <= introductionHeight + (otherContainerHeight * index) - subtractOther;
-      //   this.firstDisplay[index] = this.firstDisplay[index] || returnIndex;
-      //   return returnIndex;
-      // }
       return this.sectionActivation[index];
     }
     return false;
