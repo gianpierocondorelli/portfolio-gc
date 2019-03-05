@@ -39,7 +39,6 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
     const sections = this.d3.selectAll('.section').nodes() as Element[];
-    const elOne = sections[0];
     this.sectionActive = 0;
     if (this.sectionFirstActivation.length <= sections.length) {
       for (let i = 0; i < sections.length; i++) {
