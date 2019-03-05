@@ -65,7 +65,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
         }
         const returnCursor = currentScroll > (sectionHeight * 1.35);
         if (returnCursor) {
-          this.bkgSrv.sendNewImgBackground('');
+          this.bkgSrv.sendNewImgBackground('assets/images/life/life-section-three.jpg');
         }
         const returnIndex = returnCursor && index === 1;
         this.firstDisplay[1] = this.firstDisplay[1] || returnIndex;
