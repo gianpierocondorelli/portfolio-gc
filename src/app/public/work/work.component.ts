@@ -1,4 +1,5 @@
 import { Component, OnInit, Injector, HostListener, OnDestroy } from '@angular/core';
+import { D3 } from 'd3-ng2-service';
 
 import { BaseComponent } from 'src/app/shared/base-component';
 import { IncreasingCounterService } from 'src/app/shared/increasing-counter/increasing-counter.service';
@@ -14,11 +15,13 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   sectionActivation = [];
   sectionFirstActivation = [];
   private sectionActive = 0;
+  private d3: D3;
 
   constructor(
     private incCountSrv: IncreasingCounterService,
     injector: Injector) {
     super(injector);
+    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -35,12 +38,13 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    const sections = document.getElementsByClassName('section');
+    const sections = this.d3.selectAll('.section').nodes() as Element[];
+    console.log('sections', sections);
     const elOne = sections[0];
     this.sectionActive = 0;
     if (this.sectionFirstActivation.length <= sections.length) {
-      for (let i = 1; i < sections.length; i++) {
-        this.sectionActivation[i] = (window.pageYOffset > ((elOne.clientHeight * (i - 1)) + elOne.clientHeight / 3));
+      for (let i = 0; i < sections.length; i++) {
+        this.sectionActivation[i] = (window.pageYOffset > (this.getHeightPrevElement(sections, i)));
         this.sectionActive = this.sectionActivation[i] ? i : this.sectionActive;
         this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
       }
