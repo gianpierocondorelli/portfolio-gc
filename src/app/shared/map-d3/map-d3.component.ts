@@ -75,7 +75,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
             .projection(projection)
           )
           .style('stroke', '#6c757d')
-          .style('opacity', .4);
+          .style('opacity', .7);
 
         // Add circles:
         svg
@@ -86,11 +86,11 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .attr('cx', (d: any) => projection([d.longitude, d.latitude])[0])
           .attr('cy', (d: any) => projection([d.longitude, d.latitude])[1])
           .attr('r', 14)
-          .style('fill', '#6dd3ce')
-          .attr('stroke', '#083d77')
+          .style('fill', '#083d77')
+          .attr('stroke', '#134074')
           .attr('stroke-width', 1)
-          .attr('stroke-opacity', 0.2)
-          .attr('fill-opacity', .2);
+          .attr('stroke-opacity', .4)
+          .attr('fill-opacity', .4);
       });
   }
 
