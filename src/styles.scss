@@ -27,6 +27,7 @@ body {
 
     &.modal-travel {
       background-color: $transparent !important;
+      height: 80vh;
 
       .close {
         cursor: pointer !important;
