@@ -17,7 +17,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   cities = [[]];
   images = [[]];
   sectionActivation = [];
-  sectionFirstActivation = [];
   imagesSelectedCity: string[];
   imageToShow: string;
   private d3: D3;
@@ -300,7 +299,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
           i === 0 ? window.pageYOffset <= heightNext :
             window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
-        this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
       }
     }
   }
@@ -313,7 +311,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         this.images[i] = c.markers.reduce((d, e) => (d.push(...e.images), d), []) as string[];
       }
     );
-    this.sectionActivation[0] = this.sectionFirstActivation[0] = true;
+    this.sectionActivation[0] = true;
   }
 
   getTransform(index: number) {
