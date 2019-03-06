@@ -27,7 +27,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.angulartics.pageTrack('/work');
     this.angulartics.eventTrack('work', { category: 'enterPage' });
-    this.sectionFirstActivation[0] = true;
+    this.sectionActivation[0] = this.sectionFirstActivation[0] = true;
     this.bkgSrv.sendNewImgBackground(`assets/images/work/section-${this.sectionActive + 1}.jpg`);
   }
 
@@ -42,7 +42,12 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
     this.sectionActive = 0;
     if (this.sectionFirstActivation.length <= sections.length) {
       for (let i = 0; i < sections.length; i++) {
-        this.sectionActivation[i] = (window.pageYOffset > (this.getHeightPrevElement(sections, i)));
+        // this.sectionActivation[i] = (window.pageYOffset > (this.getHeightPrevElement(sections, i)));
+        const heightPrev = this.getHeightPrevElement(sections, i);
+        const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
+        this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
+          i === 0 ? window.pageYOffset <= heightNext :
+            window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
         this.sectionActive = this.sectionActivation[i] ? i : this.sectionActive;
         this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
       }
