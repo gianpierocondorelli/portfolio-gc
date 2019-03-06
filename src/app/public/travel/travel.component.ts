@@ -83,56 +83,99 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Italy',
         latitude: 41.9109,
         longitude: 12.4818,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/rome/image_1.jpg',
+          'assets/images/travel/italy/rome/image_2.jpg',
+          'assets/images/travel/italy/rome/image_3.jpg'
+        ]
       },
       {
         city: 'Milano',
         country: 'Italy',
         latitude: 45.466797,
         longitude: 9.190498,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/milan/image_1.jpg',
+          'assets/images/travel/italy/milan/image_2.jpg',
+          'assets/images/travel/italy/milan/image_3.jpg'
+        ]
       },
       {
         city: 'Torino',
         country: 'Italy',
         latitude: 45.067755,
         longitude: 7.682489,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/turin/image_1.jpg',
+          'assets/images/travel/italy/turin/image_2.jpg',
+          'assets/images/travel/italy/turin/image_3.jpg'
+        ]
       },
       {
         city: 'Catania',
         country: 'Italy',
         latitude: 37.502236,
         longitude: 15.08738,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/catania/image_1.jpg',
+          'assets/images/travel/italy/catania/image_2.jpg',
+          'assets/images/travel/italy/catania/image_3.jpg'
+        ]
       },
       {
         city: 'Verona',
         country: 'Italy',
         latitude: 45.438496,
         longitude: 10.992412,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/verona/image_1.jpg',
+          'assets/images/travel/italy/verona/image_2.jpg',
+          'assets/images/travel/italy/verona/image_3.jpg'
+        ]
       },
       {
         city: 'Venezia',
         country: 'Italy',
         latitude: 45.437191,
         longitude: 12.33459,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/venice/photo_1.jpg',
+          'assets/images/travel/italy/venice/photo_2.jpg',
+          'assets/images/travel/italy/venice/photo_3.jpg'
+        ]
       },
       {
         city: 'Firenze',
         country: 'Italy',
         latitude: 43.769871,
         longitude: 11.255576,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/florence/image_1.jpg',
+          'assets/images/travel/italy/florence/image_2.jpg',
+          'assets/images/travel/italy/florence/image_3.jpg'
+        ]
       },
       {
         city: 'Siena',
         country: 'Italy',
         latitude: 43.318554,
         longitude: 11.331653,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/italy/siena/image_1.jpg',
+          'assets/images/travel/italy/siena/image_2.jpg',
+          'assets/images/travel/italy/siena/image_3.jpg'
+        ]
+      },
+      {
+        city: 'Genova',
+        country: 'Italy',
+        latitude: 44.4056,
+        longitude: 8.9463,
+        images: [
+          'assets/images/travel/italy/genoa/image_1.jpg',
+          'assets/images/travel/italy/genoa/image_2.jpg',
+          'assets/images/travel/italy/genoa/image_3.jpg'
+        ]
       }
       ]
     },
@@ -148,21 +191,22 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'France',
         latitude: 48.85341,
         longitude: 2.3488,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/france/paris/image_1.jpg',
+          'assets/images/travel/france/paris/image_2.jpg',
+          'assets/images/travel/france/paris/image_3.jpg'
+        ]
       },
       {
         city: 'Bordeaux',
         country: 'France',
         latitude: 44.841225,
         longitude: -0.580036,
-        images: ['assets/images/placeholder.jpg']
-      },
-      {
-        city: 'Monaco',
-        country: 'Monaco',
-        latitude: 43.731142,
-        longitude: 7.419758,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/france/bordeaux/image_1.jpg',
+          'assets/images/travel/france/bordeaux/image_2.jpg',
+          'assets/images/travel/france/bordeaux/image_3.jpg'
+        ]
       }]
     },
     {
@@ -177,7 +221,11 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Spain',
         latitude: 41.38879,
         longitude: 2.15899,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/spain/barcelona/image_1.jpg',
+          'assets/images/travel/spain/barcelona/image_2.jpg',
+          'assets/images/travel/spain/barcelona/image_3.jpg'
+        ]
       }]
     },
     {
@@ -192,7 +240,11 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'United Kingdom',
         latitude: 51.50853,
         longitude: -0.12574,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/england/london/image_1.jpg',
+          'assets/images/travel/england/london/image_2.jpg',
+          'assets/images/travel/england/london/image_3.jpg'
+        ]
       }]
     },
     {
@@ -207,14 +259,21 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Netherlands',
         latitude: 52.37403,
         longitude: 4.88969,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/netherlands/amsterdam/image_1.jpg',
+          'assets/images/travel/netherlands/amsterdam/image_2.jpg',
+          'assets/images/travel/netherlands/amsterdam/image_3.jpg'
+        ]
       },
       {
         city: 'Eindhoven',
         country: 'Netherlands',
         latitude: 51.4416,
         longitude: 5.4697,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/netherlands/eindhoven/image_1.jpg',
+          'assets/images/travel/netherlands/eindhoven/image_2.jpg'
+        ]
       }
       ]
     },
@@ -230,21 +289,22 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Switzerland',
         latitude: 47.3666700,
         longitude: 8.5500000,
-        images: ['assets/images/placeholder.jpg']
-      },
-      {
-        city: 'Lugano',
-        country: 'Switzerland',
-        latitude: 46.0037,
-        longitude: 8.9511,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/switzerland/zurich/image_1.jpg',
+          'assets/images/travel/switzerland/zurich/image_2.jpg',
+          'assets/images/travel/switzerland/zurich/image_3.jpg'
+        ]
       },
       {
         city: 'Sankt Moritz',
         country: 'Switzerland',
         latitude: 46.4908,
         longitude: 9.8355,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/switzerland/sankt-moritz/image_1.jpg',
+          'assets/images/travel/switzerland/sankt-moritz/image_2.jpg',
+          'assets/images/travel/switzerland/sankt-moritz/image_3.jpg'
+        ]
       }
       ]
     },
@@ -260,7 +320,11 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Germany',
         latitude: 48.1374300,
         longitude: 11.5754900,
-        images: ['assets/images/placeholder.jpg']
+        images: [
+          'assets/images/travel/germany/munchen/image_1.jpg',
+          'assets/images/travel/germany/munchen/image_2.jpg',
+          'assets/images/travel/germany/munchen/image_3.jpg'
+        ]
       }]
     }
   ];
@@ -324,6 +388,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
     if (this.imagesSelectedCity) {
       this.imageToShow = this.imagesSelectedCity[0];
       $(`#modal-images`).appendTo('body').modal('show');
+      this.angulartics.eventTrack('travel', { category: 'showImage', label: city.city });
     }
   }
 

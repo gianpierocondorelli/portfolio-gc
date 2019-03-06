@@ -2,7 +2,7 @@
   <ng-container *ngIf="show">
     <img [src]="src" (load)="loaded = true" class="img-fluid {{ classToAppend }}" (contextmenu)="false" />
   </ng-container>
-  <div class="d-flex" *ngIf="show && !loaded">
-    <img src="assets/images/rings.svg" *ngIf="!loaded" class="justify-content-center align-self-center" />
+  <div class="d-flex justify-content-center align-self-center" *ngIf="show && !loaded">
+    <img src="assets/images/rings.svg" *ngIf="!loaded" />
   </div>
 </div>

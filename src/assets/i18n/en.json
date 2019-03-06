@@ -46,7 +46,7 @@
   },
   "TRAVEL": {
     "COUNTRY": {
-      "TEXT": "Here there're the cities I visited in {{ value }}. Click one of those to see some of my shots"
+      "TEXT": "Here there're some of the cities I visited in {{ value }}. Click one of those to see some of my shots"
     },
     "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
   },
