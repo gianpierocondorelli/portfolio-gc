@@ -2,7 +2,7 @@
   [longitude]="place.longitude" [visible]="getVisibility(i)" [scale]="3000"></app-map-d3>
 <div class="life">
   <div class="section one">
-    <div class="container ">
+    <div class="container {{ firstDisplay[0] ? 'fadeIn display' : ''}}">
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <span class="title">
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="section two">
-    <div class="container">
+    <div class="container {{ firstDisplay[1] ? 'fadeIn display' : ''}}">
       <div class="row">
         <div class="d-sm-none d-md-block col-md-6"></div>
         <div class="col-sm-12 col-md-6 text-right">
@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="section three">
-    <div class="container">
+    <div class="container {{ firstDisplay[2] ? 'fadeIn display' : ''}}">
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <span class="title">
