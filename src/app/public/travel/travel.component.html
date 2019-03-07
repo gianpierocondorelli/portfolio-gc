@@ -35,14 +35,14 @@
   </div>
 </div>
 
-<div class="modal fade" id="modal-images" role="dialog" aria-hidden="true">
+<app-lightbox [images]="imagesSelectedCity" [(openLightbox)]="openLightbox"></app-lightbox>
+
+<!-- <div class="modal fade" id="modal-images" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg transp-bkg">
     <div class="modal-content modal-travel align-content-center transp-bkg">
-      <div class="row w-100">
-        <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
-          <fa-icon icon="times"></fa-icon>
-        </button>
-      </div>
+      <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Close">
+        <fa-icon icon="times"></fa-icon>
+      </button>
       <div class="row m-auto w-100" *ngIf="imageToShow">
         <div class="col-2 d-flex justify-content-center align-items-center left" (click)="changeImage(-1)">
           <fa-icon icon="chevron-left"></fa-icon>
@@ -56,4 +56,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

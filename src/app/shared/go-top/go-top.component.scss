@@ -5,12 +5,11 @@
 
   position: fixed;
   cursor: pointer;
-  z-index: 100;
+  z-index: 20;
   top: 90vh;
   right: -100vw;
   transition: 1s;
   border-radius: 50%;
-  background-color: $gray-100;
   padding: 1.75vh 1vw;
 
   &.visible {

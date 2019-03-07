@@ -20,6 +20,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   imagesSelectedCity: string[];
   imageToShow: string;
   private d3: D3;
+  openLightbox = false;
 
   countries: MapBig[] = [
     {
@@ -386,13 +387,14 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   showModalImage(city: City) {
     this.imagesSelectedCity = city.images;
     if (this.imagesSelectedCity) {
-      this.imageToShow = this.imagesSelectedCity[0];
-      this.cdRef.detectChanges();
-      $(`#modal-images`).appendTo('body').modal('show');
-      $('#modal-images').on('hidden.bs.modal', () => {
-        this.imageToShow = null;
-        this.cdRef.detectChanges();
-      });
+      this.openLightbox = true;
+      // this.imageToShow = this.imagesSelectedCity[0];
+      // this.cdRef.detectChanges();
+      // $(`#modal-images`).appendTo('body').modal('show');
+      // $('#modal-images').on('hidden.bs.modal', () => {
+      //   this.imageToShow = null;
+      //   this.cdRef.detectChanges();
+      // });
       this.angulartics.eventTrack('travel', { category: 'showImage', label: city.city });
     }
   }

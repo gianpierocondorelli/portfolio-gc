@@ -1,0 +1,15 @@
+<div class="lightbox" [class.visible]="openLightbox">
+  <span class="close cursor" (click)="closeLightbox()">&times;</span>
+  <div class="lightbox-content">
+
+    <div class="mySlides" *ngFor="let image of images, let i = index" [class.active]="selectedImage === image">
+      <div class="numbertext">{{ i + 1 }} / {{ images.length }}</div>
+      <app-image [src]="image"></app-image>
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+
+  </div>
+</div>
