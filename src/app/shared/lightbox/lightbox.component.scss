@@ -67,28 +67,48 @@
   .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    z-index: 20;
+    display: flex;
+    align-items: center;
     width: auto;
-    padding: 16px;
+    height: 100%;
+    padding: 2vh 5vw;
     color: $lapis-lazuli;
     transition: 1s;
     font-weight: bold;
     font-size: $font-size * 2;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
     -webkit-user-select: none;
+  }
 
-    &:hover {
-      background-color: $gray-700;
-      color: $gray-100;
-    }
+  .prev:hover {
+    background: -moz-linear-gradient(left, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00ffffff', GradientType=1);
+    /* IE6-9 */
+    color: $gray-100;
   }
 
   /* Position the "next button" to the right */
   .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
+
+    &:hover {
+      background: -moz-linear-gradient(right, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(right, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to left, rgba(52, 58, 64, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00ffffff', GradientType=1);
+      /* IE6-9 */
+      color: $gray-100;
+    }
   }
 
 
