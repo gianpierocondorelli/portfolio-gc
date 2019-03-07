@@ -10,7 +10,17 @@ body {
   letter-spacing: $letter-spacing;
   font-size: $font-size;
   color: $lapis-lazuli;
+
+  &.noscroll {
+    overflow: hidden;
+
+    .top.visible {
+      display: none !important;
+    }
+  }
+
 }
+
 
 .modal {
 
@@ -32,6 +42,9 @@ body {
       height: 80vh;
 
       .close {
+        position: absolute;
+        top: 2vh;
+        right: 2vw;
         cursor: pointer !important;
         color: $white;
         z-index: 2000;

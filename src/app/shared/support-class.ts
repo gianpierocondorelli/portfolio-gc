@@ -24,3 +24,8 @@ export class InstagramUser {
   profile_picture: string;
   username: string;
 }
+
+export class ImageLightBox{
+  src: string;
+  text?: string;
+}

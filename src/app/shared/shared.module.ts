@@ -23,6 +23,7 @@ import { GoTopComponent } from './go-top/go-top.component';
 import { ImageComponent } from './image/image.component';
 import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
 import { LoaderComponent } from './loader/loader.component';
+import { LightboxComponent } from './lightbox/lightbox.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoaderComponent } from './loader/loader.component';
     GoTopComponent,
     ImageComponent,
     IncreasingCounterComponent,
-    LoaderComponent
+    LoaderComponent,
+    LightboxComponent
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import { LoaderComponent } from './loader/loader.component';
     LinkMenuComponent,
     ImageComponent,
     IncreasingCounterComponent,
+    LightboxComponent,
     // modules
     FontAwesomeModule,
     TranslateModule,
