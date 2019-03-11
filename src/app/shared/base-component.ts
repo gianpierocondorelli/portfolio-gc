@@ -1,15 +1,17 @@
-import { Injector, ChangeDetectorRef } from '@angular/core';
+import { WINDOW } from '@ng-toolkit/universal';
+import { Injector, ChangeDetectorRef, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 import { Subscription } from 'rxjs';
+import { D3Service } from 'd3-ng2-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
 import { ScrollToService } from 'ng2-scroll-to-el';
 
 import { BackgroundService } from './services/background.service';
 import { LoaderService } from './loader/loader.service';
-import { D3Service } from 'd3-ng2-service';
 
 export class BaseComponent {
 
@@ -31,6 +33,8 @@ export class BaseComponent {
   protected cdRef: ChangeDetectorRef;
   protected angulartics: Angulartics2GoogleGlobalSiteTag;
   protected d3Srv: D3Service;
+  protected window: any;
+  protected platformId: Object;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
@@ -42,6 +46,8 @@ export class BaseComponent {
     this.cdRef = injector.get(ChangeDetectorRef);
     this.angulartics = injector.get(Angulartics2GoogleGlobalSiteTag);
     this.d3Srv = injector.get(D3Service);
+    this.window = injector.get(WINDOW);
+    this.platformId = injector.get(PLATFORM_ID);
   }
 
   clearTimeout(timeout: any) {
@@ -58,17 +64,21 @@ export class BaseComponent {
     }
   }
 
-
   go2Top() {
-    this.scrollSrv.scrollTo('#top');
+    if (isPlatformBrowser(this.platformId)) {
+      this.scrollSrv.scrollTo('#top');
+    }
   }
 
   getHeightPrevElement(elements: Element[], stopIndex: number) {
-    const widthScreen = window.innerWidth;
-    return stopIndex > 0 ?
-      (elements.reduce((pe, ce, i) => ((i > 0 && i < stopIndex ? pe += ce.clientHeight : pe += 0), pe), 0)
-        + elements[stopIndex].clientHeight * (widthScreen < 768 ? .4 : .6)) :
-      elements[stopIndex].clientHeight * (widthScreen < 768 ? .4 : .6);
+    if (isPlatformBrowser(this.platformId)) {
+      const widthScreen = window.innerWidth;
+      return stopIndex > 0 ?
+        (elements.reduce((pe, ce, i) => ((i > 0 && i < stopIndex ? pe += ce.clientHeight : pe += 0), pe), 0)
+          + elements[stopIndex].clientHeight * (widthScreen < 768 ? .4 : .6)) :
+        elements[stopIndex].clientHeight * (widthScreen < 768 ? .4 : .6);
+    }
+    return null;
   }
 
 }

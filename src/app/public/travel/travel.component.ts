@@ -1,10 +1,10 @@
 import { Component, OnInit, Injector, OnDestroy, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { D3 } from 'd3-ng2-service';
 
-import { BaseComponent } from 'src/app/shared/base-component';
-import { MapBig, City } from 'src/app/shared/support-class';
+import { BaseComponent } from '@shared/base-component';
+import { MapBig, City } from '@shared/support-class';
 
-declare var $: any;
 @Component({
   selector: 'app-travel',
   templateUrl: './travel.component.html',
@@ -356,14 +356,16 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    const sections = this.d3.selectAll('.section').nodes() as Element[];
-    if (this.sectionActivation.length <= sections.length) {
-      for (let i = 0; i < sections.length; i++) {
-        const heightPrev = this.getHeightPrevElement(sections, i);
-        const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
-        this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
-          i === 0 ? window.pageYOffset <= heightNext :
-            window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
+    if (isPlatformBrowser(this.platformId)) {
+      const sections = this.d3.selectAll('.section').nodes() as Element[];
+      if (this.sectionActivation.length <= sections.length) {
+        for (let i = 0; i < sections.length; i++) {
+          const heightPrev = this.getHeightPrevElement(sections, i);
+          const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
+          this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
+            i === 0 ? window.pageYOffset <= heightNext :
+              window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
+        }
       }
     }
   }
@@ -388,13 +390,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
     this.imagesSelectedCity = city.images;
     if (this.imagesSelectedCity) {
       this.openLightbox = true;
-      // this.imageToShow = this.imagesSelectedCity[0];
-      // this.cdRef.detectChanges();
-      // $(`#modal-images`).appendTo('body').modal('show');
-      // $('#modal-images').on('hidden.bs.modal', () => {
-      //   this.imageToShow = null;
-      //   this.cdRef.detectChanges();
-      // });
       this.angulartics.eventTrack('travel', { category: 'showImage', label: city.city });
     }
   }
@@ -408,6 +403,4 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
       this.imageToShow = nextPos >= this.imagesSelectedCity.length ? this.imagesSelectedCity[0] : this.imagesSelectedCity[nextPos];
     }
   }
-
-
 }

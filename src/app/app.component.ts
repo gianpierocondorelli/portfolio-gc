@@ -7,6 +7,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { BaseComponent } from './shared/base-component';
 import { fadeAnimation } from './shared/animations/animations';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,12 @@ export class AppComponent extends BaseComponent implements OnInit {
   showSplash = true;
 
   constructor(
+
     injector: Injector) {
     super(injector);
-    this.angulartics.startTracking();
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.startTracking();
+    }
     library.add(fas, fab);
     // this language will be used as a fallback when a translation isn't found in the current language
     this.translate.setDefaultLang('en');
@@ -32,26 +36,28 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     // handling splash screen
-    this.showSplash = !window.sessionStorage.getItem('showSplash');
-    window.sessionStorage.setItem('showSplash', 'false');
-    // handling loading modules in a cool way
-    this.subscription = this.router.events.subscribe(
-      event => {
-        if (event instanceof NavigationStart) {
-          this.loaderSrv.sendNewLoaderStatus(true);
-        } else if (
-          event instanceof NavigationEnd ||
-          event instanceof NavigationCancel ||
-          event instanceof NavigationError
-        ) {
-          this.loaderSrv.sendNewLoaderStatus(false);
-          window.scroll(0, 0);
-          this.bkgSrv.sendNewImgBackground('');
+    if (isPlatformBrowser(this.platformId)) {
+      this.showSplash = !window.sessionStorage.getItem('showSplash');
+      window.sessionStorage.setItem('showSplash', 'false');
+      // handling loading modules in a cool way
+      this.subscription = this.router.events.subscribe(
+        event => {
+          if (event instanceof NavigationStart) {
+            this.loaderSrv.sendNewLoaderStatus(true);
+          } else if (
+            event instanceof NavigationEnd ||
+            event instanceof NavigationCancel ||
+            event instanceof NavigationError
+          ) {
+            this.loaderSrv.sendNewLoaderStatus(false);
+            window.scroll(0, 0);
+            this.bkgSrv.sendNewImgBackground('');
+          }
         }
-      }
-    );
+      );
 
-    this.go2Top();
+      this.go2Top();
+    }
   }
 
   getRouterOutletState(outlet: RouterOutlet) {

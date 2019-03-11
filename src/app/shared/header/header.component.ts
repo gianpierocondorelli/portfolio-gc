@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 import { NavigationEnd } from '@angular/router';
 
 import { SECTIONS } from '../constants';

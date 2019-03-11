@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Injector } from '@angular/core';
-import { ScrollToService } from 'ng2-scroll-to-el';
+import { isPlatformBrowser } from '@angular/common';
+
 import { BaseComponent } from '../base-component';
 
 @Component({
@@ -20,6 +21,8 @@ export class GoTopComponent extends BaseComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: Event) {
-    this.enable = window.pageYOffset > 150;
+    if (isPlatformBrowser(this.platformId)) {
+      this.enable = window.pageYOffset > 150;
+    }
   }
 }
