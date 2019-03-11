@@ -1,0 +1,8 @@
+{
+  "universal": {
+    "project": "portfolio",
+    "skipInstall": false,
+    "directory": ".",
+    "http": true
+  }
+}

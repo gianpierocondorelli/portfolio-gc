@@ -1,5 +1,7 @@
 import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
-import { BaseComponent } from 'src/app/shared/base-component';
+import { isPlatformBrowser } from '@angular/common';
+
+import { BaseComponent } from '@shared/base-component';
 
 @Component({
   selector: 'app-life',
@@ -30,15 +32,19 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.angulartics.eventTrack('life', { category: 'enterPage' });
-    setTimeout(() => {
-      this.activateVisibility = true;
-    }, 100);
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('life', { category: 'enterPage' });
+      setTimeout(() => {
+        this.activateVisibility = true;
+      }, 100);
+    }
   }
 
   ngOnDestroy() {
-    this.angulartics.eventTrack('life', { category: 'exitPage' });
-    this.bkgSrv.sendNewImgBackground('');
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('life', { category: 'exitPage' });
+      this.bkgSrv.sendNewImgBackground('');
+    }
   }
 
   getMarker(place: any) {
@@ -51,7 +57,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   getVisibility(index: number) {
-    if (this.activateVisibility) {
+    if (this.activateVisibility && isPlatformBrowser(this.platformId)) {
       const sectionHeight = document.getElementsByClassName('section')[0].clientHeight;
       const currentScroll = window.pageYOffset;
       if (currentScroll <= sectionHeight * .5) {
