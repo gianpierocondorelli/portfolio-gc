@@ -1,4 +1,4 @@
-import { Component, OnInit, Injector, Input, HostListener, OnDestroy, AfterContentInit } from '@angular/core';
+import { Component, OnInit, Injector, Input, HostListener, OnDestroy } from '@angular/core';
 import { D3, D3Service } from 'd3-ng2-service';
 import { BaseComponent } from '../base-component';
 

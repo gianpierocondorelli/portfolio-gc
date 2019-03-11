@@ -16,6 +16,13 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    },
+    "noUnusedLocals": true,
+    "noUnusedParameters": false
   }
 }
