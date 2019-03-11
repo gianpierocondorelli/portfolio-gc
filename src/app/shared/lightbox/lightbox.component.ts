@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Injector, DoCheck, IterableDiffers, Output, EventEmitter } from '@angular/core';
 
 import { BaseComponent } from '../base-component';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-lightbox',
@@ -27,13 +28,15 @@ export class LightboxComponent extends BaseComponent implements OnInit, DoCheck 
   }
 
   ngDoCheck() {
-    const change = this.differ.diff(this.images);
-    if (change) {
-      this.selectedImage = this.images[0];
+    if (isPlatformBrowser(this.platformId)) {
+      const change = this.differ.diff(this.images);
+      if (change) {
+        this.selectedImage = this.images[0];
+      }
+      document.body.className = this.openLightbox ?
+        'noscroll' :
+        document.body.className.replace('noscroll', '');
     }
-    document.body.className = this.openLightbox ?
-      'noscroll' :
-      document.body.className.replace('noscroll', '');
   }
 
   // Close the Lightbox
