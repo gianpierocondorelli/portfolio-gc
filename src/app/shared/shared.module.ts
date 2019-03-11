@@ -1,4 +1,4 @@
-import { NgModule, TemplateRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -10,7 +10,6 @@ import { ScrollToModule } from 'ng2-scroll-to-el';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { BlockUIModule } from 'ng-block-ui';
 import { NgxMasonryModule } from 'ngx-masonry';
-import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 
 
 import { HeaderComponent } from './header/header.component';

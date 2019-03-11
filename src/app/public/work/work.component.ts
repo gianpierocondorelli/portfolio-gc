@@ -1,8 +1,9 @@
 import { Component, OnInit, Injector, HostListener, OnDestroy } from '@angular/core';
 import { D3 } from 'd3-ng2-service';
 
-import { BaseComponent } from 'src/app/shared/base-component';
-import { IncreasingCounterService } from 'src/app/shared/increasing-counter/increasing-counter.service';
+import { BaseComponent } from '@shared/base-component';
+import { IncreasingCounterService } from '@shared/increasing-counter/increasing-counter.service';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
   constructor(
     private incCountSrv: IncreasingCounterService,
-    injector: Injector) {
+    injector: Injector
+  ) {
     super(injector);
     this.d3 = this.d3Srv.getD3();
   }
@@ -38,41 +40,51 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    const sections = this.d3.selectAll('.section').nodes() as Element[];
-    this.sectionActive = 0;
-    if (this.sectionFirstActivation.length <= sections.length) {
-      for (let i = 0; i < sections.length; i++) {
-        // this.sectionActivation[i] = (window.pageYOffset > (this.getHeightPrevElement(sections, i)));
-        const heightPrev = this.getHeightPrevElement(sections, i);
-        const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
-        this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
-          i === 0 ? window.pageYOffset <= heightNext :
-            window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
-        this.sectionActive = this.sectionActivation[i] ? i : this.sectionActive;
-        this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
+    if (isPlatformBrowser(this.platformId)) {
+      const sections = this.d3.selectAll('.section').nodes() as Element[];
+      this.sectionActive = 0;
+      if (this.sectionFirstActivation.length <= sections.length) {
+        for (let i = 0; i < sections.length; i++) {
+          // this.sectionActivation[i] = (window.pageYOffset > (this.getHeightPrevElement(sections, i)));
+          const heightPrev = this.getHeightPrevElement(sections, i);
+          const heightNext = i !== sections.length - 1 ? this.getHeightPrevElement(sections, i + 1) : null;
+          this.sectionActivation[i] = i === sections.length - 1 ? window.pageYOffset > heightPrev :
+            i === 0 ? window.pageYOffset <= heightNext :
+              window.pageYOffset > heightPrev && window.pageYOffset <= heightNext;
+          this.sectionActive = this.sectionActivation[i] ? i : this.sectionActive;
+          this.sectionFirstActivation[i] = this.sectionActivation[i] || this.sectionFirstActivation[i];
+        }
+        this.bkgSrv.sendNewImgBackground(`assets/images/work/section-${this.sectionActive + 1}.jpg`);
+        this.incCountSrv.setStateIncreasingCounter(this.sectionFirstActivation[1]);
       }
-      this.bkgSrv.sendNewImgBackground(`assets/images/work/section-${this.sectionActive + 1}.jpg`);
-      this.incCountSrv.setStateIncreasingCounter(this.sectionFirstActivation[1]);
     }
   }
 
   goToCode() {
     this.angulartics.eventTrack('work', { category: 'goToCode' });
-    window.open('http://bitbucket.org/giacondor/portfolio');
+    if (isPlatformBrowser(this.platformId)) {
+      window.open('http://bitbucket.org/giacondor/portfolio');
+    }
   }
 
   goToResume() {
     this.angulartics.eventTrack('work', { category: 'goToResume' });
-    window.open('/docs/resume.pdf');
+    if (isPlatformBrowser(this.platformId)) {
+      window.open('/assets/docs/resume.pdf');
+    }
   }
 
   goToLinkedIn() {
     this.angulartics.eventTrack('work', { category: 'goToLinkedIn' });
-    window.open('http://www.linkedin.com/in/gianpiero-condorelli');
+    if (isPlatformBrowser(this.platformId)) {
+      window.open('http://www.linkedin.com/in/gianpiero-condorelli');
+    }
   }
 
   goToMail() {
     this.angulartics.eventTrack('work', { category: 'goToMail' });
-    window.open('mailto:gia.condorelli@gmail.com', '_blank');
+    if (isPlatformBrowser(this.platformId)) {
+      window.open('mailto:gia.condorelli@gmail.com', '_blank');
+    }
   }
 }

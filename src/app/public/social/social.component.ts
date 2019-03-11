@@ -1,7 +1,8 @@
 import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
 
-import { BaseComponent } from 'src/app/shared/base-component';
-import { InstagramUser } from 'src/app/shared/support-class';
+import { BaseComponent } from '@shared/base-component';
+import { InstagramUser } from '@shared/support-class';
+import { isPlatformBrowser } from '@angular/common';
 
 declare var $: any;
 @Component({
@@ -16,6 +17,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   selectedPost: any;
   error = false;
   masonryCount = 0;
+  firstActivation = false;
   updateMasonryLayout = false;
 
   constructor(
@@ -25,45 +27,58 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-    this.angulartics.eventTrack('social', { category: 'enterPage' });
-    this.loaderSrv.sendNewLoaderStatus(true);
-    this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(
-      res => {
-        const response = res.data;
-        this.userInfo = response.data[0].user;
-        this.posts = response.data;
-        this.loaderSrv.sendNewLoaderStatus(false);
-      },
-      err => {
-        this.error = true;
-        this.loaderSrv.sendNewLoaderStatus(false);
-      }
-    );
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('social', { category: 'enterPage' });
+      this.loaderSrv.sendNewLoaderStatus(true);
+      this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(
+        res => {
+          const response = res.data;
+          this.userInfo = response.data[0].user;
+          this.posts = response.data;
+          this.loaderSrv.sendNewLoaderStatus(false);
+        },
+        err => {
+          this.error = true;
+          this.loaderSrv.sendNewLoaderStatus(false);
+        }
+      );
+    }
   }
 
   ngOnDestroy() {
-    this.angulartics.eventTrack('social', { category: 'exitPage' });
-    this.unsubscribe();
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('social', { category: 'exitPage' });
+      this.unsubscribe();
+    }
   }
 
   goToInstagram() {
-    this.angulartics.eventTrack('social', { category: 'goToInstagramAccount' });
-    window.open(`https://www.instagram.com/${this.userInfo.username}`);
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('social', { category: 'goToInstagramAccount' });
+      window.open(`https://www.instagram.com/${this.userInfo.username}`);
+    }
   }
 
   goToPostExternal(post: any) {
-    this.angulartics.eventTrack('social', { category: 'goToInstagramPost' });
-    window.open(`${post.link}`);
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('social', { category: 'goToInstagramPost' });
+      window.open(`${post.link}`);
+    }
   }
 
   showModal(post) {
-    this.selectedPost = post;
-    this.cdRef.detectChanges();
-    $(`#modal-post`).appendTo('body').modal('show');
-    $('#modal-post').on('hidden.bs.modal', () => {
-      this.selectedPost = null;
+    if (isPlatformBrowser(this.platformId)) {
+      this.selectedPost = post;
       this.cdRef.detectChanges();
-    });
+      $(`#modal-post`).appendTo('body').modal('show');
+      if (!this.firstActivation) {
+        $('#modal-post').on('hidden.bs.modal', () => {
+          this.selectedPost = null;
+          this.cdRef.detectChanges();
+          this.firstActivation = true;
+        });
+      }
+    }
   }
 
   createMarker(location) {

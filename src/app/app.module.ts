@@ -1,6 +1,8 @@
+import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { CommonModule } from '@angular/common';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -22,7 +24,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
+    NgtUniversalModule,
+    TransferHttpCacheModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -42,6 +47,5 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule
   ],
   providers: [D3Service],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
