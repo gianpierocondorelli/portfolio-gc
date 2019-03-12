@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Injector } from '@angular/core';
 
 import { BaseComponent } from '../base-component';
+import { isPlatformBrowser } from '@angular/common';
 
 const TIME_SPLASH = 2000;
 
@@ -20,13 +21,15 @@ export class SplashScreenComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.timePassed = true;
-    }, TIME_SPLASH);
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        this.timePassed = true;
+      }, TIME_SPLASH);
 
-    setTimeout(() => {
-      this.endSplash.emit(true);
-    }, TIME_SPLASH * 2);
+      setTimeout(() => {
+        this.endSplash.emit(true);
+      }, TIME_SPLASH * 2);
+    }
   }
 
 }
