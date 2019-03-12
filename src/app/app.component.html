@@ -1,6 +1,6 @@
 <app-splash-screen *ngIf="showSplash === true" (endSplash)="showSplash = !$event"></app-splash-screen>
 
-<app-portfolio-wrapper *ngIf="showSplash === false">
+<app-portfolio-wrapper [style.display]="showSplash === false ? 'inherit': 'none'">
   <main [@fadeAnimation]="getRouterOutletState(o)">
     <router-outlet #o="outlet"></router-outlet>
   </main>
