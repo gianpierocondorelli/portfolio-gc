@@ -18,7 +18,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 export class AppComponent extends BaseComponent implements OnInit {
   title = 'portfolio';
-  // showSplash = true;
+  showSplash = true;
 
   constructor(
 
@@ -37,8 +37,8 @@ export class AppComponent extends BaseComponent implements OnInit {
   ngOnInit() {
     // handling splash screen
     if (isPlatformBrowser(this.platformId)) {
-      // this.showSplash = !window.sessionStorage.getItem('showSplash');
-      // window.sessionStorage.setItem('showSplash', 'false');
+      this.showSplash = !window.sessionStorage.getItem('showSplash');
+      window.sessionStorage.setItem('showSplash', 'false');
       // handling loading modules in a cool way
       this.subscription = this.router.events.subscribe(
         event => {
@@ -58,6 +58,10 @@ export class AppComponent extends BaseComponent implements OnInit {
 
       this.go2Top();
     }
+  }
+
+  getPlatformBrowser() {
+    return isPlatformBrowser(this.platformId);
   }
 
   getRouterOutletState(outlet: RouterOutlet) {
