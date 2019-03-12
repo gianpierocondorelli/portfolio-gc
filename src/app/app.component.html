@@ -1,6 +1,6 @@
-<app-splash-screen *ngIf="showSplash && getPlatformBrowser()" (endSplash)="showSplash = !$event"></app-splash-screen>
+<app-splash-screen *ngIf="showSplash === true" (endSplash)="showSplash = !$event"></app-splash-screen>
 
-<app-portfolio-wrapper *ngIf="showSplash === false && getPlatformBrowser()">
+<app-portfolio-wrapper *ngIf="showSplash === false">
   <main [@fadeAnimation]="getRouterOutletState(o)">
     <router-outlet #o="outlet"></router-outlet>
   </main>
