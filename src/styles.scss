@@ -79,8 +79,8 @@ body {
 }
 
 .button {
-  border: none;
   cursor: pointer;
+  border: none;
   width: auto;
   height: 6vh;
   padding: 0 3vw;
@@ -91,6 +91,19 @@ body {
   background-color: $transparent;
   transition: 0.5s;
   color: $lapis-lazuli;
+
+  &.border-custom {
+    border: 0.1vh solid;
+
+    &.white {
+      border-color: $gray-100;
+    }
+
+    &.blue {
+      border-color: $lapis-lazuli;
+    }
+  }
+
 
   &:hover {
     background-color: $lapis-lazuli;
@@ -147,7 +160,7 @@ router-outlet~* {
   background-color: $gray-100;
 }
 
-.border-blue {
+.border-custom-blue {
   @media screen and (max-width: $desktop) {
     border-bottom: $lapis-lazuli 0.1vh solid;
   }
@@ -176,4 +189,8 @@ router-outlet~* {
 
 .newline {
   white-space: pre-wrap;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

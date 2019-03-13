@@ -1,5 +1,4 @@
 import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
-import { NavigationEnd } from '@angular/router';
 
 import { SECTIONS } from '../constants';
 import { BaseComponent } from '../base-component';
@@ -11,9 +10,9 @@ import { BaseComponent } from '../base-component';
 })
 export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
 
-  notDisplayMenu = true;
-  disableMenu = true;
-  currentPath: string;
+  // notDisplayMenu = true;
+  // disableMenu = true;
+  // currentPath: string;
   sections = SECTIONS;
 
   constructor(injector: Injector) {
@@ -21,21 +20,21 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-    this.notDisplayMenu = this.router.url === '/';
-    setTimeout(() => {
-      this.disableMenu = this.notDisplayMenu;
-    }, 250);
-    this.subscription = this.router.events.subscribe(
-      event => {
-        if (event instanceof NavigationEnd) {
-          this.currentPath = event.url;
-          this.notDisplayMenu = this.currentPath === '/';
-          setTimeout(() => {
-            this.disableMenu = this.notDisplayMenu;
-          }, 250);
-        }
-      }
-    )
+    // this.notDisplayMenu = this.router.url === '/';
+    // setTimeout(() => {
+    //   this.disableMenu = this.notDisplayMenu;
+    // }, 250);
+    // this.subscription = this.router.events.subscribe(
+    //   event => {
+    //     if (event instanceof NavigationEnd) {
+    //       this.currentPath = event.url;
+    //       this.notDisplayMenu = this.currentPath === '/';
+    //       setTimeout(() => {
+    //         this.disableMenu = this.notDisplayMenu;
+    //       }, 250);
+    //     }
+    //   }
+    // )
   }
 
   ngOnDestroy(): void {
@@ -47,6 +46,6 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   checkIfPathActive(path: string) {
-    return this.currentPath && this.currentPath.length > 0 && this.currentPath.includes(path);
+    // return this.currentPath && this.currentPath.length > 0 && this.currentPath.includes(path);
   }
 }
