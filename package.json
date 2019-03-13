@@ -4,7 +4,7 @@
   "author": "Gianpiero Condorelli",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve --host 0.0.0.0 --disableHostCheck true --proxy-config proxy.conf.json",
     "extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/it.json ./src/assets/i18n/en.json --sort --format namespaced-json",
     "build": "ng build",
     "copy-sitemap": "copy sitemap.xml /dist/browser/",
