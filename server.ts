@@ -75,7 +75,6 @@ app.get('/api/v1/social-wall', cache(300), (req, res) => {
     console.log('response code from instagram: ' + resp.statusCode);
     if (resp.statusCode !== 200) {
       res.status(500).send({
-        data: JSON.parse(body),
         status: resp.statusMessage
       });
     }
