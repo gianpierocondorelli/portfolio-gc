@@ -1,23 +1,24 @@
 <div class="home">
   <div class="sections-container">
-    <div class="section right" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
+    <div class="section" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
       [class.d-none]="!display[i]">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-2 d-flex align-items-center justify-content-center">
+          <div class="col-2 d-flex align-items-center justify-content-center cursor-pointer" (click)="changePage(1)">
             <div class="left text-center">
-              <button class="button" (click)="changePage(-1)">
+              <button class="button h-100 w-100">
                 <fa-icon icon="chevron-left"></fa-icon>
               </button>
             </div>
           </div>
-          <div class="col-8">
-            <h2 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h2>
-            <button class="button mb-2" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
+          <div class="col-8 cursor-pointer" (click)="goTo(section.path)">
+            <h1 class="title">{{ 'COMMON.MENU.' + section.path.toUpperCase() | translate }}</h1>
+            <h3 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h3>
+            <button class="button border-custom white mb-2">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
           </div>
-          <div class="col-2 d-flex align-items-center justify-content-center">
+          <div class="col-2 d-flex align-items-center justify-content-center" (click)="changePage(1)">
             <div class="right text-center">
-              <button class="button" (click)="changePage(1)">
+              <button class="button h-100 w-100">
                 <fa-icon icon="chevron-right"></fa-icon>
               </button>
             </div>
