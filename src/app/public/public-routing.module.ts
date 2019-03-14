@@ -21,6 +21,10 @@ const routes: Routes = [{
 {
   path: 'work',
   loadChildren: 'src/app/public/work/work.module#WorkModule'
+},
+{
+  path: 'cookie-policy',
+  loadChildren: 'src/app/public/cookie-policy/cookie-policy.module#CookiePolicyModule'
 }];
 
 @NgModule({
