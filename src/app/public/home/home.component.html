@@ -1,38 +1,28 @@
 <div class="home">
-  <div class="sections-container">
-    <div class="section" *ngFor="let section of sections; let i = index" [class.invisible]="currentIndex !== i"
-      [class.d-none]="!display[i]">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-2 d-flex align-items-center justify-content-center cursor-pointer" (click)="changePage(1)">
-            <div class="left text-center">
-              <button class="button h-100 w-100">
-                <fa-icon icon="chevron-left"></fa-icon>
-              </button>
-            </div>
-          </div>
-          <div class="col-8 cursor-pointer" (click)="goTo(section.path)">
-            <h1 class="title">{{ 'COMMON.MENU.' + section.path.toUpperCase() | translate }}</h1>
-            <h3 class="subtitle">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h3>
-            <button class="button border-custom white mb-2">{{ 'COMMON.BUTTONS.GO_TO' | translate }}</button>
-          </div>
-          <div class="col-2 d-flex align-items-center justify-content-center" (click)="changePage(1)">
-            <div class="right text-center">
-              <button class="button h-100 w-100">
-                <fa-icon icon="chevron-right"></fa-icon>
-              </button>
-            </div>
-          </div>
+  <div class="container">
+    <div class="row menu">
+      <div class="col-3 border-white">
+        <div class="d-flex h-100 flex-column align-items-center justify-content-center">
+          <app-link-menu *ngFor="let s of sections; let j = index" [icon]="s.icon" colorClass="white" [pathLink]="s.path"
+            [selected]="j === currentIndex">
+            {{ s.label | translate }}
+          </app-link-menu>
         </div>
       </div>
+      <div class="col-9"></div>
     </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row icons-bottom">
-      <div class="col-3" *ngFor="let section of sections; let i = index">
-        <app-link-menu [icon]="section.icon" colorClass="white" [pathLink]="section.path" [selected]="i === currentIndex">
-          {{ section.label | translate }}
-        </app-link-menu>
+    <div class="row section" *ngFor="let section of sections; let i = index" [class.visible]="sectionFirstActivation[i]">
+      <div class="row section-content">
+        <div class="col-5">
+        </div>
+        <div class="col-7">
+          <div class="d-flex h-100 flex-column align-items-center justify-content-centerd-flex h-100 flex-column align-items-center justify-content-center">
+            <h3 class="subtitle text-center">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h3>
+            <button class="button w-100 border-custom white m-3" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO'
+              |
+              translate }}</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
