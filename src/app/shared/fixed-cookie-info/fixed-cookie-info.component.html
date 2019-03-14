@@ -1,0 +1,11 @@
+<div class="fixed-bottom cookie-info" [style.display]="cookieOk ? 'none': 'block'">
+  <div class="container">
+    <div class="text-center">
+      <div class="info " [innerHTML]="'COOKIE.INFO_BOTTOM.TEXT' | translate:{url: cookieUrl}">
+      </div>
+      <button class="button border-custom blue" (click)="clickOkCookie()">
+        {{ 'COMMON.BUTTONS.OK' | translate}}
+      </button>
+    </div>
+  </div>
+</div>

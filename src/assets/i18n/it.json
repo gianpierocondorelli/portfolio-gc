@@ -1,7 +1,8 @@
 {
 	"COMMON": {
 		"BUTTONS": {
-			"GO_TO": ""
+			"GO_TO": "",
+			"OK": ""
 		},
 		"MENU": {
 			"FUN": "Fun",
@@ -15,6 +16,14 @@
 			"FUN": "",
 			"SOCIAL": "",
 			"WORK": ""
+		}
+	},
+	"COOKIE": {
+		"INFO_BOTTOM": {
+			"TEXT": ""
+		},
+		"POLICY": {
+			"TEXT": ""
 		}
 	},
 	"FOOTER": {
@@ -67,6 +76,13 @@
 		"TOOLS": {
 			"AND_MORE_OTHER": "",
 			"TITLE": ""
+		}
+	},
+	"null": {
+		"COMMON": {
+			"BUTTONS": {
+				"OK": ""
+			}
 		}
 	}
 }

@@ -23,6 +23,7 @@ import { ImageComponent } from './image/image.component';
 import { IncreasingCounterComponent } from './increasing-counter/increasing-counter.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LightboxComponent } from './lightbox/lightbox.component';
+import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LightboxComponent } from './lightbox/lightbox.component';
     ImageComponent,
     IncreasingCounterComponent,
     LoaderComponent,
-    LightboxComponent
+    LightboxComponent,
+    FixedCookieInfoComponent
   ],
   imports: [
     CommonModule,
