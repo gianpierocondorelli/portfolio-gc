@@ -20,6 +20,15 @@
   </ngx-masonry>
 </div>
 
+<div class="message-error" *ngIf="error">
+  <div class="logo">
+    <fa-icon icon="exclamation-triangle"></fa-icon>
+  </div>
+  <div class="under-logo">
+    {{'ERRORS.GENERIC.MESSAGE' | translate }}
+  </div>
+</div>
+
 
 <div class="modal fade" id="modal-post" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg ">

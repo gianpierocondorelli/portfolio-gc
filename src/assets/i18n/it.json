@@ -26,6 +26,15 @@
 			"TEXT": ""
 		}
 	},
+	"ERRORS": {
+		"GENERIC": {
+			"MESSAGE": ""
+		},
+		"NOT_FOUND": {
+			"CODE": "",
+			"MESSAGE": ""
+		}
+	},
 	"FOOTER": {
 		"TEXT": "{{ value }} | Gianpiero Condorelli"
 	},
