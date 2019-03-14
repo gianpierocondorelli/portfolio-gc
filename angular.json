@@ -25,7 +25,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "sitemap.xml"
+              "src/sitemap.xml"
             ],
             "styles": [
               "./node_modules/bootstrap-xxl/scss/bootstrap.scss",
