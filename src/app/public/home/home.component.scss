@@ -1,13 +1,23 @@
 @import '../../../scss/colors';
 @import '../../../scss/variables';
+@import '../../../scss/animation';
 
 .home {
   display: flex;
   flex-direction: column;
-  height: 87vh;
   width: auto;
   color: $white;
   position: relative;
+
+  .menu {
+    position: fixed;
+    height: 87vh;
+    width: 100%;
+
+    .border-white {
+      border-right: 0.1vh solid $white;
+    }
+  }
 
   &:before {
     position: absolute;
@@ -24,37 +34,22 @@
     color: $white;
   }
 
-  .sections-container {
-    margin: auto 0;
+
+  .section {
     text-transform: uppercase;
+    height: 87vh;
+    width: 100%;
+    opacity: 0;
+    transition: 2s;
 
-    .section {
-      transition: 0.5s;
+    &.visible {
       opacity: 1;
-
-      &.invisible {
-        opacity: 0;
-      }
-
-      &.right {
-        text-align: right;
-        margin-left: auto;
-      }
     }
 
-  }
+    .section-content {
+      margin: auto 0;
+      width: 100%;
+    }
 
-  .icons-bottom {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-  }
-
-  .left,
-  .right {
-    width: 100%;
-    height: 100%;
-    font-size: $font-size * 1.5;
   }
 }
