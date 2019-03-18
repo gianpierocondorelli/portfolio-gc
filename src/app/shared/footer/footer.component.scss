@@ -1,0 +1,38 @@
+@import 'color-variables';
+@import 'variables';
+@import 'animation';
+
+
+.footer {
+  position: fixed;
+  bottom: -10vh;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $lapis-lazuli;
+  color: $gray-100;
+  min-height: 10vh;
+  height: auto;
+  height: 10vh;
+  transition: 1s;
+
+  a {
+    color: $gray-100;
+    font-weight: 600;
+    transition: 1s;
+
+    &:hover {
+      text-decoration: none;
+      color: $gray-500;
+      font-weight: 800;
+    }
+  }
+
+  &.visible {
+    bottom: 0;
+  }
+}

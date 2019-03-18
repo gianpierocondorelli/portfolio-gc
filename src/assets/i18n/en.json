@@ -37,7 +37,7 @@
     }
   },
   "FOOTER": {
-    "TEXT": "{{ value }} | Gianpiero Condorelli"
+    "TEXT": "Copyright © {{ year }} <a href=\"mailto:gia.condorelli@gmail.com\">Gianpiero Condorelli</a>"
   },
   "LIFE": {
     "SECTION_ONE": {
