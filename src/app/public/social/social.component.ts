@@ -49,6 +49,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   ngOnDestroy() {
     if (isPlatformBrowser(this.platformId)) {
       this.angulartics.eventTrack('social', { category: 'exitPage' });
+      $(`#modal-post`).modal('hide');
       this.unsubscribe();
     }
   }
