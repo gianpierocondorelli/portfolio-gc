@@ -1,7 +1,7 @@
 <div class="home">
   <div class="container">
     <div class="row menu">
-      <div class="col-3 border-white">
+      <div class="col-3 border-white column-high">
         <div class="d-flex h-100 flex-column align-items-center justify-content-center">
           <app-link-menu *ngFor="let s of sections; let j = index" [icon]="s.icon" colorClass="white" [pathLink]="s.path"
             [selected]="j === currentIndex">
@@ -13,7 +13,7 @@
     </div>
     <div class="row section" *ngFor="let section of sections; let i = index" [class.visible]="sectionFirstActivation[i]">
       <div class="row section-content">
-        <div class="col-5">
+        <div class="col-5 column-low">
         </div>
         <div class="col-7">
           <div class="d-flex h-100 flex-column align-items-center justify-content-centerd-flex h-100 flex-column align-items-center justify-content-center">
