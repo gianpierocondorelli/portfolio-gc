@@ -32,6 +32,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
       this.loaderSrv.sendNewLoaderStatus(true);
       this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(
         res => {
+          this.error = false;
           const response = res.data;
           this.userInfo = response.data[0].user;
           this.posts = response.data;

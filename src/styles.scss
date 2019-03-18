@@ -194,3 +194,10 @@ router-outlet~* {
 .cursor-pointer {
   cursor: pointer;
 }
+
+@media (min-width: $desktop) {
+  .modal-xl {
+    width: 90%;
+    max-width: 1200px;
+  }
+}
