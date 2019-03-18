@@ -69,6 +69,9 @@
     "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
   },
   "WORK": {
+    "BUTTONS": {
+      "GET_RESUME": "Get my resume"
+    },
     "CODE_WRITTEN": {
       "INTRO": "The code built for this website is available on a public Git repository. If you want to check it out, click the following link.",
       "LINE_COUNT": "Code lines written",
