@@ -63,7 +63,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   goToCode() {
     this.angulartics.eventTrack('work', { category: 'goToCode' });
     if (isPlatformBrowser(this.platformId)) {
-      window.open('http://bitbucket.org/giacondor/portfolio');
+      window.open('https://github.com/gianpierocondorelli/portfolio-gc');
     }
   }
 
