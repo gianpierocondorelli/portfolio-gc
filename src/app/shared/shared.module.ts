@@ -24,6 +24,7 @@ import { IncreasingCounterComponent } from './increasing-counter/increasing-coun
 import { LoaderComponent } from './loader/loader.component';
 import { LightboxComponent } from './lightbox/lightbox.component';
 import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.
     IncreasingCounterComponent,
     LoaderComponent,
     LightboxComponent,
-    FixedCookieInfoComponent
+    FixedCookieInfoComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.
     ImageComponent,
     IncreasingCounterComponent,
     LightboxComponent,
+    ErrorMessageComponent,
     // modules
     FontAwesomeModule,
     TranslateModule,
