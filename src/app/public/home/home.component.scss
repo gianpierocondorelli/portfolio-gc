@@ -9,11 +9,18 @@
   color: $white;
   position: relative;
 
+  .column-high {
+    z-index: 10;
+  }
+
+  .column-low {
+    z-index: -10;
+  }
+
   .menu {
     position: fixed;
     height: 87vh;
     width: 100%;
-    z-index: 10;
 
     .border-white {
       border-right: 0.1vh solid $white;
