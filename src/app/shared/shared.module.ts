@@ -25,6 +25,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { LightboxComponent } from './lightbox/lightbox.component';
 import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ErrorMessageComponent } from './error-message/error-message.component';
     LoaderComponent,
     LightboxComponent,
     FixedCookieInfoComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
