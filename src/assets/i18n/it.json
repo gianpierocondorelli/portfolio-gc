@@ -74,6 +74,9 @@
 		"INTRODUCTION": ""
 	},
 	"WORK": {
+		"BUTTONS": {
+			"GET_RESUME": ""
+		},
 		"CODE_WRITTEN": {
 			"INTRO": "",
 			"LINE_COUNT": "",
