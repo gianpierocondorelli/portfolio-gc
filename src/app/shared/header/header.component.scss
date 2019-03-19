@@ -14,6 +14,14 @@
   padding: 0 5vw;
   align-items: center;
   z-index: 20;
+  top: 0;
+  opacity: 1;
+  transition: 1s ease;
+
+  &.not-visible {
+    top: -20vh;
+    opacity: 0;
+  }
 
   .logo {
     img {

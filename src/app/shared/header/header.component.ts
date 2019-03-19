@@ -1,8 +1,11 @@
-import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd } from '@angular/router';
 
 import { SECTIONS } from '@shared/constants';
 import { BaseComponent } from '@shared/base-component';
+
+declare var $: any;
 
 @Component({
   selector: 'app-header',
@@ -15,6 +18,9 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   disableMenu = true;
   currentPath: string;
   sections = SECTIONS;
+
+  visible = true;
+  prevScroll = 0;
 
   constructor(injector: Injector) {
     super(injector);
@@ -48,5 +54,15 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
 
   checkIfPathActive(path: string) {
     return this.currentPath && this.currentPath.length > 0 && this.currentPath.includes(path);
+  }
+
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event) {
+    if (isPlatformBrowser(this.platformId)) {
+      const sizeHtml = $(document).height() - window.innerHeight;
+      this.visible = (window.pageYOffset < sizeHtml * .1) || (window.pageYOffset < this.prevScroll);
+      this.prevScroll = window.pageYOffset;
+    }
   }
 }
