@@ -15,4 +15,8 @@
   &.visible {
     right: 5vw;
   }
+
+  &.white {
+    color: $gray-100;
+  }
 }
