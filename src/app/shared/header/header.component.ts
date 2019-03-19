@@ -61,7 +61,8 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   onScroll(event) {
     if (isPlatformBrowser(this.platformId)) {
       const sizeHtml = $(document).height() - window.innerHeight;
-      this.visible = (this.router.url.substring(0, this.router.url.indexOf('?')) === '/') ||
+      this.visible = (this.router.url.substring(0, this.router.url.indexOf('?')) === '') ||
+      (this.router.url.substring(0, this.router.url.indexOf('?')) === '/') ||
         (window.pageYOffset < sizeHtml * .1) || (window.pageYOffset < this.prevScroll);
       this.prevScroll = window.pageYOffset;
     }
