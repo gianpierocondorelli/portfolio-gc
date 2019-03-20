@@ -41,6 +41,10 @@
     &.not-display {
       opacity: 0;
     }
+
+    &.not-visible {
+      display: none;
+    }
   }
 
 

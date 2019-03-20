@@ -27,6 +27,7 @@ export class SocialComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
+    this.meta.addTag({ name: 'description', content: 'Social Wall from various accounts' });
     if (isPlatformBrowser(this.platformId)) {
       this.angulartics.eventTrack('social', { category: 'enterPage' });
       this.loaderSrv.sendNewLoaderStatus(true);
