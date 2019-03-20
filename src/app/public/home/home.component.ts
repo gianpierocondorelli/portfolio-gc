@@ -27,6 +27,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.meta.addTag({ name: 'description', content: 'Home Page' });
     if (isPlatformBrowser(this.platformId)) {
       this.angulartics.eventTrack('home', { category: 'enterPage' });
       this.sectionFirstActivation[0] = true;

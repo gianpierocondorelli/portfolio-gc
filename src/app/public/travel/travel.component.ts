@@ -338,17 +338,22 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-    this.bkgSrv.sendNewImgBackground('');
-    this.angulartics.eventTrack('travel', { category: 'enterPage' });
-    this.extractCities();
-    setTimeout(() => {
-      this.activateVisibility = true;
-    }, 100);
+    this.meta.addTag({ name: 'description', content: 'A list of all of my travels I did until now' });
+    if (isPlatformBrowser(this.platformId)) {
+      this.bkgSrv.sendNewImgBackground('');
+      this.angulartics.eventTrack('travel', { category: 'enterPage' });
+      this.extractCities();
+      setTimeout(() => {
+        this.activateVisibility = true;
+      }, 100);
+    }
   }
 
   ngOnDestroy() {
-    this.angulartics.eventTrack('travel', { category: 'exitPage' });
-    this.unsubscribe();
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.eventTrack('travel', { category: 'exitPage' });
+      this.unsubscribe();
+    }
   }
 
   getVisibility(index: number) {

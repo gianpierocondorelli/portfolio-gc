@@ -1,18 +1,24 @@
-<div class="container social" *ngIf="userInfo && posts">
-  <div class="row my-3 d-flex align-items-center justify-content-center">
-    <div class="col-sm-12 col-md-3">
-      <div class="d-flex justify-content-center">
-        <app-image [src]="userInfo.profile_picture" classToAppend="text-center rounded-circle"></app-image>
+<div class="blue-bkg p-3 mb-5" *ngIf="userInfo">
+  <div class="container">
+    <div class="row my-3 d-flex align-items-center justify-content-center">
+      <div class="col-sm-12 col-md-3">
+        <div class="d-flex justify-content-center">
+          <app-image [src]="userInfo.profile_picture" classToAppend="text-center rounded-circle"></app-image>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-9 d-flex flex-column">
+        <h2>{{userInfo?.username}}</h2>
+        <span>
+          <button class="button border-custom white" (click)="goToInstagram()">
+            {{ 'COMMON.BUTTONS.GO_TO' | translate }}
+            <fa-icon [icon]="['fab','instagram']"></fa-icon>
+          </button>
+        </span>
       </div>
     </div>
-    <div class="col-sm-12 col-md-9 d-flex flex-column justify-content-center">
-      <h2 class="text-center">{{userInfo?.username}}</h2>
-      <button class="button border-custom blue" (click)="goToInstagram()">
-        {{ 'COMMON.BUTTONS.GO_TO' | translate }}
-        <fa-icon [icon]="['fab','instagram']"></fa-icon>
-      </button>
-    </div>
   </div>
+</div>
+<div class="container social" *ngIf="posts">
   <ngx-masonry [options]="{ transitionDuration: '0.8s', horizontalOrder: true }" [updateLayout]="updateMasonryLayout">
     <ngxMasonryItem class="col-sm-12 col-md-3 p-2 masonry-item post" *ngFor="let post of posts" (click)="showModal(post)">
       <img [src]="post.images.standard_resolution.url" class="img-fluid" (load)="updateMasonryLayout = !updateMasonryLayout" />

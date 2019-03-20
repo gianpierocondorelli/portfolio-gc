@@ -43,15 +43,16 @@ export class AppComponent extends BaseComponent implements OnInit {
       this.subscription = this.router.events.subscribe(
         event => {
           if (event instanceof NavigationStart) {
+            this.meta.removeTag('name="description"');
             this.loaderSrv.sendNewLoaderStatus(true);
           } else if (
             event instanceof NavigationEnd ||
             event instanceof NavigationCancel ||
             event instanceof NavigationError
           ) {
+            this.bkgSrv.sendNewImgBackground('');
             this.loaderSrv.sendNewLoaderStatus(false);
             window.scroll(0, 0);
-            this.bkgSrv.sendNewImgBackground('');
           }
         }
       );

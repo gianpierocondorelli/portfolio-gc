@@ -3,6 +3,7 @@ import { Injector, ChangeDetectorRef, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import { Meta } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
 import { D3Service } from 'd3-ng2-service';
@@ -35,6 +36,7 @@ export class BaseComponent {
   protected d3Srv: D3Service;
   protected window: any;
   protected platformId: Object;
+  protected meta: Meta;
 
   constructor(injector: Injector) {
     this.router = injector.get(Router);
@@ -48,6 +50,7 @@ export class BaseComponent {
     this.d3Srv = injector.get(D3Service);
     this.window = injector.get(WINDOW);
     this.platformId = injector.get(PLATFORM_ID);
+    this.meta = injector.get(Meta);
   }
 
   clearTimeout(timeout: any) {

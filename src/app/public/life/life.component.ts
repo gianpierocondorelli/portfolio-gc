@@ -32,6 +32,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.meta.addTag({ name: 'description', content: 'A brief description of my life' });
     if (isPlatformBrowser(this.platformId)) {
       this.angulartics.eventTrack('life', { category: 'enterPage' });
       setTimeout(() => {

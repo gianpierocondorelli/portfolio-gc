@@ -27,18 +27,14 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   }
 
   ngOnInit() {
-    // this.notDisplayMenu = this.router.url === '/';
-    // setTimeout(() => {
-    //   this.disableMenu = this.notDisplayMenu;
-    // }, 250);
     this.subscription = this.router.events.subscribe(
       event => {
         if (event instanceof NavigationEnd) {
-          this.currentPath = event.url;
-          // this.notDisplayMenu = this.currentPath === '/';
-          // setTimeout(() => {
-          //   this.disableMenu = this.notDisplayMenu;
-          // }, 250);
+          this.currentPath = window.location.pathname;
+          this.disableMenu = this.currentPath === '/';
+          setTimeout(() => {
+            this.notDisplayMenu = this.disableMenu;
+          }, 100);
         }
       }
     );
@@ -61,8 +57,7 @@ export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy 
   onScroll(event) {
     if (isPlatformBrowser(this.platformId)) {
       const sizeHtml = $(document).height() - window.innerHeight;
-      this.visible = (this.router.url.substring(0, this.router.url.indexOf('?')) === '') ||
-      (this.router.url.substring(0, this.router.url.indexOf('?')) === '/') ||
+      this.visible = (window.location.pathname === '/') ||
         (window.pageYOffset < sizeHtml * .1) || (window.pageYOffset < this.prevScroll);
       this.prevScroll = window.pageYOffset;
     }

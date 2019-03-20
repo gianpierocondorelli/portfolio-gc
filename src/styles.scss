@@ -82,7 +82,8 @@ body {
   cursor: pointer;
   border: none;
   width: auto;
-  height: 6vh;
+  min-height: 6vh;
+  height: auto;
   padding: 0 3vw;
   font-size: $font-size * 1.5;
   text-transform: uppercase;
@@ -91,6 +92,11 @@ body {
   background-color: $transparent;
   transition: 0.5s;
   color: $lapis-lazuli;
+
+  &.white {
+    color: $white;
+  }
+
 
   &.border-custom {
     border: 0.1vh solid;
@@ -111,17 +117,14 @@ body {
     color: $gray-100;
     text-shadow: none;
 
-    &.green {
-      background-color: $green;
+    &.white {
+      background-color: $gray-100;
+      color: $lapis-lazuli;
     }
+  }
 
-    &.red {
-      background-color: $dark-red;
-    }
-
-    &.yellow {
-      background-color: $mandarin;
-    }
+  @media screen and (max-width: $smartphone) {
+    width: 100% !important;
   }
 
 }
@@ -172,7 +175,7 @@ router-outlet~* {
 
 .blue-bkg {
   background-color: $lapis-lazuli;
-
+  color: $gray-100;
 }
 
 .white-bkg {
