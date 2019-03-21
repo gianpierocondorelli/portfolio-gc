@@ -9,6 +9,7 @@ export class ImageComponent implements OnInit {
 
   @Input() src: string;
   @Input() classToAppend: string;
+  @Input() white = false;
   show = false;
   loaded = false;
 
