@@ -68,10 +68,15 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
       {
         city: 'Munich',
         country: 'Germany',
-        latitude: 48.1374300,
-        longitude: 11.5754900
-      }
-      ]
+        latitude: 52.5200,
+        longitude: 13.4050,
+      },
+      {
+        city: 'Praha',
+        country: 'Czech Republic',
+        latitude: 50.073658,
+        longitude: 14.418540,
+      }]
     },
     {
       name: 'Italy',
@@ -327,7 +332,39 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
           'assets/images/travel/germany/munchen/image_2.jpg',
           'assets/images/travel/germany/munchen/image_3.jpg'
         ]
-      }]
+      },
+      {
+        city: 'Berlin',
+        country: 'Germany',
+        latitude: 52.5200,
+        longitude: 13.4050,
+        images: [
+          'assets/images/travel/germany/berlin/image_1.jpg',
+          'assets/images/travel/germany/berlin/image_2.jpg',
+          'assets/images/travel/germany/berlin/image_3.jpg'
+        ]
+      },
+      ]
+    },
+    {
+      name: 'Czech Republic',
+      center: {
+        latitude: 50.073658,
+        longitude: 14.418540
+      },
+      scale: 2048,
+      markers: [{
+        city: 'Praha',
+        country: 'Czech Republic',
+        latitude: 50.073658,
+        longitude: 14.418540,
+        images: [
+          'assets/images/travel/czech/praha/image_1.jpg',
+          'assets/images/travel/czech/praha/image_2.jpg',
+          'assets/images/travel/czech/praha/image_3.jpg'
+        ]
+      }
+      ]
     }
   ];
 

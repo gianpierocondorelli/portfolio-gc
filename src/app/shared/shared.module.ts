@@ -26,6 +26,7 @@ import { LightboxComponent } from './lightbox/lightbox.component';
 import { FixedCookieInfoComponent } from './fixed-cookie-info/fixed-cookie-info.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { FooterComponent } from './footer/footer.component';
+import { CircleScrollComponent } from './circle-scroll/circle-scroll.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FooterComponent } from './footer/footer.component';
     LightboxComponent,
     FixedCookieInfoComponent,
     ErrorMessageComponent,
-    FooterComponent
+    FooterComponent,
+    CircleScrollComponent
   ],
   imports: [
     CommonModule,
@@ -61,6 +63,7 @@ import { FooterComponent } from './footer/footer.component';
     IncreasingCounterComponent,
     LightboxComponent,
     ErrorMessageComponent,
+    CircleScrollComponent,
     // modules
     FontAwesomeModule,
     TranslateModule,

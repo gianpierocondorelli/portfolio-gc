@@ -2,7 +2,8 @@
   <div class="row menu">
     <div class="col-4 column-high blue-bkg">
       <div class="d-flex h-100 flex-column align-items-center justify-content-center">
-        <app-link-menu *ngFor="let s of sections; let j = index" [icon]="s.icon" [pathLink]="s.path" [selected]="j === currentIndex">
+        <app-link-menu *ngFor="let s of sections; let j = index" [icon]="s.icon" [pathLink]="s.path"
+          [selected]="j === currentIndex">
           {{ s.label | translate }}
         </app-link-menu>
       </div>
@@ -10,12 +11,14 @@
     <div class="col-8"></div>
   </div>
   <div class="container">
-    <div class="row section" *ngFor="let section of sections; let i = index" [class.visible]="sectionFirstActivation[i]">
+    <div class="row section" *ngFor="let section of sections; let i = index"
+      [class.visible]="sectionFirstActivation[i]">
       <div class="row section-content">
         <div class="col-5 column-low">
         </div>
         <div class="col-7">
-          <div class="d-flex h-100 flex-column align-items-center justify-content-centerd-flex h-100 flex-column align-items-center justify-content-center">
+          <div
+            class="d-flex h-100 flex-column align-items-center justify-content-centerd-flex h-100 flex-column align-items-center justify-content-center">
             <h3 class="subtitle text-center">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h3>
             <button class="button w-100 border-custom white m-3" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO'
               |
