@@ -18,7 +18,6 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "^7.2.4",
     "@angular/cdk": "^7.3.1",
     "@angular/common": "^7.2.4",
@@ -54,7 +53,7 @@
     "d3-ng2-service": "^2.2.0",
     "d3-v4-cloud": "^1.0.0",
     "document-register-element": "^1.7.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
     "ng-block-ui": "^2.1.1",
@@ -70,7 +69,7 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
+    "@angular-devkit/build-angular": "^0.800.2",
     "@angular/cli": "~7.3.0",
     "@angular/compiler-cli": "^7.2.8",
     "@angular/language-service": "^7.2.4",
