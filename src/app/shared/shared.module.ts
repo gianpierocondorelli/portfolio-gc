@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AgmCoreModule } from '@agm/core';
-import { FitBoundsService } from '@agm/core/services/fit-bounds';
 import { ScrollToModule } from 'ng2-scroll-to-el';
 import { DeferLoadModule } from '@trademe/ng-defer-load';
 import { BlockUIModule } from 'ng-block-ui';
@@ -67,7 +65,6 @@ import { CircleScrollComponent } from './circle-scroll/circle-scroll.component';
     // modules
     FontAwesomeModule,
     TranslateModule,
-    AgmCoreModule,
     HttpClientModule,
     ScrollToModule,
     DeferLoadModule,
@@ -75,7 +72,6 @@ import { CircleScrollComponent } from './circle-scroll/circle-scroll.component';
     NgxMasonryModule
   ],
   providers: [
-    FitBoundsService
   ]
 })
 export class SharedModule { }
