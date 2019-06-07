@@ -64,7 +64,7 @@ const cache = (duration) => {
 };
 
 app.get('/api/v1/social-wall', cache(300), (req, res) => {
-  const path = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=552320988.0b4256f.c9c8f372c6f140a7a0b97e5a1c8f6dca';
+  const path = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=552320988.0b4256f.43a7c81be7d64c0fa8556b26dc81852f';
   request.get(path, (error, resp, body) => {
     if (error) {
       res.status(500).send({
