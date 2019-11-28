@@ -76,7 +76,14 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
         country: 'Czech Republic',
         latitude: 50.073658,
         longitude: 14.418540,
-      }]
+      },
+      {
+        city: 'Lisbon',
+        country: 'Portugal',
+        latitude: 38.736946,
+        longitude: -9.142685
+      }
+      ]
     },
     {
       name: 'Italy',
@@ -362,6 +369,37 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
           'assets/images/travel/czech/praha/image_1.jpg',
           'assets/images/travel/czech/praha/image_2.jpg',
           'assets/images/travel/czech/praha/image_3.jpg'
+        ]
+      }
+      ]
+    },
+    {
+      name: 'Portugal',
+      center: {
+        latitude: 38.736946,
+        longitude: -9.142685
+      },
+      scale: 2048,
+      markers: [{
+        city: 'Lisbon',
+        country: 'Portugal',
+        latitude: 38.736946,
+        longitude: -9.142685,
+        images: [
+          'assets/images/travel/portugal/lisbon/image_1.jpg',
+          'assets/images/travel/portugal/lisbon/image_2.jpg',
+          'assets/images/travel/portugal/lisbon/image_3.jpg'
+        ]
+      },
+      {
+        city: 'Faro',
+        country: 'Portugal',
+        latitude: 37.01937,
+        longitude: -7.93223,
+        images: [
+          'assets/images/travel/portugal/faro/image_1.jpg',
+          'assets/images/travel/portugal/faro/image_2.jpg',
+          'assets/images/travel/portugal/faro/image_3.jpg'
         ]
       }
       ]
