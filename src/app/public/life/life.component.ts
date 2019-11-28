@@ -16,10 +16,10 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
     latitude: 37.502236,
     longitude: 15.08738,
   }, {
-    city: 'Milano',
-    country: 'Italy',
-    latitude: 45.466797,
-    longitude: 9.190498,
+    city: 'Manchester',
+    country: 'United Kingdom',
+    latitude: 53.483959,
+    longitude: -2.244644,
   }];
 
   activateVisibility = false;
