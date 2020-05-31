@@ -31,14 +31,18 @@ export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
   }
 
   clickOkCookie() {
-    this.setCookie('cookie-policy-ok', 'true', 4000)
-    this.cookieOk = true
-    this.startTracking()
+    if (isPlatformBrowser(this.platformId)) {
+      this.setCookie('cookie-policy-ok', 'true', 4000)
+      this.cookieOk = true
+      this.startTracking()
+    }
   }
 
   clickNoCookie() {
-    this.setCookie('cookie-policy-ok', 'false', 4000)
-    this.cookieOk = false
+    if (isPlatformBrowser(this.platformId)) {
+      this.setCookie('cookie-policy-ok', 'false', 4000)
+      this.cookieOk = false
+    }
   }
   
   private startTracking(){
