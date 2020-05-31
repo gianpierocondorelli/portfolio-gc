@@ -12,6 +12,7 @@ import { ScrollToService } from 'ng2-scroll-to-el'
 
 import { BackgroundService } from './services/background.service'
 import { LoaderService } from './loader/loader.service'
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome'
 
 export class BaseComponent {
   bkgImage: string
@@ -34,6 +35,7 @@ export class BaseComponent {
   protected window: any
   protected platformId: Object
   protected meta: Meta
+  protected faLibrary: FaIconLibrary
 
   constructor(injector: Injector) {
     this.router = injector.get(Router)
@@ -47,6 +49,7 @@ export class BaseComponent {
     this.window = injector.get(WINDOW)
     this.platformId = injector.get(PLATFORM_ID)
     this.meta = injector.get(Meta)
+    this.faLibrary = injector.get(FaIconLibrary)
   }
 
   clearTimeout(timeout: any) {

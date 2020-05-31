@@ -7,7 +7,6 @@ import {
   RouterOutlet,
 } from '@angular/router'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
@@ -30,7 +29,7 @@ export class AppComponent extends BaseComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.angulartics.startTracking()
     }
-    library.add(fas, fab)
+    this.faLibrary.addIconPacks(fas, fab)
     // this language will be used as a fallback when a translation isn't found in the current language
     this.translate.setDefaultLang('en')
     // the lang to use, if the lang isn't available, it will use the current loader to get them
