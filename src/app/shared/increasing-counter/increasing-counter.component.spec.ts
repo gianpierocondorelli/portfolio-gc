@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { IncreasingCounterComponent } from './increasing-counter.component';
+import { IncreasingCounterComponent } from './increasing-counter.component'
 
 describe('IncreasingCounterComponent', () => {
-  let component: IncreasingCounterComponent;
-  let fixture: ComponentFixture<IncreasingCounterComponent>;
+  let component: IncreasingCounterComponent
+  let fixture: ComponentFixture<IncreasingCounterComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IncreasingCounterComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [IncreasingCounterComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IncreasingCounterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(IncreasingCounterComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

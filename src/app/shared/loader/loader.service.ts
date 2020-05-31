@@ -1,20 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core'
+import { Subject, Observable } from 'rxjs'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoaderService {
+  private loaderSubject = new Subject<boolean>()
 
-  private loaderSubject = new Subject<boolean>();
-
-  constructor() { }
+  constructor() {}
 
   sendNewLoaderStatus(status: boolean) {
-    this.loaderSubject.next(status);
+    this.loaderSubject.next(status)
   }
 
   getLoaderStatus(): Observable<boolean> {
-    return this.loaderSubject.asObservable();
+    return this.loaderSubject.asObservable()
   }
 }

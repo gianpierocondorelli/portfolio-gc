@@ -14,7 +14,9 @@
     "e2e": "ng e2e",
     "build:server:prod": "ng run portfolio:server && webpack --config webpack.server.config.js --progress --colors",
     "build:browser:prod": "ng build --prod",
-    "server": "node local.js"
+    "server": "node local.js",
+    "format:check": "prettier -l src/**/*.ts",
+    "format:fix": "prettier --write src/**/*.ts"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +37,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@ng-toolkit/universal": "^1.1.51",
+    "@ng-toolkit/universal": "^8.1.0",
     "@nguniversal/common": "~9.1.1",
     "@nguniversal/express-engine": "~9.1.1",
     "@nguniversal/module-map-ngfactory-loader": "~7.0.0",
@@ -85,6 +87,7 @@
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "prettier": "^2.0.5",
     "protractor": "~5.4.0",
     "sitemap-generator": "^8.4.2",
     "ts-node": "^7.0.1",

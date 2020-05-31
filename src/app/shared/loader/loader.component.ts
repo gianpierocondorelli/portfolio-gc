@@ -1,32 +1,29 @@
-import { Component, OnInit, Injector, OnDestroy } from '@angular/core';
+import { Component, OnInit, Injector, OnDestroy } from '@angular/core'
 
-import { BlockUI, NgBlockUI } from 'ng-block-ui';
+import { BlockUI, NgBlockUI } from 'ng-block-ui'
 
-import { BaseComponent } from '../base-component';
+import { BaseComponent } from '../base-component'
 
 @Component({
   selector: 'app-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.scss']
+  styleUrls: ['./loader.component.scss'],
 })
-export class LoaderComponent extends BaseComponent implements OnInit, OnDestroy {
-
-  @BlockUI() blockUI: NgBlockUI;
+export class LoaderComponent extends BaseComponent
+  implements OnInit, OnDestroy {
+  @BlockUI() blockUI: NgBlockUI
 
   constructor(injector: Injector) {
-    super(injector);
+    super(injector)
   }
 
   ngOnInit() {
-    this.subscription = this.loaderSrv.getLoaderStatus().subscribe(
-      res => {
-        res ? this.blockUI.start() : this.blockUI.stop();
-      }
-    );
+    this.subscription = this.loaderSrv.getLoaderStatus().subscribe((res) => {
+      res ? this.blockUI.start() : this.blockUI.stop()
+    })
   }
 
   ngOnDestroy() {
-    this.unsubscribe();
+    this.unsubscribe()
   }
-
 }
