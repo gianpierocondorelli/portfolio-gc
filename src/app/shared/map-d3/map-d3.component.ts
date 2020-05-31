@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector, Input, HostListener, OnDestroy } from '@angular/core';
-import { D3, D3Service } from 'd3-ng2-service';
 import { BaseComponent } from '../base-component';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-map-d3',
@@ -20,12 +20,10 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   @Input() delay = 100;
   @Input() overflow = true;
 
-  private d3: D3;
   numberId: string;
 
-  constructor(injector: Injector, d3srv: D3Service) {
+  constructor(injector: Injector) {
     super(injector);
-    this.d3 = d3srv.getD3();
   }
 
   ngOnInit() {
@@ -39,11 +37,11 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   private buildMap() {
-    const map = this.d3.select(`.map[id="map${this.uniqueId}"]`);
+    const map = d3.select(`.map[id="map${this.uniqueId}"]`);
     const div = map.node() as Element;
     map.selectAll('*').remove();
 
-    const svg = this.d3.select(`.map[id="map${this.uniqueId}"]`).append('svg'),
+    const svg = d3.select(`.map[id="map${this.uniqueId}"]`).append('svg'),
       width = div.clientWidth,
       height = div.clientHeight;
 
@@ -52,7 +50,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
       .style('overflow', this.overflow ? 'visible' : 'hidden');
 
     // Map and projection
-    const projection = this.d3.geoMercator()
+    const projection = d3.geoMercator()
       .center([this.longitude, this.latitude])                // GPS of location to zoom on
       .scale(this.scale || 750)                       // This is like the zoom
       .translate([width / 2, height / 2]);
@@ -71,7 +69,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
           .enter()
           .append('path')
           .attr('fill', '#e9ecef')
-          .attr('d', this.d3.geoPath()
+          .attr('d', d3.geoPath()
             .projection(projection)
           )
           .style('stroke', '#6c757d')
