@@ -1,7 +1,7 @@
 import { Component, OnInit, Injector, OnDestroy, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-import { D3 } from 'd3-ng2-service';
+import * as d3 from 'd3';
 
 import { BaseComponent } from '@shared/base-component';
 import { SECTIONS } from '@shared/constants';
@@ -20,10 +20,9 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   sections = SECTIONS;
   sectionActivation = [];
   sectionFirstActivation = [];
-  private d3: D3;
+
   constructor(injector: Injector) {
     super(injector);
-    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -48,21 +47,10 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     this.router.navigate([`/${link}`]);
   }
 
-  // changePage(move: number) {
-  //   const nextPos = this.currentIndex + move;
-  //   if (move < 0) {
-  //     this.currentIndex = nextPos < 0 ? this.display.length - 1 : nextPos;
-  //   } else {
-  //     this.currentIndex = nextPos >= this.display.length ? 0 : nextPos;
-  //   }
-  //   this.display = this.display.map((d, i) => d = this.currentIndex === i);
-  //   this.bkgSrv.sendNewImgBackground(this.sections[this.currentIndex].background || '');
-  // }
-
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
     if (isPlatformBrowser(this.platformId)) {
-      const sections = this.d3.selectAll('.section').nodes() as Element[];
+      const sections = d3.selectAll('.section').nodes() as Element[];
       if (this.sectionActivation.length <= sections.length) {
         for (let i = 0; i < sections.length; i++) {
           const heightPrev = this.getHeightPrevElement(sections, i);

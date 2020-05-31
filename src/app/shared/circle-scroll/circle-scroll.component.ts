@@ -1,7 +1,6 @@
 import { Component, OnInit, Injector, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-
-import { D3 } from 'd3-ng2-service';
+import * as d3 from 'd3';
 
 import { BaseComponent } from '@shared/base-component';
 
@@ -13,13 +12,10 @@ declare var $: any;
   styleUrls: ['./circle-scroll.component.scss']
 })
 export class CircleScrollComponent extends BaseComponent implements OnInit {
-
-  private d3: D3;
   private slices: any;
 
   constructor(injector: Injector) {
     super(injector);
-    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -43,12 +39,12 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
     const outerRadius = node.clientHeight * 0.5;
     const innerRadius = outerRadius - strokeWidth;
 
-    const pie = this.d3.pie()
+    const pie = d3.pie()
       .value((d: any) => d.value)
       .sort(null)
       .padAngle(0);
 
-    const arc: any = this.d3.arc()
+    const arc: any = d3.arc()
       .outerRadius(outerRadius)
       .innerRadius(innerRadius)
       .cornerRadius(10);

@@ -6,7 +6,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 
 import { Subscription } from 'rxjs';
-import { D3Service } from 'd3-ng2-service';
 import { TranslateService } from '@ngx-translate/core';
 import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst';
 import { ScrollToService } from 'ng2-scroll-to-el';
@@ -33,7 +32,6 @@ export class BaseComponent {
   protected loaderSrv: LoaderService;
   protected cdRef: ChangeDetectorRef;
   protected angulartics: Angulartics2GoogleGlobalSiteTag;
-  protected d3Srv: D3Service;
   protected window: any;
   protected platformId: Object;
   protected meta: Meta;
@@ -47,7 +45,6 @@ export class BaseComponent {
     this.loaderSrv = injector.get(LoaderService);
     this.cdRef = injector.get(ChangeDetectorRef);
     this.angulartics = injector.get(Angulartics2GoogleGlobalSiteTag);
-    this.d3Srv = injector.get(D3Service);
     this.window = injector.get(WINDOW);
     this.platformId = injector.get(PLATFORM_ID);
     this.meta = injector.get(Meta);
