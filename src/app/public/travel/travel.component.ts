@@ -26,7 +26,6 @@ export class TravelComponent extends BaseComponent
   sectionFirstActivation = []
   imagesSelectedCity: string[]
   imageToShow: string
-  private d3: D3
   openLightbox = false
 
   countries: MapBig[] = [
