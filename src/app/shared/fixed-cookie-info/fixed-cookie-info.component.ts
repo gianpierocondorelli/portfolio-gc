@@ -10,7 +10,7 @@ import { BaseComponent } from '@shared/base-component'
 })
 export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
   cookieUrl = 'cookie-policy/'
-  cookieOk = false
+  cookieOk = undefined;
 
   constructor(injector: Injector) {
     super(injector)
@@ -18,12 +18,32 @@ export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      this.cookieOk = this.getCookie('cookie-policy-ok') ? true : false
+      const cookiePolicyOpt = this.getCookie('cookie-policy-ok');
+      switch(cookiePolicyOpt) {
+        case 'true': this.cookieOk = true; break;
+        case 'false': this.cookieOk = false; break;
+        default: break;
+      }
+      if (this.cookieOk){
+        this.startTracking();
+      }
     }
   }
 
   clickOkCookie() {
     this.setCookie('cookie-policy-ok', 'true', 4000)
     this.cookieOk = true
+    this.startTracking()
+  }
+
+  clickNoCookie() {
+    this.setCookie('cookie-policy-ok', 'false', 4000)
+    this.cookieOk = false
+  }
+  
+  private startTracking(){
+    if (isPlatformBrowser(this.platformId)) {
+      this.angulartics.startTracking()
+    }
   }
 }

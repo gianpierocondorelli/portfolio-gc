@@ -1,10 +1,13 @@
-<div class="fixed-bottom cookie-info" [style.display]="cookieOk ? 'none': 'block'">
+<div class="fixed-bottom cookie-info" [style.display]="isDefined(cookieOk) ? 'none': 'block'">
   <div class="container">
     <div class="text-center">
       <div class="info " [innerHTML]="'COOKIE.INFO_BOTTOM.TEXT' | translate:{url: cookieUrl}">
       </div>
-      <button class="button my-2 border-custom blue" (click)="clickOkCookie()">
-        {{ 'COMMON.BUTTONS.OK' | translate}}
+      <button class="button my-2 mr-2 border-custom blue" (click)="clickOkCookie()">
+        {{ 'COMMON.BUTTONS.ACCEPT' | translate}}
+      </button>
+      <button class="button my-2 border-custom blue" (click)="clickNoCookie()">
+        {{ 'COMMON.BUTTONS.REFUSE' | translate}}
       </button>
     </div>
   </div>

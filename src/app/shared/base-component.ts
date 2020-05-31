@@ -112,4 +112,8 @@ export class BaseComponent {
     }
     return ''
   }
+
+  isDefined(value: any){
+    return value !== undefined;
+  }
 }
