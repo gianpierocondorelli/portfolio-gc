@@ -8,8 +8,8 @@ import {
 import { isPlatformBrowser } from '@angular/common'
 import { NavigationEnd } from '@angular/router'
 
-import { SECTIONS } from '@shared/constants'
-import { BaseComponent } from '@shared/base-component'
+import { SECTIONS } from '../constants'
+import { BaseComponent } from '../base-component'
 
 declare var $: any
 

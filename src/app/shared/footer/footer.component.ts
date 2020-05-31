@@ -6,7 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core'
 
-import { BaseComponent } from '@shared/base-component'
+import { BaseComponent } from '../base-component'
 import { isPlatformBrowser } from '@angular/common'
 
 declare var $: any

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { NgModule, ModuleWithProviders } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
 
@@ -73,4 +73,8 @@ import { CircleScrollComponent } from './circle-scroll/circle-scroll.component'
   ],
   providers: [],
 })
-export class SharedModule {}
+export class SharedModule {
+  static forRoot(): ModuleWithProviders<SharedModule> {
+    return { ngModule: SharedModule };
+  }
+}
