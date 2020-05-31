@@ -1,19 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
 
-import { SocialComponent } from './social.component';
+import { SocialComponent } from './social.component'
 
-const routes: Routes = [{
-  path: '',
-  component: SocialComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: SocialComponent,
+  },
+]
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
 })
-export class SocialRoutingModule { }
+export class SocialRoutingModule {}

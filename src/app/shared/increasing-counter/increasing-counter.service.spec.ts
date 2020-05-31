@@ -1,12 +1,14 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing'
 
-import { IncreasingCounterService } from './increasing-counter.service';
+import { IncreasingCounterService } from './increasing-counter.service'
 
 describe('IncreasingCounterService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({}))
 
   it('should be created', () => {
-    const service: IncreasingCounterService = TestBed.get(IncreasingCounterService);
-    expect(service).toBeTruthy();
-  });
-});
+    const service: IncreasingCounterService = TestBed.get(
+      IncreasingCounterService,
+    )
+    expect(service).toBeTruthy()
+  })
+})
