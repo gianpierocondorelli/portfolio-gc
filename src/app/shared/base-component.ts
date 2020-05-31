@@ -8,7 +8,7 @@ import { Meta } from '@angular/platform-browser'
 import { Subscription } from 'rxjs'
 import { TranslateService } from '@ngx-translate/core'
 import { Angulartics2GoogleGlobalSiteTag } from 'angulartics2/gst'
-import { ScrollToService } from 'ng2-scroll-to-el'
+import { ScrollToService } from '@nicky-lenaers/ngx-scroll-to'
 
 import { BackgroundService } from './services/background.service'
 import { LoaderService } from './loader/loader.service'
@@ -68,7 +68,9 @@ export class BaseComponent {
 
   go2Top() {
     if (isPlatformBrowser(this.platformId)) {
-      this.scrollSrv.scrollTo('#top')
+      this.scrollSrv.scrollTo({
+        target: '#top',
+      })
     }
   }
 
