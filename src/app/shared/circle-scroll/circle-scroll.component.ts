@@ -2,7 +2,7 @@ import { Component, OnInit, Injector, HostListener } from '@angular/core'
 import { isPlatformBrowser } from '@angular/common'
 import * as d3 from 'd3'
 
-import { BaseComponent } from '@shared/base-component'
+import { BaseComponent } from '../base-component'
 
 declare var $: any
 

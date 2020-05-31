@@ -10,27 +10,27 @@ const routes: Routes = [
   {
     path: 'life',
     loadChildren: () =>
-      import('src/app/public/life/life.module').then((m) => m.LifeModule),
+      import('app/public/life/life.module').then((m) => m.LifeModule),
   },
   {
     path: 'travel',
     loadChildren: () =>
-      import('src/app/public/travel/travel.module').then((m) => m.TravelModule),
+      import('app/public/travel/travel.module').then((m) => m.TravelModule),
   },
   {
     path: 'social',
     loadChildren: () =>
-      import('src/app/public/social/social.module').then((m) => m.SocialModule),
+      import('app/public/social/social.module').then((m) => m.SocialModule),
   },
   {
     path: 'work',
     loadChildren: () =>
-      import('src/app/public/work/work.module').then((m) => m.WorkModule),
+      import('app/public/work/work.module').then((m) => m.WorkModule),
   },
   {
     path: 'cookie-policy',
     loadChildren: () =>
-      import('src/app/public/cookie-policy/cookie-policy.module').then(
+      import('app/public/cookie-policy/cookie-policy.module').then(
         (m) => m.CookiePolicyModule,
       ),
   },

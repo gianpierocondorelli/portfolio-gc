@@ -1,7 +1,7 @@
 import { Component, OnInit, Injector } from '@angular/core'
 import { isPlatformBrowser } from '@angular/common'
 
-import { BaseComponent } from '@shared/base-component'
+import { BaseComponent } from '../base-component'
 
 @Component({
   selector: 'app-fixed-cookie-info',

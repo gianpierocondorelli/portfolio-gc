@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         clearQueryParams: true,
       },
     }),
-    SharedModule,
+    SharedModule.forRoot(),
   ],
 })
 export class AppModule {}
