@@ -1207,6 +1207,11 @@
   dependencies:
     tslib "^1.9.0"
 
+"@nicky-lenaers/ngx-scroll-to@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@nicky-lenaers/ngx-scroll-to/-/ngx-scroll-to-9.0.0.tgz#c8b455e9968a6116323862d081762880f3492efc"
+  integrity sha512-eS0vyx8qX4UTMluRYc+sQF/vJHCnAKiufWrwQRme0VURwp+RdOoZDZpYrOPTxPfx6CVj72arTeV9auDYa0WKtA==
+
 "@schematics/angular@9.1.7":
   version "9.1.7"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-9.1.7.tgz#b7801a5e20f844da560db81d2971590e8ac090ff"
@@ -6636,11 +6641,6 @@ ng-block-ui@^2.1.8:
   integrity sha512-BBcjUn9b/m3+wPlXkYExuy6ko+5oK7pte79gGUVo6a3HqpLnvPQXFgKV1kUpIM97NYfKKtR/+dPj7Xhh/GSV4w==
   dependencies:
     tslib "^1.9.0"
-
-ng2-scroll-to-el@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/ng2-scroll-to-el/-/ng2-scroll-to-el-1.2.1.tgz#52296f035c0c3600b1d9fc8290fbf135bec7e696"
-  integrity sha1-UilvA1wMNgCx2fyCkPvxNb7H5pY=
 
 ngx-masonry@^1.1.4:
   version "1.1.4"

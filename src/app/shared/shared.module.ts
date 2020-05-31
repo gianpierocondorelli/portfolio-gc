@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { TranslateModule } from '@ngx-translate/core'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { ScrollToModule } from 'ng2-scroll-to-el'
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to'
 import { DeferLoadModule } from '@trademe/ng-defer-load'
 import { BlockUIModule } from 'ng-block-ui'
 import { NgxMasonryModule } from 'ngx-masonry'
@@ -48,6 +48,7 @@ import { CircleScrollComponent } from './circle-scroll/circle-scroll.component'
     FontAwesomeModule,
     DeferLoadModule,
     BlockUIModule.forRoot(),
+    ScrollToModule.forRoot(),
     TranslateModule.forChild(),
   ],
   exports: [
