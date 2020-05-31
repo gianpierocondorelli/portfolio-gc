@@ -1,6 +1,6 @@
 import { Component, OnInit, Injector, OnDestroy, HostListener } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { D3 } from 'd3-ng2-service';
+import * as d3 from 'd3';
 
 import { BaseComponent } from '@shared/base-component';
 import { MapBig, City } from '@shared/support-class';
@@ -409,7 +409,6 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
 
   constructor(injector: Injector) {
     super(injector);
-    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -438,7 +437,7 @@ export class TravelComponent extends BaseComponent implements OnInit, OnDestroy 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
     if (isPlatformBrowser(this.platformId)) {
-      const sections = this.d3.selectAll('.section').nodes() as Element[];
+      const sections = d3.selectAll('.section').nodes() as Element[];
       if (this.sectionActivation.length <= sections.length) {
         for (let i = 0; i < sections.length; i++) {
           const heightPrev = this.getHeightPrevElement(sections, i);

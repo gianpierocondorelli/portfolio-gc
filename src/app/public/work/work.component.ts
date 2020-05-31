@@ -1,6 +1,5 @@
 import { Component, OnInit, Injector, HostListener, OnDestroy } from '@angular/core';
-import { D3 } from 'd3-ng2-service';
-
+import * as d3 from 'd3';
 import { BaseComponent } from '@shared/base-component';
 import { IncreasingCounterService } from '@shared/increasing-counter/increasing-counter.service';
 import { isPlatformBrowser } from '@angular/common';
@@ -16,14 +15,12 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   sectionActivation = [];
   sectionFirstActivation = [];
   private sectionActive = 0;
-  private d3: D3;
 
   constructor(
     private incCountSrv: IncreasingCounterService,
     injector: Injector
   ) {
     super(injector);
-    this.d3 = this.d3Srv.getD3();
   }
 
   ngOnInit() {
@@ -41,7 +38,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
     if (isPlatformBrowser(this.platformId)) {
-      const sections = this.d3.selectAll('.section').nodes() as Element[];
+      const sections = d3.selectAll('.section').nodes() as Element[];
       this.sectionActive = 0;
       if (this.sectionFirstActivation.length <= sections.length) {
         for (let i = 0; i < sections.length; i++) {
