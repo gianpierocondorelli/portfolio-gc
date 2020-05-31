@@ -24,7 +24,7 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
   }
 
   drawCircle() {
-    const elem = this.d3.select('#circle-scroll')
+    const elem = d3.select('#circle-scroll')
     const node = elem.node() as Element
     elem.selectAll('*').remove()
     const svg = elem
