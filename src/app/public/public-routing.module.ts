@@ -8,23 +8,23 @@ const routes: Routes = [{
 },
 {
   path: 'life',
-  loadChildren: 'src/app/public/life/life.module#LifeModule'
+  loadChildren: () => import('src/app/public/life/life.module').then(m => m.LifeModule)
 },
 {
   path: 'travel',
-  loadChildren: 'src/app/public/travel/travel.module#TravelModule'
+  loadChildren: () => import('src/app/public/travel/travel.module').then(m => m.TravelModule)
 },
 {
   path: 'social',
-  loadChildren: 'src/app/public/social/social.module#SocialModule'
+  loadChildren: () => import('src/app/public/social/social.module').then(m => m.SocialModule)
 },
 {
   path: 'work',
-  loadChildren: 'src/app/public/work/work.module#WorkModule'
+  loadChildren: () => import('src/app/public/work/work.module').then(m => m.WorkModule)
 },
 {
   path: 'cookie-policy',
-  loadChildren: 'src/app/public/cookie-policy/cookie-policy.module#CookiePolicyModule'
+  loadChildren: () => import('src/app/public/cookie-policy/cookie-policy.module').then(m => m.CookiePolicyModule)
 }];
 
 @NgModule({
