@@ -24,51 +24,54 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
   }
 
   drawCircle() {
-    const elem = d3.select('#circle-scroll')
-    const node = elem.node() as Element
-    elem.selectAll('*').remove()
-    const svg = elem
-      .append('svg')
-      .attr('width', node.clientWidth)
-      .attr('height', node.clientHeight)
-      .style('overflow', 'visible')
+    if(isPlatformBrowser(this.platformId)){
 
-    const strokeWidth = node.clientHeight * 0.1
-    const outerRadius = node.clientHeight * 0.5
-    const innerRadius = outerRadius - strokeWidth
-
-    const pie = d3
-      .pie()
-      .value((d: any) => d.value)
-      .sort(null)
-      .padAngle(0)
-
-    const arc: any = d3
-      .arc()
-      .outerRadius(outerRadius)
-      .innerRadius(innerRadius)
-      .cornerRadius(10)
-
-    const min =
-      node.clientWidth < node.clientHeight
-        ? node.clientWidth
-        : node.clientHeight
-    const xCircle = min / 2
-    const yCircle = min / 2
-
-    this.slices = svg
-      .append('g')
-      .attr('transform', `translate(${xCircle}, ${yCircle})`)
-
-    this.slices
-      .selectAll('path')
-      .data(pie(this.buildArcLength()))
-      .enter()
-      .append('path')
-      .attr('d', arc)
-      .attr('id', (d: any) => d.data.key)
-      .attr('fill', (d: any) => d.data.colour)
-      .attr('fill-opacity', (d: any) => d.data.opacity)
+      const elem = d3.select('#circle-scroll')
+      const node = elem.node() as Element
+      elem.selectAll('*').remove()
+      const svg = elem
+        .append('svg')
+        .attr('width', node.clientWidth)
+        .attr('height', node.clientHeight)
+        .style('overflow', 'visible')
+  
+      const strokeWidth = node.clientHeight * 0.1
+      const outerRadius = node.clientHeight * 0.5
+      const innerRadius = outerRadius - strokeWidth
+  
+      const pie = d3
+        .pie()
+        .value((d: any) => d.value)
+        .sort(null)
+        .padAngle(0)
+  
+      const arc: any = d3
+        .arc()
+        .outerRadius(outerRadius)
+        .innerRadius(innerRadius)
+        .cornerRadius(10)
+  
+      const min =
+        node.clientWidth < node.clientHeight
+          ? node.clientWidth
+          : node.clientHeight
+      const xCircle = min / 2
+      const yCircle = min / 2
+  
+      this.slices = svg
+        .append('g')
+        .attr('transform', `translate(${xCircle}, ${yCircle})`)
+  
+      this.slices
+        .selectAll('path')
+        .data(pie(this.buildArcLength()))
+        .enter()
+        .append('path')
+        .attr('d', arc)
+        .attr('id', (d: any) => d.data.key)
+        .attr('fill', (d: any) => d.data.colour)
+        .attr('fill-opacity', (d: any) => d.data.opacity)
+    }
   }
 
   private buildArcLength(): any {

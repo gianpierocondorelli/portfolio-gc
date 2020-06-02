@@ -129,7 +129,7 @@
               ]
             },
             "outputPath": "dist/server",
-            "main": "src/main.server.ts",
+            "main": "server.ts",
             "tsConfig": "src/tsconfig.server.json"
           },
           "configurations": {
@@ -161,25 +161,25 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "universal-demo:build",
-            "serverTarget": "universal-demo:server"
+            "browserTarget": "portfolio:build",
+            "serverTarget": "portfolio:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "universal-demo:build:production",
-              "serverTarget": "universal-demo:server:production"
+              "browserTarget": "portfolio:build:production",
+              "serverTarget": "portfolio:server:production"
             },
             "dev": {
-              "browserTarget": "universal-demo:build:dev",
-              "serverTarget": "universal-demo:server:dev"
+              "browserTarget": "portfolio:build:dev",
+              "serverTarget": "portfolio:server:dev"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "universal-demo:build:production",
-            "serverTarget": "universal-demo:server:production",
+            "browserTarget": "portfolio:build:production",
+            "serverTarget": "portfolio:server:production",
             "routes": [
               "/"
             ]

@@ -51,7 +51,7 @@ global['Prism'] = null;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app() {
   const server = express();
-  const distFolder = join(process.cwd(), 'dist');
+  const distFolder = join(process.cwd(), 'dist', 'browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html'))
     ? 'index.original.html'
     : 'index';

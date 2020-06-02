@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --disableHostCheck true --proxy-config proxy.conf.json",
+    "start:ssr": "node dist/server/main.js",
     "extract": "ngx-translate-extract --input ./src --output ./src/assets/i18n/it.json ./src/assets/i18n/en.json --sort --format namespaced-json",
     "build": "ng build",
     "build:ssr:prod": "npm run build:server:prod && npm run build:browser:prod",
@@ -17,12 +18,12 @@
     "server": "node local.js",
     "format:check": "prettier -l src/**/*.ts server.ts",
     "format:fix": "prettier --write src/**/*.ts server.ts",
+    "prerender": "ng run portfolio:prerender",
     "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.1.9",
-    "@angular/cdk": "^7.3.7",
     "@angular/common": "^9.1.9",
     "@angular/compiler": "^9.1.9",
     "@angular/core": "^9.1.9",
@@ -76,6 +77,7 @@
     "@angular/cli": "^9.1.7",
     "@angular/compiler-cli": "^9.1.9",
     "@angular/language-service": "^9.1.9",
+    "@nguniversal/builders": "^9.1.1",
     "@types/d3": "^5.7.2",
     "@types/express": "^4.17.6",
     "@types/googlemaps": "^3.38.1",

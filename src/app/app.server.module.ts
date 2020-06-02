@@ -6,7 +6,6 @@ import {
 import { BrowserModule } from '@angular/platform-browser'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
-import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
 
 import { UniversalInterceptor } from './shared/http-interceptors/universal.interceptor'
 import { AppComponent } from './app.component'
@@ -27,7 +26,6 @@ import { AppModule } from './app.module'
     AppModule,
     ServerModule,
     NoopAnimationsModule,
-    ModuleMapLoaderModule,
     ServerTransferStateModule, // comment
   ],
 })
