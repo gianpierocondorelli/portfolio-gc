@@ -1,13 +1,14 @@
 version: 2.1
+orbs:
+  node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    docker:
-      - image: "circleci/node:12.17.0"
     executor:
       name: node/default
     steps:
       - checkout
       - node/with-cache:
+          version: 12.17.0
           steps:
             - run: yarn install
             - run: yarn build:prod
