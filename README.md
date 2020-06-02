@@ -1,7 +1,31 @@
-# Portfolio
+# Portfolio GC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+This project was built with [Angular](https://github.com/angular) version 9.1.7.
+
+Required for the execution:
+* Node 12.17.0
+* Yarn
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run the following for running a Client-side Single Page Application Server that listens on http://localhost:4200
+
+```sh
+# Installs the required dependencies
+$ yarn install
+# Start the local server for the client-side rendered SPA (Single-Page Application)
+$ yarn start
+```
+
+## Server-side local server
+
+This application make use of Angular Universal with an Express engine for Server Side rendering
+
+For starting locally an instance of the server-side server on http://localhost:4000
+
+```sh
+# Builds the application (client and server)
+$ yarn build:ssr:prod
+
+$ yarn start:ssr
+```
