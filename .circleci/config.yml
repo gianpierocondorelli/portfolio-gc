@@ -7,7 +7,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
+      - node/test:
           version: 12.17.0
           steps:
             - run: yarn install
