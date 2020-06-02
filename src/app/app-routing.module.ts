@@ -1,24 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { Routes, RouterModule } from '@angular/router'
 
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component'
 
-
-const routes: Routes = [{
-  path: '',
-  loadChildren: () => import('src/app/public/public.module').then(m => m.PublicModule)
-},
-{
-  path: '**',
-  component: NotFoundComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('app/public/public.module').then((m) => m.PublicModule),
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
+]
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

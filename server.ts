@@ -1,117 +1,220 @@
 import 'zone.js/dist/zone-node';
-import 'reflect-metadata';
-import { enableProdMode } from '@angular/core';
+
 import { ngExpressEngine } from '@nguniversal/express-engine';
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-
 import * as express from 'express';
-import * as bodyParser from 'body-parser';
-import * as cors from 'cors';
+import { join } from 'path';
+
+import { AppServerModule } from './src/main.server';
+import { APP_BASE_HREF } from '@angular/common';
+import { existsSync } from 'fs';
+import { REQUEST, RESPONSE } from '@nguniversal/express-engine/tokens';
+import { NgxRequest, NgxResponse } from '@gorniv/ngx-universal';
 import * as compression from 'compression';
-import * as request from 'request';
-import * as mcache from 'memory-cache';
+import * as cookieparser from 'cookie-parser';
+import { exit } from 'process';
+// for debug
+require('source-map-support').install();
 
-// import {join} from 'path';
+// for tests
+const test = process.env['TEST'] === 'true';
 
-enableProdMode();
 
-export const app = express();
-
-app.use(compression());
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// const DIST_FOLDER = join(process.cwd(), 'dist');
-
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');
-
-app.engine('html', ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory,
-  providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
-  ]
-}));
-
-app.set('view engine', 'html');
-app.set('views', './dist/browser');
-
-app.get('/redirect/**', (req, res) => {
-  const location = req.url.substring(10);
-  res.redirect(301, location);
+// ssr DOM
+const domino = require('domino');
+const fs = require('fs');
+const path = require('path');
+// index from browser build!
+const template = fs.readFileSync(path.join('.', 'dist', 'index.html')).toString();
+// for mock global window by domino
+const win = domino.createWindow(template);
+// from server build
+//@ts-ignore
+const files = fs.readdirSync(`${process.cwd()}/dist-server`);
+// mock
+global['window'] = win;
+// not implemented property and functions
+Object.defineProperty(win.document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true,
+    };
+  },
 });
+// mock documnet
+global['document'] = win.document;
+// othres mock
+global['CSS'] = null;
+// global['XMLHttpRequest'] = require('xmlhttprequest').XMLHttpRequest;
+global['Prism'] = null;
 
+// The Express app is exported so that it can be used by serverless Functions.
+export function app() {
+  const server = express();
+  const distFolder = join(process.cwd(), 'dist');
+  const indexHtml = existsSync(join(distFolder, 'index.original.html'))
+    ? 'index.original.html'
+    : 'index';
 
-// Serve only the static files form the dist directory
-app.use('/docs', express.static(__dirname + '/docs'));
+  // redirects!
+  const redirectowww = false;
+  const redirectohttps = false;
+  const wwwredirecto = true;
+  server.use((req, res, next) => {
+    // for domain/index.html
+    if (req.url === '/index.html') {
+      res.redirect(301, 'https://' + req.hostname);
+    }
 
-const cache = (duration) => {
-  return (req, res, next) => {
-    const key = '__express__' + req.originalUrl || req.url;
-    const cachedBody = mcache.get(key);
-    if (cachedBody) {
-      res.send(cachedBody);
+    // check if it is a secure (https) request
+    // if not redirect to the equivalent https url
+    if (
+      redirectohttps &&
+      req.headers['x-forwarded-proto'] !== 'https' &&
+      req.hostname !== 'localhost'
+    ) {
+      // special for robots.txt
+      if (req.url === '/robots.txt') {
+        next();
+        return;
+      }
+      res.redirect(301, 'https://' + req.hostname + req.url);
+    }
+
+    // www or not
+    if (redirectowww && !req.hostname.startsWith('www.')) {
+      res.redirect(301, 'https://www.' + req.hostname + req.url);
+    }
+
+    // www or not
+    if (wwwredirecto && req.hostname.startsWith('www.')) {
+      const host = req.hostname.slice(4, req.hostname.length);
+      res.redirect(301, 'https://' + host + req.url);
+    }
+
+    // for test
+    if (test && req.url === '/test/exit') {
+      res.send('exit');
+      exit(0);
       return;
-    } else {
-      res.sendResponse = res.send;
-      res.send = (body) => {
-        mcache.put(key, body, duration * 1000);
-        res.sendResponse(body);
-      };
-      next();
     }
-  };
-};
 
-app.get('/api/v1/social-wall', cache(300), (req, res) => {
-  const path = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=552320988.0b4256f.43a7c81be7d64c0fa8556b26dc81852f';
-  request.get(path, (error, resp, body) => {
-    if (error) {
-      res.status(500).send({
-        data: error,
-        status: 'KO'
-      });
-    }
-    console.log('response code from instagram: ' + resp.statusCode);
-    if (resp.statusCode !== 200) {
-      res.status(500).send({
-        status: resp.statusMessage
-      });
-    }
-    if (resp.statusCode === 200) {
-      res.status(200).send({
-        data: JSON.parse(body),
-        status: resp.statusMessage
-      });
-    }
+    next();
   });
-});
+  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+  server.engine(
+    'html',
+    ngExpressEngine({
+      bootstrap: AppServerModule,
+    }),
+  );
 
-app.get('/api/v1/hello', (req, res) => {
-  res.send({
-    data: 'Hello. Current date is ' + (new Date()).toUTCString(),
-    status: 'OK'
+  server.set('view engine', 'html');
+  server.set('views', distFolder);
+  server.use('/docs', express.static(__dirname + '/docs'));
+
+  // Example Express Rest API endpoints
+  // server.get('/api/**', (req, res) => {
+  // });
+  // Serve static files from /browser
+  server.get(
+    '*.*',
+    express.static(distFolder, {
+      maxAge: '1y',
+    }),
+  );
+
+  // All regular routes use the Universal engine
+  server.get('*', (req, res) => {
+    //@ts-ignore
+    global['navigator'] = req['headers']['user-agent'];
+    const http =
+      req.headers['x-forwarded-proto'] === undefined ? 'http' : req.headers['x-forwarded-proto'];
+
+    res.render(indexHtml, {
+      req,
+      providers: [
+        { provide: APP_BASE_HREF, useValue: req.baseUrl },
+
+        // for http and cookies
+        {
+          provide: REQUEST,
+          useValue: req,
+        },
+        {
+          provide: RESPONSE,
+          useValue: res,
+        },
+        /// for cookie
+        {
+          provide: NgxRequest,
+          useValue: req,
+        },
+        {
+          provide: NgxResponse,
+          useValue: res,
+        },
+        // for absolute path
+        {
+          provide: 'ORIGIN_URL',
+          useValue: `${http}://${req.headers.host}`,
+        },
+      ],
+    });
   });
-});
 
-app.get('*.*', express.static('./dist/browser', {
-  maxAge: '1y'
-}));
+  return server;
+}
 
-app.get('/*', (req, res) => {
-  res.render('index', {
-    req,
-    res,
-    providers: [{
-      provide: 'serverUrl',
-      useValue: `${req.protocol}://${req.get('host')}`
-    }]
-  }, (err, html) => {
-    if (html) {
-      res.send(html);
-    } else {
-      console.error(err);
-      res.send(err);
-    }
+function run() {
+  const port = process.env.PORT || 4000;
+
+  // Start up the Node server
+  const server = app();
+  // gzip
+  server.use(compression());
+  // cokies
+  server.use(cookieparser());
+
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
   });
-});
+}
+
+// Webpack will replace 'require' with '__webpack_require__'
+// '__non_webpack_require__' is a proxy to Node 'require'
+// The below code is to ensure that the server is run only when not requiring the bundle.
+declare const __non_webpack_require__: NodeRequire;
+const mainModule = __non_webpack_require__.main;
+const moduleFilename = (mainModule && mainModule.filename) || '';
+if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+  run();
+}
+
+export * from './src/main.server';
+
+// app.get('/api/v1/social-wall', cache(300), (req, res) => {
+//   const path = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
+//   request.get(path, (error, resp, body) => {
+//     if (error) {
+//       res.status(500).send({
+//         data: error,
+//         status: 'KO'
+//       });
+//     }
+//     console.log('response code from instagram: ' + resp.statusCode);
+//     if (resp.statusCode !== 200) {
+//       res.status(500).send({
+//         status: resp.statusMessage
+//       });
+//     }
+//     if (resp.statusCode === 200) {
+//       res.status(200).send({
+//         data: JSON.parse(body),
+//         status: resp.statusMessage
+//       });
+//     }
+//   });
+// });
+
+

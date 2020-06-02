@@ -1,8 +1,10 @@
 {
 	"COMMON": {
 		"BUTTONS": {
+			"ACCEPT": "",
 			"GO_TO": "",
-			"OK": ""
+			"OK": "",
+			"REFUSE": ""
 		},
 		"MENU": {
 			"FUN": "Fun",

@@ -1,25 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { CookiePolicyComponent } from './cookie-policy.component';
+import { CookiePolicyComponent } from './cookie-policy.component'
 
 describe('CookiePolicyComponent', () => {
-  let component: CookiePolicyComponent;
-  let fixture: ComponentFixture<CookiePolicyComponent>;
+  let component: CookiePolicyComponent
+  let fixture: ComponentFixture<CookiePolicyComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CookiePolicyComponent ]
-    })
-    .compileComponents();
-  }));
+      declarations: [CookiePolicyComponent],
+    }).compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CookiePolicyComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(CookiePolicyComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})
