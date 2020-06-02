@@ -44,28 +44,27 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   private buildMap() {
-    if(isPlatformBrowser(this.platformId)){
-
+    if (isPlatformBrowser(this.platformId)) {
       const map = d3.select(`.map[id="map${this.uniqueId}"]`)
       const div = map.node() as Element
       map.selectAll('*').remove()
-  
+
       const svg = d3.select(`.map[id="map${this.uniqueId}"]`).append('svg'),
         width = div.clientWidth,
         height = div.clientHeight
-  
+
       svg
         .attr('width', `${width}`)
         .attr('height', `${height}`)
         .style('overflow', this.overflow ? 'visible' : 'hidden')
-  
+
       // Map and projection
       const projection = d3
         .geoMercator()
         .center([this.longitude, this.latitude]) // GPS of location to zoom on
         .scale(this.scale || 750) // This is like the zoom
         .translate([width / 2, height / 2])
-  
+
       this.subscription = this.http
         .get('assets/maps/world.json')
         .subscribe((data: any) => {
@@ -76,7 +75,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
                   (d: any) => d.properties.name === this.country,
                 )
               : data.features
-  
+
           // Draw the map
           svg
             .append('g')
@@ -88,7 +87,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
             .attr('d', d3.geoPath().projection(projection))
             .style('stroke', '#6c757d')
             .style('opacity', 0.7)
-  
+
           // Add circles:
           svg
             .selectAll('myCircles')

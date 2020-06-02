@@ -24,8 +24,7 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
   }
 
   drawCircle() {
-    if(isPlatformBrowser(this.platformId)){
-
+    if (isPlatformBrowser(this.platformId)) {
       const elem = d3.select('#circle-scroll')
       const node = elem.node() as Element
       elem.selectAll('*').remove()
@@ -34,34 +33,34 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
         .attr('width', node.clientWidth)
         .attr('height', node.clientHeight)
         .style('overflow', 'visible')
-  
+
       const strokeWidth = node.clientHeight * 0.1
       const outerRadius = node.clientHeight * 0.5
       const innerRadius = outerRadius - strokeWidth
-  
+
       const pie = d3
         .pie()
         .value((d: any) => d.value)
         .sort(null)
         .padAngle(0)
-  
+
       const arc: any = d3
         .arc()
         .outerRadius(outerRadius)
         .innerRadius(innerRadius)
         .cornerRadius(10)
-  
+
       const min =
         node.clientWidth < node.clientHeight
           ? node.clientWidth
           : node.clientHeight
       const xCircle = min / 2
       const yCircle = min / 2
-  
+
       this.slices = svg
         .append('g')
         .attr('transform', `translate(${xCircle}, ${yCircle})`)
-  
+
       this.slices
         .selectAll('path')
         .data(pie(this.buildArcLength()))

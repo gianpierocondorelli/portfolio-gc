@@ -75,6 +75,6 @@ import { CircleScrollComponent } from './circle-scroll/circle-scroll.component'
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders<SharedModule> {
-    return { ngModule: SharedModule };
+    return { ngModule: SharedModule }
   }
 }

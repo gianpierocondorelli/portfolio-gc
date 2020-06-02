@@ -8,7 +8,7 @@ import {
 import { REQUEST } from '@nguniversal/express-engine/tokens'
 
 export function getRequest(): any {
-  return { headers: { cookie: document.cookie } };
+  return { headers: { cookie: document.cookie } }
 }
 
 @NgModule({
