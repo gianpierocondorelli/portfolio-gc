@@ -24,7 +24,7 @@ const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
 // index from browser build!
-const template = fs.readFileSync(path.join('.', 'dist', 'index.html')).toString();
+const template = fs.readFileSync(path.join('.', 'dist', 'browser', 'index.html')).toString();
 // for mock global window by domino
 const win = domino.createWindow(template);
 // from server build

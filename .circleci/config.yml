@@ -25,5 +25,7 @@ jobs:
 
       - run: yarn build:ssr:prod
 
+      - run: tar -czvf dist.tar.gz dist
+
       - store_artifacts:
-          path: dist
+          file: dist.tar.gz
