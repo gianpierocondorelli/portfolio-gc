@@ -26,6 +26,6 @@ jobs:
           name: Build
           command: yarn build
 workflows:
-    build-and-test:
+    build:
       jobs:
-        - build-and-test
+        - build
