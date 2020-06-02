@@ -29,7 +29,7 @@ const template = fs.readFileSync(path.join('.', 'dist', 'browser', 'index.html')
 const win = domino.createWindow(template);
 // from server build
 //@ts-ignore
-const files = fs.readdirSync(`${process.cwd()}/dist-server`);
+const files = fs.readdirSync(`${process.cwd()}/dist/server`);
 // mock
 global['window'] = win;
 // not implemented property and functions
