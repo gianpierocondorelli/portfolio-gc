@@ -1,8 +1,6 @@
 @import 'color-variables';
-$font-family: pt-sans,
-sans-serif;
-$font-family-logo: adobe-handwriting-ernie,
-sans-serif;
+$font-family: pt-sans, sans-serif;
+$font-family-logo: adobe-handwriting-ernie, sans-serif;
 $font-weight: 400;
 $font-size: 2vh;
 $borderRadius: 2vh;
@@ -28,7 +26,7 @@ $stateDefaultBorderColor: $light-gray;
 $stateDefaultBgColor: $white;
 $stateDefaultTextColor: $dark-gray;
 /// Active State
-$stateActiveBorderColor:$light-gray;
+$stateActiveBorderColor: $light-gray;
 $stateActiveBgColor: $light-gray;
 $stateActiveTextColor: $dark-gray;
 /// Highlight State

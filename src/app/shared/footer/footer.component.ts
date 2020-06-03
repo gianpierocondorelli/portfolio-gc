@@ -8,7 +8,6 @@ import {
 
 import { BaseComponent } from '../base-component'
 
-
 declare var $: any
 
 @Component({

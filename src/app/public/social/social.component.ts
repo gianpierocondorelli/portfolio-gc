@@ -3,7 +3,6 @@ import { Component, OnInit, Injector, OnDestroy } from '@angular/core'
 import { BaseComponent } from '@shared/base-component'
 import { InstagramUser } from '@shared/support-class'
 
-
 declare var $: any
 @Component({
   selector: 'app-social',

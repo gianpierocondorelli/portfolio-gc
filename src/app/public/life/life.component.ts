@@ -1,6 +1,5 @@
 import { Component, OnInit, Injector, OnDestroy } from '@angular/core'
 
-
 import { BaseComponent } from '@shared/base-component'
 
 @Component({

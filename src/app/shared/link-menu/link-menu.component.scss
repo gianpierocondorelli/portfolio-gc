@@ -14,7 +14,6 @@
   height: auto;
   height: 10vh;
 
-
   &:hover {
     .icon {
       opacity: 0;
@@ -68,14 +67,12 @@
     transition: 2s;
   }
 
-
   &.green {
     color: $green;
   }
 
   &.blue {
     color: $lapis-lazuli;
-
   }
 
   &.white {

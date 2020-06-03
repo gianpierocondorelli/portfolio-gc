@@ -23,6 +23,8 @@ jobs:
             - node_modules
           key: v1-dependencies--{{ checksum "package.json" }}
 
+      - run: yarn format:check
+
       - run: yarn build:ssr:prod
 
       - run: tar -czvf dist.tar.gz dist

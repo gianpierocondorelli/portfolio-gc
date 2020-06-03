@@ -2,11 +2,15 @@
 @import 'variables';
 @import 'animation';
 
-
 .cookie-info {
   background-color: $gray-100;
   min-height: 15vh;
   height: auto;
   height: 15vh;
   transition: 1s ease;
+
+  .button {
+    max-width: 50%;
+    width: auto !important;
+  }
 }

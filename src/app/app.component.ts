@@ -13,7 +13,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import { BaseComponent } from './shared/base-component'
 import { fadeAnimation } from './shared/animations/animations'
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

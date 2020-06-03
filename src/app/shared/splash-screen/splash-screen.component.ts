@@ -8,7 +8,6 @@ import {
 
 import { BaseComponent } from '../base-component'
 
-
 const TIME_SPLASH = 2000
 
 @Component({

@@ -1,6 +1,5 @@
 import { Component, OnInit, Injector } from '@angular/core'
 
-
 import { BaseComponent } from '../base-component'
 
 @Component({

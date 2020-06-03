@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener, Injector } from '@angular/core'
 
-
 import { BaseComponent } from '@shared/base-component'
 
 declare var $: any

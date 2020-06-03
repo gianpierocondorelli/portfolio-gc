@@ -40,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         clearIds: true,
         clearQueryParams: true,
       },
-      developerMode: !environment.production
+      developerMode: !environment.production,
     }),
     SharedModule.forRoot(),
   ],

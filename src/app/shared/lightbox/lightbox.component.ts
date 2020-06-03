@@ -11,7 +11,6 @@ import {
 
 import { BaseComponent } from '../base-component'
 
-
 @Component({
   selector: 'app-lightbox',
   templateUrl: './lightbox.component.html',

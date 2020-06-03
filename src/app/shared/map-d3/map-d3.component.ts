@@ -9,7 +9,6 @@ import {
 import { BaseComponent } from '../base-component'
 import * as d3 from 'd3'
 
-
 @Component({
   selector: 'app-map-d3',
   templateUrl: './map-d3.component.html',

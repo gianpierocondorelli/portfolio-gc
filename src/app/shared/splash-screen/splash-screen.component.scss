@@ -1,7 +1,6 @@
 @import 'color-variables';
 @import 'variables';
 
-
 .splash-screen-container {
   transition: 2s;
   width: 100vw;
@@ -28,9 +27,7 @@
       font-family: $font-family;
       font-size: $font-size;
     }
-
   }
-
 
   &.disappear {
     opacity: 0;

@@ -121,5 +121,4 @@ export class BaseComponent {
   isBrowser() {
     return isPlatformBrowser(this.platformId)
   }
-  
 }

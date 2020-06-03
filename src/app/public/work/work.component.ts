@@ -9,7 +9,6 @@ import * as d3 from 'd3'
 import { BaseComponent } from '@shared/base-component'
 import { IncreasingCounterService } from '@shared/increasing-counter/increasing-counter.service'
 
-
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
