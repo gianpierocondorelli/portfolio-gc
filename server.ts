@@ -196,26 +196,3 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
 
 export * from './src/main.server'
 
-// app.get('/api/v1/social-wall', cache(300), (req, res) => {
-//   const path = 'https://api.instagram.com/v1/users/self/media/recent/?access_token=';
-//   request.get(path, (error, resp, body) => {
-//     if (error) {
-//       res.status(500).send({
-//         data: error,
-//         status: 'KO'
-//       });
-//     }
-//     console.log('response code from instagram: ' + resp.statusCode);
-//     if (resp.statusCode !== 200) {
-//       res.status(500).send({
-//         status: resp.statusMessage
-//       });
-//     }
-//     if (resp.statusCode === 200) {
-//       res.status(200).send({
-//         data: JSON.parse(body),
-//         status: resp.statusMessage
-//       });
-//     }
-//   });
-// });
