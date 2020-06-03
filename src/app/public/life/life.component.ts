@@ -61,7 +61,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   getVisibility(index: number) {
-    if (this.activateVisibility && isBrowser()) {
+    if (this.activateVisibility && this.isBrowser()) {
       const sectionHeight = document.getElementsByClassName('section')[0]
         .clientHeight
       const currentScroll = window.pageYOffset
