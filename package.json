@@ -16,7 +16,7 @@
     "build:server:prod": "ng run portfolio:server:production",
     "build:browser:prod": "ng build --prod",
     "server": "node local.js",
-    "format:check": "prettier -l src/**/*.ts src/**/.*scss server.ts",
+    "format:check": "prettier -l src/**/*.ts src/**/*.scss server.ts",
     "format:fix": "prettier --write src/**/*.ts src/**/*.scss server.ts",
     "prerender": "ng run portfolio:prerender",
     "postinstall": "ngcc"
