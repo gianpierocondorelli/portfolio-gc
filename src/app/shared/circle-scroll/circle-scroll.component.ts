@@ -1,5 +1,5 @@
 import { Component, OnInit, Injector, HostListener } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 import * as d3 from 'd3'
 
 import { BaseComponent } from '../base-component'
@@ -19,12 +19,12 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
     }
   }
 
   drawCircle() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const elem = d3.select('#circle-scroll')
       const node = elem.node() as Element
       elem.selectAll('*').remove()
@@ -97,14 +97,14 @@ export class CircleScrollComponent extends BaseComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: Event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.drawCircle()
     }
   }
 
   @HostListener('window:resize', ['$event']) // for window resize events
   onResize(event: Event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.drawCircle()
     }
   }

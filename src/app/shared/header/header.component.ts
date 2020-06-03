@@ -5,7 +5,7 @@ import {
   OnDestroy,
   HostListener,
 } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 import { NavigationEnd } from '@angular/router'
 
 import { SECTIONS } from '../constants'
@@ -62,7 +62,7 @@ export class HeaderComponent extends BaseComponent
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sizeHtml = $(document).height() - window.innerHeight
       this.visible =
         window.location.pathname === '/' ||

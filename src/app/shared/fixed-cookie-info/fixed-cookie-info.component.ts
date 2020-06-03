@@ -1,5 +1,5 @@
 import { Component, OnInit, Injector } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 
 import { BaseComponent } from '../base-component'
 
@@ -17,7 +17,7 @@ export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const cookiePolicyOpt = this.getCookie('cookie-policy-ok')
       switch (cookiePolicyOpt) {
         case 'true':
@@ -36,7 +36,7 @@ export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
   }
 
   clickOkCookie() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.setCookie('cookie-policy-ok', 'true', 4000)
       this.cookieOk = true
       this.startTracking()
@@ -44,14 +44,14 @@ export class FixedCookieInfoComponent extends BaseComponent implements OnInit {
   }
 
   clickNoCookie() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.setCookie('cookie-policy-ok', 'false', 4000)
       this.cookieOk = false
     }
   }
 
   private startTracking() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.startTracking()
     }
   }

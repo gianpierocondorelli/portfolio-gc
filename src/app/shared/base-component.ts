@@ -2,8 +2,9 @@ import { WINDOW } from '@ng-toolkit/universal'
 import { Injector, ChangeDetectorRef, PLATFORM_ID } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router'
-import { isPlatformBrowser } from '@angular/common'
+
 import { Meta } from '@angular/platform-browser'
+import { isPlatformBrowser } from '@angular/common'
 
 import { Subscription } from 'rxjs'
 import { TranslateService } from '@ngx-translate/core'
@@ -67,7 +68,7 @@ export class BaseComponent {
   }
 
   go2Top() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.scrollSrv.scrollTo({
         target: '#top',
       })
@@ -75,7 +76,7 @@ export class BaseComponent {
   }
 
   getHeightPrevElement(elements: Element[], stopIndex: number) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const widthScreen = window.innerWidth
       return stopIndex > 0
         ? elements.reduce(
@@ -116,4 +117,9 @@ export class BaseComponent {
   isDefined(value: any) {
     return value !== undefined
   }
+
+  isBrowser() {
+    return isPlatformBrowser(this.platformId)
+  }
+  
 }

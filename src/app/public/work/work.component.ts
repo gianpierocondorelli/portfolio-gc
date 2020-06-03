@@ -8,7 +8,7 @@ import {
 import * as d3 from 'd3'
 import { BaseComponent } from '@shared/base-component'
 import { IncreasingCounterService } from '@shared/increasing-counter/increasing-counter.service'
-import { isPlatformBrowser } from '@angular/common'
+
 
 @Component({
   selector: 'app-work',
@@ -42,7 +42,7 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sections = d3.selectAll('.section').nodes() as Element[]
       this.sectionActive = 0
       if (this.sectionFirstActivation.length <= sections.length) {
@@ -78,28 +78,28 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
 
   goToCode() {
     this.angulartics.eventTrack('work', { category: 'goToCode' })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       window.open('https://github.com/gianpierocondorelli/portfolio-gc')
     }
   }
 
   goToResume() {
     this.angulartics.eventTrack('work', { category: 'goToResume' })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       window.open('/assets/docs/resume.pdf')
     }
   }
 
   goToLinkedIn() {
     this.angulartics.eventTrack('work', { category: 'goToLinkedIn' })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       window.open('http://www.linkedin.com/in/gianpiero-condorelli')
     }
   }
 
   goToMail() {
     this.angulartics.eventTrack('work', { category: 'goToMail' })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       window.open('mailto:gia.condorelli@gmail.com', '_blank')
     }
   }

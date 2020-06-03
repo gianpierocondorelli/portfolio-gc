@@ -12,6 +12,7 @@ import { Angulartics2Module } from 'angulartics2'
 import { AppComponent } from './app.component'
 import { SharedModule } from './shared/shared.module'
 import { AppRoutingModule } from './app-routing.module'
+import { environment } from 'environments/environment'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http)
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         clearIds: true,
         clearQueryParams: true,
       },
+      developerMode: !environment.production
     }),
     SharedModule.forRoot(),
   ],

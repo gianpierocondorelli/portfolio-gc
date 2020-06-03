@@ -3,12 +3,14 @@
     <div class="text-center">
       <div class="info " [innerHTML]="'COOKIE.INFO_BOTTOM.TEXT' | translate:{url: cookieUrl}">
       </div>
-      <button class="button my-2 mr-2 border-custom blue" (click)="clickOkCookie()">
-        {{ 'COMMON.BUTTONS.ACCEPT' | translate}}
-      </button>
-      <button class="button my-2 border-custom blue" (click)="clickNoCookie()">
-        {{ 'COMMON.BUTTONS.REFUSE' | translate}}
-      </button>
+      <div class="d-flex justify-context-center">
+        <button class="button my-2 mr-2 border-custom blue" (click)="clickOkCookie()">
+          {{ 'COMMON.BUTTONS.ACCEPT' | translate}}
+        </button>
+        <button class="button my-2 border-custom blue" (click)="clickNoCookie()">
+          {{ 'COMMON.BUTTONS.REFUSE' | translate}}
+        </button>
+      </div>
     </div>
   </div>
 </div>

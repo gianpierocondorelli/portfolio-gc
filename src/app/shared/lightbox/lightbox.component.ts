@@ -10,7 +10,7 @@ import {
 } from '@angular/core'
 
 import { BaseComponent } from '../base-component'
-import { isPlatformBrowser } from '@angular/common'
+
 
 @Component({
   selector: 'app-lightbox',
@@ -33,7 +33,7 @@ export class LightboxComponent extends BaseComponent
   ngOnInit() {}
 
   ngDoCheck() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const change = this.differ.diff(this.images)
       if (change) {
         this.selectedImage = this.images[0]

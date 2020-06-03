@@ -5,7 +5,7 @@ import {
   OnDestroy,
   HostListener,
 } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 import * as d3 from 'd3'
 
 import { BaseComponent } from '@shared/base-component'
@@ -433,7 +433,7 @@ export class TravelComponent extends BaseComponent
       name: 'description',
       content: 'A list of all of my travels I did until now',
     })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.bkgSrv.sendNewImgBackground('')
       this.angulartics.eventTrack('travel', { category: 'enterPage' })
       this.extractCities()
@@ -444,7 +444,7 @@ export class TravelComponent extends BaseComponent
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('travel', { category: 'exitPage' })
       this.unsubscribe()
     }
@@ -456,7 +456,7 @@ export class TravelComponent extends BaseComponent
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sections = d3.selectAll('.section').nodes() as Element[]
       if (this.sectionActivation.length <= sections.length) {
         for (let i = 0; i < sections.length; i++) {

@@ -2,7 +2,7 @@ import { Component, OnInit, Injector, OnDestroy } from '@angular/core'
 
 import { BaseComponent } from '@shared/base-component'
 import { InstagramUser } from '@shared/support-class'
-import { isPlatformBrowser } from '@angular/common'
+
 
 declare var $: any
 @Component({
@@ -29,7 +29,7 @@ export class SocialComponent extends BaseComponent
       name: 'description',
       content: 'Social Wall from various accounts',
     })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('social', { category: 'enterPage' })
       this.loaderSrv.sendNewLoaderStatus(true)
       this.subscription = this.http.get<any>('/api/v1/social-wall').subscribe(
@@ -49,7 +49,7 @@ export class SocialComponent extends BaseComponent
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('social', { category: 'exitPage' })
       $(`#modal-post`).modal('hide')
       this.unsubscribe()
@@ -57,7 +57,7 @@ export class SocialComponent extends BaseComponent
   }
 
   goToInstagram() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('social', {
         category: 'goToInstagramAccount',
       })
@@ -66,14 +66,14 @@ export class SocialComponent extends BaseComponent
   }
 
   goToPostExternal(post: any) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('social', { category: 'goToInstagramPost' })
       window.open(`${post.link}`)
     }
   }
 
   showModal(post) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.selectedPost = post
       this.cdRef.detectChanges()
       $(`#modal-post`).appendTo('body').modal('show')

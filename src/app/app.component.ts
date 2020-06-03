@@ -12,7 +12,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 
 import { BaseComponent } from './shared/base-component'
 import { fadeAnimation } from './shared/animations/animations'
-import { isPlatformBrowser } from '@angular/common'
+
 
 @Component({
   selector: 'app-root',
@@ -35,7 +35,7 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     // handling splash screen
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.showSplash = !window.sessionStorage.getItem('showSplash')
       window.sessionStorage.setItem('showSplash', 'false')
       // handling loading modules in a cool way
@@ -56,10 +56,6 @@ export class AppComponent extends BaseComponent implements OnInit {
 
       this.go2Top()
     }
-  }
-
-  getPlatformBrowser() {
-    return isPlatformBrowser(this.platformId)
   }
 
   getRouterOutletState(outlet: RouterOutlet) {

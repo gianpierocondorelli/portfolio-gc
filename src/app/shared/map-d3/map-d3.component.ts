@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 import { BaseComponent } from '../base-component'
 import * as d3 from 'd3'
-import { isPlatformBrowser } from '@angular/common'
+
 
 @Component({
   selector: 'app-map-d3',
@@ -44,7 +44,7 @@ export class MapD3Component extends BaseComponent implements OnInit, OnDestroy {
   }
 
   private buildMap() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const map = d3.select(`.map[id="map${this.uniqueId}"]`)
       const div = map.node() as Element
       map.selectAll('*').remove()

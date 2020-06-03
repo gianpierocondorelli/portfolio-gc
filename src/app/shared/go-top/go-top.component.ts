@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Injector } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 
 import { BaseComponent } from '@shared/base-component'
 
@@ -22,7 +22,7 @@ export class GoTopComponent extends BaseComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(event: Event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sizeHtml = $(document).height() - window.innerHeight
       this.white = window.pageYOffset > sizeHtml * 0.9
       this.enable = window.pageYOffset > 150

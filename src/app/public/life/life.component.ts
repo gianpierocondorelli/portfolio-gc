@@ -1,5 +1,5 @@
 import { Component, OnInit, Injector, OnDestroy } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 
 import { BaseComponent } from '@shared/base-component'
 
@@ -36,7 +36,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
       name: 'description',
       content: 'A brief description of my life',
     })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('life', { category: 'enterPage' })
       setTimeout(() => {
         this.activateVisibility = true
@@ -45,7 +45,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('life', { category: 'exitPage' })
       this.bkgSrv.sendNewImgBackground('')
     }
@@ -61,7 +61,7 @@ export class LifeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   getVisibility(index: number) {
-    if (this.activateVisibility && isPlatformBrowser(this.platformId)) {
+    if (this.activateVisibility && isBrowser()) {
       const sectionHeight = document.getElementsByClassName('section')[0]
         .clientHeight
       const currentScroll = window.pageYOffset

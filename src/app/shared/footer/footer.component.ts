@@ -7,7 +7,7 @@ import {
 } from '@angular/core'
 
 import { BaseComponent } from '../base-component'
-import { isPlatformBrowser } from '@angular/common'
+
 
 declare var $: any
 
@@ -29,7 +29,7 @@ export class FooterComponent extends BaseComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sizeHtml = $(document).height() - window.innerHeight
       this.visible = window.pageYOffset > sizeHtml * 0.9
     }

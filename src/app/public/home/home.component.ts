@@ -5,7 +5,7 @@ import {
   OnDestroy,
   HostListener,
 } from '@angular/core'
-import { isPlatformBrowser } from '@angular/common'
+
 
 import * as d3 from 'd3'
 
@@ -29,7 +29,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.meta.addTag({ name: 'description', content: 'Home Page' })
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('home', { category: 'enterPage' })
       this.sectionFirstActivation[0] = true
       this.bkgSrv.sendNewImgBackground(this.sections[0].background || '')
@@ -37,7 +37,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       this.angulartics.eventTrack('home', { category: 'exitPage' })
       this.bkgSrv.sendNewImgBackground('')
       this.unsubscribe()
@@ -51,7 +51,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser()) {
       const sections = d3.selectAll('.section').nodes() as Element[]
       if (this.sectionActivation.length <= sections.length) {
         for (let i = 0; i < sections.length; i++) {
