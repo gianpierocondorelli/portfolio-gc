@@ -19,7 +19,8 @@
         <div class="col-7">
           <div
             class="d-flex h-100 flex-column align-items-center justify-content-centerd-flex h-100 flex-column align-items-center justify-content-center">
-            <h3 class="subtitle text-center">{{ 'COMMON.SUBTITLE.' + section.path.toUpperCase() | translate }}</h3>
+            <h1 class="title text-center" [innerHTML]="'HOME.TITLE.' + section.path.toUpperCase() | translate"></h1>
+            <p class="subtitle text-center" [innerHTML]="'HOME.INTRODUCTION.' + section.path.toUpperCase() | translate"></p>
             <button class="button w-100 border-custom white m-3" (click)="goTo(section.path)">{{ 'COMMON.BUTTONS.GO_TO'
               |
               translate }}</button>

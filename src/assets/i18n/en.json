@@ -41,6 +41,20 @@
 	"FOOTER": {
 		"TEXT": "Copyright © {{ year }} <a href=\"mailto:gia.condorelli@gmail.com\">Gianpiero Condorelli</a>"
 	},
+	"HOME": {
+		"TITLE": {
+			"LIFE": "Gianpiero Condorelli",
+			"SOCIAL": "My Social",
+			"TRAVEL": "My travels",
+			"WORK": "My work"
+		},
+		"INTRODUCTION": {
+			"LIFE": "Welcome to my website. I'm a Software Engineer that in the free time travels across the Europe. If you want to discover more details about my life click on <b>Go To</b> or scroll down",
+			"SOCIAL": "Deprecated",
+			"TRAVEL": "Like I said before, one of my hobbies is to travel in order to discover new places and learn from other cultures. If you want to discover more about it click on <b>Go To</b>",
+			"WORK": "For living I do the Software Engineer and this website was fully built by me in my free time. If you want to discover more about it click on <b>Go To</b>"
+		}
+	},
 	"LIFE": {
 		"SECTION_ONE": {
 			"HI": "Hi, I'm Gianpiero",
