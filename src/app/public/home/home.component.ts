@@ -48,8 +48,7 @@ export class HomeComponent extends BaseComponent implements OnInit, OnDestroy {
     this.router.navigate([`/${link}`])
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event) {
+  @HostListener('window:scroll', ['$event']) onScroll(event) {
     if (this.isBrowser()) {
       const sections = d3.selectAll('.section').nodes() as Element[]
       if (this.sectionActivation.length <= sections.length) {

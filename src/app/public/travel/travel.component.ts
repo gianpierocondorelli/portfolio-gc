@@ -454,8 +454,7 @@ export class TravelComponent extends BaseComponent
     return this.activateVisibility ? this.sectionActivation[index] : false
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onScroll(event) {
+  @HostListener('window:scroll', ['$event']) onScroll(event) {
     if (this.isBrowser()) {
       const sections = d3.selectAll('.section').nodes() as Element[]
       if (this.sectionActivation.length <= sections.length) {
