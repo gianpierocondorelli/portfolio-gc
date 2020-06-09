@@ -1,0 +1,10 @@
+version: '3.8'
+services: 
+    portfolio-csr:
+        build:
+            context: .
+            dockerfile: Dockerfile.csr
+    portfolio-ssr:
+        build:
+            context: .
+            dockerfile: Dockerfile.ssr

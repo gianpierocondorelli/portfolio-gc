@@ -1,27 +1,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>http://www.gianpierocondorelli.tk/</loc>
+    <loc>http://www.gianpierocondorelli.com/</loc>
     <priority>0.8</priority>
     <lastmod>2019-03-09T13:20:40+00:00</lastmod>
   </url>
   <url>
-    <loc>http://www.gianpierocondorelli.tk/life</loc>
+    <loc>http://www.gianpierocondorelli.com/life</loc>
     <priority>0.8</priority>
     <lastmod>2019-03-09T13:20:40+00:00</lastmod>
   </url>
   <url>
-    <loc>http://www.gianpierocondorelli.tk/travel</loc>
+    <loc>http://www.gianpierocondorelli.com/travel</loc>
     <priority>0.8</priority>
     <lastmod>2019-03-09T13:20:40+00:00</lastmod>
   </url>
   <url>
-    <loc>http://www.gianpierocondorelli.tk/work</loc>
-    <priority>0.8</priority>
-    <lastmod>2019-03-09T13:20:40+00:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.gianpierocondorelli.tk/social</loc>
+    <loc>http://www.gianpierocondorelli.com/work</loc>
     <priority>0.8</priority>
     <lastmod>2019-03-09T13:20:40+00:00</lastmod>
   </url>

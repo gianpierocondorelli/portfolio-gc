@@ -1,9 +1,11 @@
 FROM node:12-alpine as buildContainer
 WORKDIR /app
-COPY ./package.json ./package-lock.json /app/
+COPY ./package.json ./yarn.lock /app/
 RUN yarn install
 COPY . /app
 RUN yarn build:ssr:prod
+
+FROM node:12-alpine
 
 # Copy dependency definitions
 COPY --from=buildContainer /app/package.json /app
