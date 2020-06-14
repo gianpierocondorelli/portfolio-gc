@@ -11,18 +11,22 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { UniversalInterceptor } from './shared/http-interceptors/universal.interceptor'
 import { AppComponent } from './app.component'
 import { AppModule } from './app.module'
-import { Observable, Observer } from 'rxjs' 
+import { Observable, Observer } from 'rxjs'
 import { readFileSync } from 'fs'
 
 export function universalLoader(): TranslateLoader {
   return {
-      getTranslation: (lang: string) => {
-          return Observable.create((observer: Observer<unknown>) => {
-              observer.next(JSON.parse(readFileSync(`./dist/browser/assets/i18n/${lang}.json`, 'utf8')));
-              observer.complete();
-          });
-      }
-  } as TranslateLoader;
+    getTranslation: (lang: string) => {
+      return Observable.create((observer: Observer<unknown>) => {
+        observer.next(
+          JSON.parse(
+            readFileSync(`./dist/browser/assets/i18n/${lang}.json`, 'utf8'),
+          ),
+        )
+        observer.complete()
+      })
+    },
+  } as TranslateLoader
 }
 
 @NgModule({
@@ -42,8 +46,8 @@ export function universalLoader(): TranslateLoader {
     NoopAnimationsModule,
     ServerTransferStateModule, // comment
     TranslateModule.forRoot({
-      loader: {provide: TranslateLoader, useFactory: universalLoader}
-  })
+      loader: { provide: TranslateLoader, useFactory: universalLoader },
+    }),
   ],
 })
 export class AppServerModule {}
