@@ -47,12 +47,10 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
+              "budgets": [{
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kb"
+              }],
               "stylePreprocessorOptions": {
                 "includePaths": [
                   "src/scss"
@@ -134,12 +132,10 @@
           },
           "configurations": {
             "dev": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/server/environment.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/server/environment.ts"
+              }],
               "optimization": true
             },
             "production": {
@@ -148,13 +144,10 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/server/environment.prod.ts"
-                }
-              ]
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/server/environment.prod.ts"
+              }]
             }
           }
         },

@@ -1,104 +1,104 @@
 {
-	"COMMON": {
-		"BUTTONS": {
-			"ACCEPT": "Accept",
-			"GO_TO": "Go To",
-			"OK": "Ok",
-			"REFUSE": "Refuse"
-		},
-		"MENU": {
-			"INFO": "Info",
-			"LIFE": "Life",
-			"SOCIAL": "Social",
-			"TRAVEL": "Travel",
-			"WORK": "Work"
-		},
-		"PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-		"SUBTITLE": {
-			"LIFE": "A brief sum of my life",
-			"SOCIAL": "An extract of my social accounts",
-			"TRAVEL": "My travels in the spare time",
-			"WORK": "My life at work"
-		}
-	},
-	"COOKIE": {
-		"INFO_BOTTOM": {
-			"TEXT": "This site use cookies for tracking purposes. For more info click <a href=\"{{ url }}\">here</a>. Choose if enable this option"
-		},
-		"POLICY": {
-			"TEXT": "<h1>What Are Cookies</h1>\r\n\r\n  <h5>As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.\r\n\r\n    For more general information on cookies see the Wikipedia article on HTTP Cookies.\r\n  </h5>\r\n\r\n  <h1>How We Use Cookies</h1>\r\n\r\n  <h5>We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.</h5>\r\n\r\n  <h1>Disabling Cookies</h1>\r\n\r\n  <h5>You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit.\r\n    Disabling cookies will usually result in also disabling certain functionality and features of the this site.\r\n  Therefore it is recommended that you do not disable cookies.</h5>\r\n\r\n  <h1>The Cookies We Set</h1>\r\n\r\n  <h2>Site preferences cookies</h2>\r\n\r\n  <h5>In order to provide you with a great experience on this site we provide the functionality to set your preferences for how this site runs when you use it. In order to remember your preferences we need to set cookies so that this\r\n    information can be called whenever you interact with a page is affected by your preferences.</h5>\r\n\r\n  <h1>Third Party Cookies</h1>\r\n\r\n  <h5>In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.\r\n\r\n  This site uses Google Analytics which is one of the most widespread and trusted analytics solution on the web for\r\n  helping us to understand how you use the site and ways that we can improve your experience. These cookies may track\r\n  things such as how long you spend on the site and the pages that you visit so we can continue to produce engaging\r\n  content.\r\n\r\n  For more information on Google Analytics cookies, see the official Google Analytics page.</h5>\r\n\r\n  <h1>More Information</h1>\r\n\r\n  <h5>Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't\r\n    sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the\r\n    features\r\n    you use on our site.\n    However if you are still looking for more information then you can contact us through one of our preferred contact methods:\r\n\r\n    Email: <a href=\"mailto:gia.condorelli@gmail.com\">gia.condorelli@gmail.com</a></h5>"
-		}
-	},
-	"ERRORS": {
-		"GENERIC": {
-			"MESSAGE": "Ops! There is a problem. Please, reload the page"
-		},
-		"NOT_FOUND": {
-			"CODE": "404",
-			"MESSAGE": "Page not found"
-		}
-	},
-	"FOOTER": {
-		"TEXT": "Copyright © {{ year }} <a href=\"mailto:gia.condorelli@gmail.com\">Gianpiero Condorelli</a>"
-	},
-	"HOME": {
-		"TITLE": {
-			"LIFE": "Gianpiero Condorelli",
-			"SOCIAL": "My Social",
-			"TRAVEL": "My travels",
-			"WORK": "My work"
-		},
-		"INTRODUCTION": {
-			"LIFE": "Welcome to my website. I'm a Software Engineer that in the free time travels across the Europe. If you want to discover more details about my life click on <b>Go To</b> or scroll down",
-			"SOCIAL": "Deprecated",
-			"TRAVEL": "Like I said before, one of my hobbies is to travel in order to discover new places and learn from other cultures. If you want to discover more about it click on <b>Go To</b>",
-			"WORK": "For living I do the Software Engineer and this website was fully built by me in my free time. If you want to discover more about it click on <b>Go To</b>"
-		}
-	},
-	"LIFE": {
-		"SECTION_ONE": {
-			"HI": "Hi, I'm Gianpiero",
-			"INTRO": "My roots are at Catania, where I was born at the early 1993. \n\n I lived for nearly 24 years in a near village called Misterbianco with my family, my brothers and my sister"
-		},
-		"SECTION_THREE": {
-			"DESC": "I live at Manchester in the UK where I work. During my spare time I go to discover new places, I do bodybuilding and watch TV series (maybe I'm forgetting something...)",
-			"TITLE": "Currently"
-		},
-		"SECTION_TWO": {
-			"DESC": "Following my passions, I enrolled to the University of Catania to get, first, the Computer Engineering Bachelor's Degree then the Master's Degree for a total of 5 years",
-			"TITLE": "My studies"
-		}
-	},
-	"SOCIAL": {
-		"BUTTONS": {
-			"GO_TO_INSTAGRAM": "Go to Instagram"
-		}
-	},
-	"SPLASH_SCREEN": {
-		"INITIALS": "GC",
-		"NAME": "GIANPIERO CONDORELLI"
-	},
-	"TRAVEL": {
-		"COUNTRY": {
-			"TEXT": "Here there're some of the cities I visited in {{ value }}. Click one of those to see some of my shots"
-		},
-		"INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
-	},
-	"WORK": {
-		"BUTTONS": {
-			"GET_RESUME": "Get my resume"
-		},
-		"CODE_WRITTEN": {
-			"INTRO": "The code built for this website is available on a public Git repository. If you want to check it out, click the following link.",
-			"LINE_COUNT": "Code lines written",
-			"TITLE": "Info about the site building",
-			"TOOLS_USED": "Some tool used"
-		},
-		"CONTACT_ME": "If you're interested in contacting me, click one of the following links",
-		"INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
-		"TOOLS": {
-			"AND_MORE_OTHER": "and more other not listed here",
-			"TITLE": "Other tools I use for working"
-		}
-	}
+  "COMMON": {
+    "BUTTONS": {
+      "ACCEPT": "Accept",
+      "GO_TO": "Go To",
+      "OK": "Ok",
+      "REFUSE": "Refuse"
+    },
+    "MENU": {
+      "INFO": "Info",
+      "LIFE": "Life",
+      "SOCIAL": "Social",
+      "TRAVEL": "Travel",
+      "WORK": "Work"
+    },
+    "PLACEHOLDER_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "SUBTITLE": {
+      "LIFE": "A brief sum of my life",
+      "SOCIAL": "An extract of my social accounts",
+      "TRAVEL": "My travels in the spare time",
+      "WORK": "My life at work"
+    }
+  },
+  "COOKIE": {
+    "INFO_BOTTOM": {
+      "TEXT": "This site use cookies for tracking purposes. For more info click <a href=\"{{ url }}\">here</a>. Choose if enable this option"
+    },
+    "POLICY": {
+      "TEXT": "<h1>What Are Cookies</h1>\r\n\r\n  <h5>As is common practice with almost all professional websites this site uses cookies, which are tiny files that are downloaded to your computer, to improve your experience. This page describes what information they gather, how we use it and why we sometimes need to store these cookies. We will also share how you can prevent these cookies from being stored however this may downgrade or 'break' certain elements of the sites functionality.\r\n\r\n    For more general information on cookies see the Wikipedia article on HTTP Cookies.\r\n  </h5>\r\n\r\n  <h1>How We Use Cookies</h1>\r\n\r\n  <h5>We use cookies for a variety of reasons detailed below. Unfortunately in most cases there are no industry standard options for disabling cookies without completely disabling the functionality and features they add to this site. It is recommended that you leave on all cookies if you are not sure whether you need them or not in case they are used to provide a service that you use.</h5>\r\n\r\n  <h1>Disabling Cookies</h1>\r\n\r\n  <h5>You can prevent the setting of cookies by adjusting the settings on your browser (see your browser Help for how to do this). Be aware that disabling cookies will affect the functionality of this and many other websites that you visit.\r\n    Disabling cookies will usually result in also disabling certain functionality and features of the this site.\r\n  Therefore it is recommended that you do not disable cookies.</h5>\r\n\r\n  <h1>The Cookies We Set</h1>\r\n\r\n  <h2>Site preferences cookies</h2>\r\n\r\n  <h5>In order to provide you with a great experience on this site we provide the functionality to set your preferences for how this site runs when you use it. In order to remember your preferences we need to set cookies so that this\r\n    information can be called whenever you interact with a page is affected by your preferences.</h5>\r\n\r\n  <h1>Third Party Cookies</h1>\r\n\r\n  <h5>In some special cases we also use cookies provided by trusted third parties. The following section details which third party cookies you might encounter through this site.\r\n\r\n  This site uses Google Analytics which is one of the most widespread and trusted analytics solution on the web for\r\n  helping us to understand how you use the site and ways that we can improve your experience. These cookies may track\r\n  things such as how long you spend on the site and the pages that you visit so we can continue to produce engaging\r\n  content.\r\n\r\n  For more information on Google Analytics cookies, see the official Google Analytics page.</h5>\r\n\r\n  <h1>More Information</h1>\r\n\r\n  <h5>Hopefully that has clarified things for you and as was previously mentioned if there is something that you aren't\r\n    sure whether you need or not it's usually safer to leave cookies enabled in case it does interact with one of the\r\n    features\r\n    you use on our site.\n    However if you are still looking for more information then you can contact us through one of our preferred contact methods:\r\n\r\n    Email: <a href=\"mailto:gia.condorelli@gmail.com\">gia.condorelli@gmail.com</a></h5>"
+    }
+  },
+  "ERRORS": {
+    "GENERIC": {
+      "MESSAGE": "Ops! There is a problem. Please, reload the page"
+    },
+    "NOT_FOUND": {
+      "CODE": "404",
+      "MESSAGE": "Page not found"
+    }
+  },
+  "FOOTER": {
+    "TEXT": "Copyright © {{ year }} <a href=\"mailto:gia.condorelli@gmail.com\">Gianpiero Condorelli</a>"
+  },
+  "HOME": {
+    "TITLE": {
+      "LIFE": "Gianpiero Condorelli",
+      "SOCIAL": "My Social",
+      "TRAVEL": "My travels",
+      "WORK": "My work"
+    },
+    "INTRODUCTION": {
+      "LIFE": "Welcome to my website. I'm a Software Engineer that in the free time travels across the Europe. If you want to discover more details about my life click on <b>Go To</b> or scroll down",
+      "SOCIAL": "Deprecated",
+      "TRAVEL": "Like I said before, one of my hobbies is to travel in order to discover new places and learn from other cultures. If you want to discover more about it click on <b>Go To</b>",
+      "WORK": "For living I do the Software Engineer and this website was fully built by me in my free time. If you want to discover more about it click on <b>Go To</b>"
+    }
+  },
+  "LIFE": {
+    "SECTION_ONE": {
+      "HI": "Hi, I'm Gianpiero",
+      "INTRO": "My roots are at Catania, where I was born at the early 1993. \n\n I lived for nearly 24 years in a near village called Misterbianco with my family, my brothers and my sister"
+    },
+    "SECTION_THREE": {
+      "DESC": "I live in London in the UK where, currently, I work remotely. During my spare time I go to discover new places, I do bodybuilding and watch TV series (maybe I'm forgetting something...)",
+      "TITLE": "Currently"
+    },
+    "SECTION_TWO": {
+      "DESC": "Following my passions, I enrolled to the University of Catania to get, first, the Computer Engineering Bachelor's Degree then the Master's Degree for a total of 5 years",
+      "TITLE": "My studies"
+    }
+  },
+  "SOCIAL": {
+    "BUTTONS": {
+      "GO_TO_INSTAGRAM": "Go to Instagram"
+    }
+  },
+  "SPLASH_SCREEN": {
+    "INITIALS": "GC",
+    "NAME": "GIANPIERO CONDORELLI"
+  },
+  "TRAVEL": {
+    "COUNTRY": {
+      "TEXT": "Here there're some of the cities I visited in {{ value }}. Click one of those to see some of my shots"
+    },
+    "INTRODUCTION": "My life is based on my travels, here there're countries I visited during my spare time. They'll increase in the future"
+  },
+  "WORK": {
+    "BUTTONS": {
+      "GET_RESUME": "Get my resume"
+    },
+    "CODE_WRITTEN": {
+      "INTRO": "The code built for this website is available on a public Git repository. If you want to check it out, click the following link.",
+      "LINE_COUNT": "Code lines written",
+      "TITLE": "Info about the site building",
+      "TOOLS_USED": "Some tool used"
+    },
+    "CONTACT_ME": "If you're interested in contacting me, click one of the following links",
+    "INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
+    "TOOLS": {
+      "AND_MORE_OTHER": "and more other not listed here",
+      "TITLE": "Other tools I use for working"
+    }
+  }
 }
