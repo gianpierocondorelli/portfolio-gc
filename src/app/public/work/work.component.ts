@@ -82,24 +82,11 @@ export class WorkComponent extends BaseComponent implements OnInit, OnDestroy {
     }
   }
 
-  goToResume() {
-    this.angulartics.eventTrack('work', { category: 'goToResume' })
-    if (this.isBrowser()) {
-      window.open('/assets/docs/resume.pdf')
-    }
-  }
 
   goToLinkedIn() {
     this.angulartics.eventTrack('work', { category: 'goToLinkedIn' })
     if (this.isBrowser()) {
       window.open('http://www.linkedin.com/in/gianpiero-condorelli')
-    }
-  }
-
-  goToMail() {
-    this.angulartics.eventTrack('work', { category: 'goToMail' })
-    if (this.isBrowser()) {
-      window.open('mailto:gia.condorelli@gmail.com', '_blank')
     }
   }
 }

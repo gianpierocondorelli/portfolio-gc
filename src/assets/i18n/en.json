@@ -39,7 +39,7 @@
     }
   },
   "FOOTER": {
-    "TEXT": "Copyright © {{ year }} <a href=\"mailto:gia.condorelli@gmail.com\">Gianpiero Condorelli</a>"
+    "TEXT": "Copyright © {{ year }} Gianpiero Condorelli"
   },
   "HOME": {
     "TITLE": {
@@ -94,7 +94,7 @@
       "TITLE": "Info about the site building",
       "TOOLS_USED": "Some tool used"
     },
-    "CONTACT_ME": "If you're interested in contacting me, click one of the following links",
+    "CONTACT_ME": "If you're interested in contacting me, click one of the following link",
     "INTRODUCTION": "During my brief career, the role I've done the most is the Full Stack Developer. This site is a little demostration of the skill I have mastered during this time",
     "TOOLS": {
       "AND_MORE_OTHER": "and more other not listed here",
