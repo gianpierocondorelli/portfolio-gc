@@ -4,7 +4,7 @@ This project was built with [Angular](https://github.com/angular) version 13.2.2
 
 Required for the execution:
 
-- Node 14.15.0
+- Node 14.16.0
 - Yarn
 
 ## Development server
