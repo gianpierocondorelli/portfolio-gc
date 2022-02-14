@@ -436,10 +436,11 @@ export class TravelComponent extends BaseComponent
     if (this.isBrowser()) {
       this.bkgSrv.sendNewImgBackground('')
       this.angulartics.eventTrack('travel', { category: 'enterPage' })
-      this.extractCities()
       setTimeout(() => {
         this.activateVisibility = true
+        this.extractCities()
       }, 100)
+      this.cdRef.detectChanges()
     }
   }
 
@@ -485,7 +486,7 @@ export class TravelComponent extends BaseComponent
         [],
       ) as string[]
       this.images[i] = c.markers.reduce(
-        (d, e) => (d.push(...e.images), d),
+        (d, e) => (d.push(e.images), d),
         [],
       ) as string[]
     })
