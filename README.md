@@ -1,10 +1,10 @@
 # Portfolio GC
 
-This project was built with [Angular](https://github.com/angular) version 10.1.3.
+This project was built with [Angular](https://github.com/angular) version 13.2.2.
 
 Required for the execution:
 
-- Node 12.17.0
+- Node 14.15.0
 - Yarn
 
 ## Development server
