@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { CircleScrollComponent } from './circle-scroll.component'
 
@@ -6,7 +6,7 @@ describe('CircleScrollComponent', () => {
   let component: CircleScrollComponent
   let fixture: ComponentFixture<CircleScrollComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CircleScrollComponent],
     }).compileComponents()

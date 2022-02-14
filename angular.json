@@ -41,29 +41,33 @@
               "./node_modules/popper.js/dist/umd/popper.min.js",
               "./node_modules/bootstrap-xxl/dist/js/bootstrap.min.js",
               {
-                "input": "node_modules/document-register-element/build/document-register-element.js"
+                "input": "node_modules/document-register-element/build/document-register-element.js",
+                "inject": true
               }
             ]
           },
           "configurations": {
             "production": {
-              "budgets": [{
-                "type": "anyComponentStyle",
-                "maximumWarning": "6kb"
-              }],
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "stylePreprocessorOptions": {
                 "includePaths": [
                   "src/scss"
                 ]
               },
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/browser/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/browser/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
