@@ -25,6 +25,7 @@ export class AppComponent extends BaseComponent implements OnInit {
 
   constructor(injector: Injector) {
     super(injector)
+    // @ts-ignore
     this.faLibrary.addIconPacks(fas, fab)
     // this language will be used as a fallback when a translation isn't found in the current language
     this.translate.setDefaultLang('en')

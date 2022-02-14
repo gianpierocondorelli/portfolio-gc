@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing'
 
 import { FixedCookieInfoComponent } from './fixed-cookie-info.component'
 
@@ -6,7 +6,7 @@ describe('FixedCookieInfoComponent', () => {
   let component: FixedCookieInfoComponent
   let fixture: ComponentFixture<FixedCookieInfoComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FixedCookieInfoComponent],
     }).compileComponents()

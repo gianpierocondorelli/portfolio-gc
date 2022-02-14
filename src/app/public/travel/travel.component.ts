@@ -485,7 +485,7 @@ export class TravelComponent extends BaseComponent
         [],
       ) as string[]
       this.images[i] = c.markers.reduce(
-        (d, e) => (d.push(...e.images), d),
+        (d, e) => (d.push(e.images), d),
         [],
       ) as string[]
     })
